@@ -2,18 +2,19 @@
 
 namespace Database\Factories;
 
-use App\Models\Profile;
+use App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
+use App\Models\Profile;
+use App\Models\Post;
 
-class ProfileFactory extends Factory
+class CommentFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Profile::class;
+    protected $model = Comment::class;
 
     /**
      * Define the model's default state.
@@ -23,10 +24,9 @@ class ProfileFactory extends Factory
     public function definition()
     {
         return [
-            'email' => $this->faker->unique()->safeEmail,
-            'first_name' => $this->faker->firstName(),
-            'last_name' => $this->faker->lastName(),
-            'profile_picture' => Str::random(10),
+            'comment' => $this->faker->realText($maxNbChars = 50, $indexSize = 5),
+            'profile_id' => Profile::factory(),
+            'post_id' => Post::factory(),
         ];
     }
 }
