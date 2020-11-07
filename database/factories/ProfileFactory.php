@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use App\Models\Profile;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class ProfileFactory extends Factory
 {
@@ -26,7 +25,7 @@ class ProfileFactory extends Factory
             'email' => $this->faker->unique()->safeEmail,
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
-            'profile_picture' => Str::random(10),
+            'profile_picture' => $this->faker->imageUrl($width = 640, $height = 480),
         ];
     }
 }

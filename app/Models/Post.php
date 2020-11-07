@@ -20,7 +20,7 @@ class Post extends Model
         return $this->hasMany('App\Models\Comment');
     }
 
-    public  function profile()
+    public function profile()
     {
         return $this->belongsTo('App\Models\Profile');
     }

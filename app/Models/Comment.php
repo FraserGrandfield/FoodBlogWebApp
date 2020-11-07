@@ -13,12 +13,12 @@ class Comment extends Model
         'comment',
     ];
 
-    public  function post()
+    public function post()
     {
         return $this->belongsTo('App\Models\Post');
     }
 
-    public  function profile()
+    public function profile()
     {
         return $this->belongsTo('App\Models\Profile');
     }

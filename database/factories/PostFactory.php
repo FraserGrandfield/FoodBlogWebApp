@@ -5,7 +5,6 @@ namespace Database\Factories;
 use App\Models\Post;
 use App\Models\Profile;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class PostFactory extends Factory
 {
@@ -26,7 +25,7 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->realText($maxNbChars = 50, $indexSize = 2),
             'profile_id' => Profile::factory(),
-            'image' => Str::random(10),
+            'image' => $this->faker->imageUrl($width = 640, $height = 480),
             'body' => $this->faker->realText($maxNbChars = 200, $indexSize = 2)
         ];
     }
