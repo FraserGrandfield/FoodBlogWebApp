@@ -11,18 +11,27 @@ class Profile extends Model
 
     protected $fillable = [
         'email',
-        'first_name',
-        'last_name',
         'profile_picture',
+        'bio',
     ];
 
     public function posts() 
     {
-        return $this->hasMany('App\Models\Post');
+        return $this->hasMany(Post::class);
     }
 
     public function comments() 
     {
-        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany(Comment::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function favourites()
+    {
+        return $this->belongsToMany(Post::class)->as('favourites');
     }
 }

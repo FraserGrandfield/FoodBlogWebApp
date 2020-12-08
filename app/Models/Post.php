@@ -12,16 +12,24 @@ class Post extends Model
     protected $fillable = [
         'title',
         'image',
-        'body',
+        'cook_time',
+        'Ingrediants',
+        'Instructions',
+
     ];
 
     public function comments() 
     {
-        return $this->hasMany('App\Models\Comment');
+        return $this->hasMany(Comment::class);
     }
 
     public function profile()
     {
-        return $this->belongsTo('App\Models\Profile');
+        return $this->belongsTo(Profile::class);
+    }
+
+    public function favourites()
+    {
+        return $this->belongsToMany(Profile::class);
     }
 }
