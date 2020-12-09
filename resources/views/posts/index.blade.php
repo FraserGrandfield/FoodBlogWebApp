@@ -10,5 +10,6 @@
             <li>{{ $post->title}}</li>
             
         @endforeach
+    </ul>
 
 @endsection
