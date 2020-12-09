@@ -1,0 +1,17 @@
+
+.navbar {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 0;
+    border-radius: 0px;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+    background-color: blueviolet;
+
+}
+
+.navbar-nav li a:hover {
+    color: #00bead
+}

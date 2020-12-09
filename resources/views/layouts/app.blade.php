@@ -3,39 +3,33 @@
 <html lang="en">
 
     <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Food Blog Home </title>
     </head>
 
-    <body>
-        <div>
-          <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>                        
-                </button>
-                <a class="navbar-brand" href="#">Food Blog</a>
-              </div>
-              <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                  <li><a href="#">Posts</a></li>
-                  <li><a href="#">Profile</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
-              </div>
-            </div>
+    <body class="bg-2">
+          <nav class="navbar navbar-expand-sm navbar-light bg-1 sticky-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+			<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
+				<span class="navbar-toggle-icon"></span>                     
+			</button>
+			<a class="navbar-brand" href="#">Food Blog</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#" style="font-size: 15px">Posts</a></li>
+				<li class="nav-item"><a class="nav-link" href="#" style="font-size: 15px">Profile</a></li>
+			</ul>
+			<ul class="navbar-nav">
+				<li class="nav-tiem"><a class="nav-link" href="#" style="font-size: 15px">Sign Up</a></li>
+				<li class="nav-item"><a class="nav-link" href="#" style="font-size: 15px">Login</a></li>
+			</ul>
           </nav>
-        </div>
         <div>
           @yield('content')
         </div>

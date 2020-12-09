@@ -12,7 +12,8 @@ class Post extends Model
     protected $fillable = [
         'title',
         'image',
-        'cook_time',
+        'cook_time_hours',
+        'cook_time_mins',
         'Ingrediants',
         'Instructions',
     ];

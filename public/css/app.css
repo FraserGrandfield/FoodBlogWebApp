@@ -1,0 +1,55 @@
+
+.navbar {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 0;
+    border-radius: 0px;
+    margin-bottom: 0;
+    font-size: 18px;
+    letter-spacing: 5px;
+
+}
+
+.navbar-nav li a:hover {
+    color: #6D6875 !important;
+}
+
+.bg-1 {
+    background-color: #FFCDB2;
+    color: #ffffff;
+}
+
+.bg-2 {
+    background-color: #B5838D;
+    color: #ffffff;
+}
+
+.bg-3 {
+    background-color: #F4F4F4;
+    color: #ffffff;
+}
+
+.post {
+    width: 70vw;
+    height: 30vh;
+    margin-top: 20px;
+    border: 0;
+    border-radius: 13px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h1 {
+    font-size: 32px;
+    color: #000000;
+}
+
+h2 {
+    font-size: 25px;
+    color: #000000;
+}
+
+.post-text a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
