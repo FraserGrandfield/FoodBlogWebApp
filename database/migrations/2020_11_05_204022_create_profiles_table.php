@@ -20,7 +20,7 @@ class CreateProfilesTable extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->string('profile_picture');
-            $table->string('bio');
+            $table->text('bio');
             $table->timestamps();
         });
     }

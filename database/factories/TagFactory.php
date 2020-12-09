@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Profile;
-use App\Models\User;
+use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ProfileFactory extends Factory
+class TagFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Profile::class;
+    protected $model = Tag::class;
 
     /**
      * Define the model's default state.
@@ -23,9 +22,7 @@ class ProfileFactory extends Factory
     public function definition()
     {
         return [
-            'profile_picture' => $this->faker->imageUrl($width = 640, $height = 480),
-            'bio' => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
-            'user_id' => User::factory()
+            //
         ];
     }
 }

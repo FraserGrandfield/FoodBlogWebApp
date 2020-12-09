@@ -15,7 +15,6 @@ class Post extends Model
         'cook_time',
         'Ingrediants',
         'Instructions',
-
     ];
 
     public function comments() 

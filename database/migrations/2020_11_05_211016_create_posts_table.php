@@ -19,11 +19,11 @@ class CreatePostsTable extends Migration
                 ->constrained()
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->string('title');
+            $table->char('title', 100);
             $table->string('image');
-            $table->string('cook_time');
-            $table->string('ingrediants');
-            $table->string('instructions');
+            $table->float('cook_time');
+            $table->longText('ingrediants');
+            $table->longText('instructions');
             $table->timestamps();
         });
     }
