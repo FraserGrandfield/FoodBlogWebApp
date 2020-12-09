@@ -29,9 +29,4 @@ class Profile extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    public function favourites()
-    {
-        return $this->belongsToMany(Post::class)->as('favourites');
-    }
 }

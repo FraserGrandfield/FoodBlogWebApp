@@ -28,8 +28,8 @@ class Post extends Model
         return $this->belongsTo(Profile::class);
     }
 
-    public function favourites()
+    public function tags()
     {
-        return $this->belongsToMany(Profile::class);
+        return $this->belongsToMany(Tag::class);
     }
 }
