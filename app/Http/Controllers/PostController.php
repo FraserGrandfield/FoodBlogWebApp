@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\DB;
+
 
 class PostController extends Controller
 {
@@ -15,8 +17,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        return view('posts.index', ['posts' => $posts]);
+        // $posts = Post::all()->pagentat;
+        // return view('posts.index', ['posts' => $posts]);
+        return view('posts.index', ['posts' => DB::table('posts')->paginate(5)]);
+
     }
 
     /**
