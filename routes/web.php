@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 
 
 /*
@@ -24,8 +25,10 @@ Route::get('/', function () {
     return view('posts');
 });
 
-Route::get('posts', [PostController::class, 'index']);
+Route::get('posts', [PostController::class, 'index'])->name('posts.index');
 
 Route::get('posts/{id}', [PostController::class, 'show'])->name('posts.show');
+
+Route::get('profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
 
 require __DIR__.'/auth.php';

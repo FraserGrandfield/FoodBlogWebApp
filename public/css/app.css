@@ -31,12 +31,18 @@
 }
 
 .post {
-    width: 70vw;
-    height: 30vh;
     margin-top: 20px;
     border: 0;
     border-radius: 13px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+.post-image {
+    border: 0;
+    border-radius: 13px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    object-fit: cover;
 }
 
 h1 {
