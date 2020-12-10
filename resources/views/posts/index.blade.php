@@ -27,7 +27,7 @@
                             @php
                                 $user = Post::findOrFail($post->id);
                             @endphp
-                            <h2 class="post-text">Profile: {{ $user->profile->user->first_name }}</h2>
+                            <h2 class="post-text">Profile: {{ $user->profile->user->name }}</h2>
                         </div>
                     </div>
                 </a>

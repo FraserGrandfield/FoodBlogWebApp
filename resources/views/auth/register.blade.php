@@ -1,4 +1,4 @@
-<x-guest-layout>
+{{-- <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -56,4 +56,39 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+</x-guest-layout> --}}
+
+@extends('layouts.app')
+
+@section('title', 'Posts')
+
+@section('content')
+
+    <div class="d-flex justify-content-center container" style="height: 100%">
+        <div class="col">
+        <span>{{$errors}}</span>
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
+                
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name='name' placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name='email' placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" name='password' placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="password_confirmation">Password</label>
+                    <input type="password" class="form-control" id="password_confirmation" name='password_confirmation' placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+@endsection
