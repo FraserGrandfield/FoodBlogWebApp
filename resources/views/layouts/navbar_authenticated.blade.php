@@ -24,7 +24,7 @@
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}" style="font-size: 15px">Posts</a></li>
 				<li class="nav-item"><a class="nav-link" href="#" style="font-size: 15px">Profile</a></li>
-				<li class="nav-tiem"><a class="nav-link" href="" style="font-size: 15px">Create Post</a></li>
+			<li class="nav-tiem"><a class="nav-link" href="{{ route('posts.create') }}" style="font-size: 15px">Create Post</a></li>
 				<li class="nav-item">
 					<form method="POST" action="{{ route('logout') }}">
 						@csrf

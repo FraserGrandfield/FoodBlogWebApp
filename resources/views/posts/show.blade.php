@@ -22,7 +22,7 @@
                     <div class="row d-flex justify-content-around">
                         <div class="col-md-5 post-info bg-1">
                             <h1 class="d-flex justify-content-center">Ingrediants</h1>
-                            <h2 class="card-text post-text">{{ $post->ingrediants }}</h2>
+                                <h2 class="card-text post-text">{{ $post->ingrediants }}</h2>
                         </div>
                         <div class="col-md-5 post-info bg-1">
                             <h1 class="d-flex justify-content-center">Instructions</h1>
@@ -47,8 +47,5 @@
             @endforeach
         </div>
     </div>
-
-
-
 
 @endsection
