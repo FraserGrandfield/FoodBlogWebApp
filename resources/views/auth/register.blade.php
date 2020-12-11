@@ -67,7 +67,7 @@
     <div class="d-flex justify-content-center container" style="height: 100%">
         <div class="col">
         <span>{{$errors}}</span>
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                 @csrf
      
                 <div class="form-group">
@@ -77,6 +77,10 @@
                 <div class="form-group">
                     <label for="bio">Bio</label>
                     <input type="text" class="form-control" id="bio" name='bio' placeholder="Bio">
+                </div>
+                <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" class="form-control" id="image" name="image">
                 </div>
                 <div class="form-group">
                   <label for="email">Email address</label>

@@ -3,6 +3,7 @@
 @section('title', 'Posts')
 
 @section('content')
+<span>{{$errors}}</span>
 
     <div class="d-flex justify-content-center container" style="height: 100%">
         <div class="col">
@@ -10,8 +11,9 @@
                 <div class="card-body">
                     <div class="row d-flex justify-content-around">
                         <div class="col">
-                        <form method="POST" action="{{ route('posts.store') }}">
+                        <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                             @csrf
+                            
                                 <div class="form-group">
                                   <label for="title">Title</label>
                                   <input type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Title" name="title">
@@ -23,6 +25,10 @@
                                 <div class="form-group">
                                     <label for="time_mins">How many Minutes</label>
                                     <input type="number" class="form-control" id="time_mins" placeholder="Mins" name="time_mins">
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Image</label>
+                                    <input type="file" class="form-control" id="image" name="image">
                                 </div>
                                 <div class="form-group">
                                   <label for="ingredients">Ingredients</label>

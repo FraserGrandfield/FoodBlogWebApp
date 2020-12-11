@@ -35,7 +35,7 @@
                 <div class="card post bg-3" style="max-width: 1000px;">
                     <div class="row no-gutters" onclick=(window.location.href="{{ route('posts.show', ['id' => $post->id]) }}")>
                         <div class="col-md-4">
-                            <img src="{{ $post->image }}" class="card-img post-image" alt="...">
+                            <img src="{{ URL::to('/images/' . $post->image) }}" class="card-img post-image" alt="..." width="480px", height="248px">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -48,7 +48,7 @@
                                     By: {{ $user->profile->user->name }}
                                 </h2>
                                 <a href="{{ route('user.show', ['id' => $user->profile->user->id]) }}" >
-                                    <img src="{{ $user->profile->profile_picture }}" class="post-profile-image">
+                                    <img src="{{ URL::to('/images/' . $user->profile->profile_picture) }}" class="post-profile-image">
                                 </a>
                             </div>
                         </div>

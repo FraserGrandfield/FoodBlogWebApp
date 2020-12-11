@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use Image;
 
 class PostController extends Controller
 {
@@ -42,12 +42,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             'title' => 'required|max:100',
             'ingredients' => 'required',
             'instructions' => 'required',
             'time_hours' => 'required',
-            'time_mins' => 'required'
+            'time_mins' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
         $user = Auth::user();
@@ -60,6 +62,12 @@ class PostController extends Controller
         $post->profile_id = $user->profile->id;
         $post->cook_time_hours = $validatedData['time_hours'];
         $post->cook_time_mins = $validatedData['time_mins'];
+
+        $image = $validatedData['image'];
+        $imageName = time().'.'.$image->extension();  
+        $image->move(public_path('images'), $imageName);
+        $post->image = $imageName;
+
         $post->save();
     }
 

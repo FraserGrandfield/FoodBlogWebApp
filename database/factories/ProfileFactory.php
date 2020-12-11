@@ -23,7 +23,7 @@ class ProfileFactory extends Factory
     public function definition()
     {
         return [
-            'profile_picture' => $this->faker->imageUrl($width = 640, $height = 480),
+            'profile_picture' => 'default_profile.png',
             'bio' => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
             'user_id' => User::factory()
         ];

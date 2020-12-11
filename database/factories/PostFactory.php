@@ -25,7 +25,7 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->realText($maxNbChars = 50, $indexSize = 2),
             'profile_id' => Profile::factory()->create()->id,
-            'image' => $this->faker->imageUrl($width = 640, $height = 480),
+            'image' => 'defualt_img.png',
             'cook_time_hours' => $this->faker->numberBetween($min = 0, $max = 10),
             'cook_time_mins' => $this->faker->numberBetween($min = 0, $max = 59),
             'ingredients' => $this->faker->realText($maxNbChars = 100, $indexSize = 2),

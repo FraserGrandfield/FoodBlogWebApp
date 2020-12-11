@@ -18,10 +18,6 @@ class Post extends Model
         'instructions',
     ];
 
-    protected $attributes = [
-        'image' => "",
-    ];
-
     public function comments() 
     {
         return $this->hasMany(Comment::class);
