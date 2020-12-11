@@ -8,10 +8,17 @@
     <div class="d-flex justify-content-center container" style="height: 100%">
         <div class="col">
             <div class="card col-mb-12 single-post bg-3" style="max-width: 1000px">
-                <img src="{{ $post->image }}" class="card-img-top post-image" alt="...">
+                <div class="row">
+                    <div class="col">
+                        <img src="{{ $post->image }}" class="card-img-top post-image" alt="...">
+                    </div>
+                    <div class="col">
+                        <h1 class="card-title post-text">{{ $post->title }}</h1>
+                        <h2 class="card-text post-text">Hours: {{ $post->cook_time_hours }} Mins: {{ $post->cook_time_mins }}</h2>              
+                    </div>
+                </div>
                 <div class="card-body">
-                    <h1 class="card-title post-text">{{ $post->title }}</h1>
-                    <h2 class="card-text post-text">Hours: {{ $post->cook_time_hours }} Mins: {{ $post->cook_time_mins }}</h2>
+
                     <div class="row d-flex justify-content-around">
                         <div class="col-md-5 post-info bg-1">
                             <h1 class="d-flex justify-content-center">Ingrediants</h1>
