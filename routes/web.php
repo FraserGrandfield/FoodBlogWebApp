@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -31,6 +31,6 @@ Route::get('posts/create', [PostController::class, 'create'])->name('posts.creat
 
 Route::get('posts/{id}', [PostController::class, 'show'])->name('posts.show');
 
-Route::get('profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
+Route::get('profile/{id}', [UserController::class, 'show'])->name('user.show');
 
 require __DIR__.'/auth.php';

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,14 +42,14 @@ class ProfileController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Profile  $profile
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $profile = Profile::findOrFail($id);
+        $user = Profile::findOrFail($id);
         
-        return view('profile.show', ['profile' => $profile]);
+        return view('user.show', ['user' => $user]);
     }
 
     /**
@@ -58,7 +58,7 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profile $profile)
+    public function edit(Profile $user)
     {
         //
     }
@@ -70,7 +70,7 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profile $profile)
+    public function update(Request $request, Profile $user)
     {
         //
     }
@@ -81,7 +81,7 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Profile $profile)
+    public function destroy(Profile $user)
     {
         //
     }

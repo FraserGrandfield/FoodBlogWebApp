@@ -47,7 +47,7 @@
                                 <h2 class="card-text post-text" >
                                     By: {{ $user->profile->user->name }}
                                 </h2>
-                                <a href="{{ route('profile.show', ['id' => $user->profile->id]) }}" >
+                                <a href="{{ route('user.show', ['id' => $user->profile->user->id]) }}" >
                                     <img src="{{ $user->profile->profile_picture }}" class="post-profile-image">
                                 </a>
                             </div>

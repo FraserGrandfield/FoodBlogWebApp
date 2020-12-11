@@ -7,7 +7,9 @@
 
 @php
     use App\Models\Profile;
-    $postDB = Profile::findOrFail($profile->id)
+    use App\Models\User;
+    $userDB = User::findOrFail($user->id);
+    $profile = Profile::findOrFail($userDB->profile->id);
 @endphp
 
     <div class="d-flex justify-content-center container" style="height: 100%">
@@ -18,14 +20,14 @@
                         <img src="{{ $profile->profile_picture }}" class="card-img-top post-image" alt="...">
                     </div>
                     <div class="col">
-                        <h1 class="card-title post-text">{{ $postDB->user->name }}</h1>
+                        <h1 class="card-title post-text">{{ $userDB->name }}</h1>
                         <h2 class="card-text post-text">Bio: {{ $profile->bio }}</h2>              
                     </div>
                 </div>
             </div>
     
             @php
-                $posts = $postDB->posts
+                $posts = $profile->posts;
             @endphp
             
             @foreach ($posts as $post)
@@ -39,9 +41,9 @@
                                 <h1 class="card-title">{{ $post->title }}</h1>
                                 <h2 class="card-text post-text">Hours: {{ $post->cook_time_hours }} Mins: {{ $post->cook_time_mins }}</h2>
                                 <h2 class="card-text post-text" >
-                                    By: {{ $postDB->user->name }}
+                                    By: {{ $userDB->name }}
                                 </h2>
-                                <a href="{{ route('profile.show', ['id' => $profile->id]) }}" >
+                                <a href="{{ route('user.show', ['id' => $user->id]) }}" >
                                     <img src="{{ $profile->profile_picture }}" class="post-profile-image">
                                 </a>
                             </div>
