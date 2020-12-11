@@ -14,8 +14,8 @@ class Post extends Model
         'image',
         'cook_time_hours',
         'cook_time_mins',
-        'Ingrediants',
-        'Instructions',
+        'ingrediants',
+        'instructions',
     ];
 
     public function comments() 
