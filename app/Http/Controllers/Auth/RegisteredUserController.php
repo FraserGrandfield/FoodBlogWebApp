@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Models\Profile;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Profile;
 
 class RegisteredUserController extends Controller
 {
@@ -45,11 +45,16 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]));
 
-        Profile::create([
-            'profile_picture' => '',
-            'bio' => $request->bio,
-            'user_id' => $user->id,
-        ]);
+        $image = $request->profile_picture;
+        $imageName = time().'.'.$image->extension();  
+        $image->move(public_path('images'), $imageName);
+
+        $profile = new Profile;
+        $profile->profile_picture = $imageName;
+        $profile->bio = $request->bio;
+        $profile->user_id = $user->id;
+
+        $profile->save();
 
         event(new Registered($user));
 

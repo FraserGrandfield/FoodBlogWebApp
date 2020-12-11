@@ -79,8 +79,8 @@
                     <input type="text" class="form-control" id="bio" name='bio' placeholder="Bio">
                 </div>
                 <div class="form-group">
-                    <label for="image">Image</label>
-                    <input type="file" class="form-control" id="image" name="image">
+                    <label for="profile_picture">Image</label>
+                    <input type="file" class="form-control" id="profile_picture" name="profile_picture">
                 </div>
                 <div class="form-group">
                   <label for="email">Email address</label>

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Image;
+use App\Providers\RouteServiceProvider;
 
 class PostController extends Controller
 {
@@ -69,6 +69,7 @@ class PostController extends Controller
         $post->image = $imageName;
 
         $post->save();
+        return redirect(RouteServiceProvider::HOME);
     }
 
     /**
