@@ -24,7 +24,7 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->realText($maxNbChars = 50, $indexSize = 2),
-            'profile_id' => Profile::factory(),
+            'profile_id' => Profile::factory()->create()->id,
             'image' => $this->faker->imageUrl($width = 640, $height = 480),
             'cook_time_hours' => $this->faker->numberBetween($min = 0, $max = 10),
             'cook_time_mins' => $this->faker->numberBetween($min = 0, $max = 59),

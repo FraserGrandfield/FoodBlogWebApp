@@ -25,10 +25,7 @@ class ProfileTableSeeder extends Seeder
 
         // ]);
 
-
-        $user = User::factory()->create();
-
-        $profile = Profile::factory()->count(10)->for(User::factory())->hasPosts(2)->hasComments(1)->create();
+        $profile = Profile::factory()->count(10)->hasPosts(3)->create();
 
     }
 }

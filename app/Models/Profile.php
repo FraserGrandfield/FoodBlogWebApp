@@ -12,6 +12,7 @@ class Profile extends Model
     protected $fillable = [
         'profile_picture',
         'bio',
+        'user_id',
     ];
 
     public function posts() 
