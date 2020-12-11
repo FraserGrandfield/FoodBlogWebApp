@@ -14,8 +14,12 @@ class Post extends Model
         'image',
         'cook_time_hours',
         'cook_time_mins',
-        'ingrediants',
+        'ingredients',
         'instructions',
+    ];
+
+    protected $attributes = [
+        'image' => "",
     ];
 
     public function comments() 

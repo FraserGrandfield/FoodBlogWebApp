@@ -47,7 +47,7 @@ class RegisteredUserController extends Controller
 
         Profile::create([
             'profile_picture' => '',
-            'bio' => 'This is a bio.',
+            'bio' => $request->bio,
             'user_id' => $user->id,
         ]);
 

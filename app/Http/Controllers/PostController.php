@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -19,7 +20,7 @@ class PostController extends Controller
     {
         // $posts = Post::all()->pagentat;
         // return view('posts.index', ['posts' => $posts]);
-        return view('posts.index', ['posts' => DB::table('posts')->paginate(5)]);
+        return view('posts.index', ['posts' => DB::table('posts')->orderBy('created_at', 'desc')->paginate(5)]);
 
     }
 
@@ -41,7 +42,25 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|max:100',
+            'ingredients' => 'required',
+            'instructions' => 'required',
+            'time_hours' => 'required',
+            'time_mins' => 'required'
+        ]);
+
+        $user = Auth::user();
+
+        $post = new Post;
+
+        $post->title = $validatedData['title'];
+        $post->ingredients = $validatedData['ingredients'];
+        $post->instructions = $validatedData['instructions'];
+        $post->profile_id = $user->profile->id;
+        $post->cook_time_hours = $validatedData['time_hours'];
+        $post->cook_time_mins = $validatedData['time_mins'];
+        $post->save();
     }
 
     /**

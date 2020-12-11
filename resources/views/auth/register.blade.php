@@ -69,10 +69,14 @@
         <span>{{$errors}}</span>
             <form method="POST" action="{{ route('register') }}">
                 @csrf
-                
+     
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name='name' placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <input type="text" class="form-control" id="bio" name='bio' placeholder="Bio">
                 </div>
                 <div class="form-group">
                   <label for="email">Email address</label>

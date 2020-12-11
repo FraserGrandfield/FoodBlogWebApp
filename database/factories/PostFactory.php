@@ -28,7 +28,7 @@ class PostFactory extends Factory
             'image' => $this->faker->imageUrl($width = 640, $height = 480),
             'cook_time_hours' => $this->faker->numberBetween($min = 0, $max = 10),
             'cook_time_mins' => $this->faker->numberBetween($min = 0, $max = 59),
-            'ingrediants' => $this->faker->realText($maxNbChars = 100, $indexSize = 2),
+            'ingredients' => $this->faker->realText($maxNbChars = 100, $indexSize = 2),
             'instructions' => $this->faker->realText($maxNbChars = 250, $indexSize = 2),
         ];
     }

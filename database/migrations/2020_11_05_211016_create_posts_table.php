@@ -23,7 +23,7 @@ class CreatePostsTable extends Migration
             $table->string('image');
             $table->integer('cook_time_hours');
             $table->integer('cook_time_mins');
-            $table->longText('ingrediants');
+            $table->longText('ingredients');
             $table->longText('instructions');
             $table->timestamps();
         });
