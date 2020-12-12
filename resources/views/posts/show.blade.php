@@ -36,15 +36,11 @@
             @php
                 $comments = $post->comments   
             @endphp
-    
-            @foreach ($comments as $comment)
-                <div class="card col-mb-12 single-post bg-3" style="max-width: 1000px">
-                    <div class="card-body">
-                        <h1 class="card-title post-text">{{ $comment->profile->user->name }}</h1>
-                        <h2 class="card-text post-text">{{ $comment->comment }}</h2>
-                    </div>
-                </div>
-            @endforeach
+            <div id="app">
+                @foreach ($comments as $comment)
+                    <example-component :comment="{{ json_encode($comment) }}" />
+                @endforeach
+            </div>
         </div>
     </div>
 
