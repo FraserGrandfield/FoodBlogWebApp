@@ -21,7 +21,12 @@
                     </div>
                     <div class="col">
                         <h1 class="card-title post-text">{{ $userDB->name }}</h1>
-                        <h2 class="card-text post-text">Bio: {{ $profile->bio }}</h2>              
+                        <h2 class="card-text post-text">Bio: {{ $profile->bio }}</h2>
+                        @if(Auth::id() === $user->id)
+                            <form method="GET" action="{{ route('user.edit', ['id' => $user->id]) }}">
+                                <input type="submit" value="Edit" />
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>

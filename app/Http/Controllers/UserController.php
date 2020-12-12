@@ -58,9 +58,11 @@ class UserController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profile $user)
+    public function edit($id)
     {
-        //
+        $user = Profile::findOrFail($id);
+
+        return view('user.edit', ['user' => $user]);
     }
 
     /**

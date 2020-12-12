@@ -33,6 +33,9 @@ Route::post('posts', [PostController::class, 'store'])->name('posts.store');
 
 Route::get('posts/{id}', [PostController::class, 'show'])->name('posts.show');
 
+Route::get('profile/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+
 Route::get('profile/{id}', [UserController::class, 'show'])->name('user.show');
+
 
 require __DIR__.'/auth.php';
