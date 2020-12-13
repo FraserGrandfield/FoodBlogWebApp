@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class VerifyProfileEdit
+class VerifyProfile
 {
     /**
      * Handle an incoming request.
@@ -19,6 +19,7 @@ class VerifyProfileEdit
     {
 
         $userId = Auth::id();
+        
         if ((int)$request->id === $userId) {
             return $next($request);
         } else {

@@ -83,9 +83,8 @@ class ProfileController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        $user = Auth::user();
 
-        $profile = Profile::where('id', $user->profile->id)->first();
+        $profile = Profile::where('id', $request->id)->first();
 
         $image = $validatedData['image'];
         $imageName = time().'.'.$image->extension();  
@@ -94,7 +93,11 @@ class ProfileController extends Controller
         $profile->profile_picture = $imageName;
         $profile->bio = $validatedData['bio'];
         $profile->save();
-        return view('profile.show', ['profile' => $profile]);
+
+        $user = User::findOrFail($profile->user_id);
+        $posts = $profile->posts;
+
+        return view('profile.show', ['profile' => $profile, 'user' => $user, 'posts' => $posts]);
     }
 
     /**
