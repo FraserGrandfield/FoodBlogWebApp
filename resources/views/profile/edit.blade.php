@@ -5,12 +5,6 @@
 
 @section('content')
 
-@php
-    use App\Models\Profile;
-    use App\Models\User;
-    $userDB = User::findOrFail($user->id);
-    $profile = Profile::findOrFail($userDB->profile->id);
-@endphp
 
     <div class="d-flex justify-content-center container" style="height: 100%">
         <div class="col">
@@ -24,11 +18,11 @@
                         <h2 class="card-text post-text">Bio: {{ $profile->bio }}</h2>              
                     </div>
                 </div> --}}
-            <form method="POST" action="{{ route('user.update', ['id' => $user->id]) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('profile.update', ['id' => $profile->id]) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="bio">Bio</label>
-                    <input type="text" class="form-control" id="bio" name='bio' placeholder="{{ $user->bio }}">
+                    <input type="text" class="form-control" id="bio" name='bio' placeholder="{{ $profile->bio }}">
                     </div>
                     <div class="form-group">
                         <label for="image">Image</label>

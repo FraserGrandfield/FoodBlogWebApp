@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
+use App\Models\User;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -43,14 +45,15 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\User  $user
+     * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $user = Profile::findOrFail($id);
-        
-        return view('user.show', ['user' => $user]);
+        $profile = Profile::findOrFail($id);
+        $user = User::findOrFail($profile->user_id);
+        $posts = $profile->posts;
+        return view('profile.show', ['profile' => $profile, 'user' => $user, 'posts' => $posts]);
     }
 
     /**
@@ -61,9 +64,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = Profile::findOrFail($id);
+        $profile = Profile::findOrFail($id);
 
-        return view('user.edit', ['user' => $user]);
+        return view('profile.edit', ['profile' => $profile]);
     }
 
     /**
@@ -81,7 +84,6 @@ class UserController extends Controller
         ]);
 
         $user = Auth::user();
-        
 
         $profile = Profile::where('id', $user->profile->id)->first();
 
@@ -92,7 +94,7 @@ class UserController extends Controller
         $profile->profile_picture = $imageName;
         $profile->bio = $validatedData['bio'];
         $profile->save();
-        return view('user.show', ['user' => $user]);
+        return view('profile.show', ['profile' => $profile]);
     }
 
     /**

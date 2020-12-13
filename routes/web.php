@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 
 
 /*
@@ -33,10 +33,10 @@ Route::post('posts', [PostController::class, 'store'])->middleware('auth')->name
 
 Route::get('posts/{id}', [PostController::class, 'show'])->name('posts.show');
 
-Route::get('profile/{id}/edit', [UserController::class, 'edit'])->middleware('check_user')->name('user.edit');
+Route::get('profile/{id}/edit', [ProfileController::class, 'edit'])->middleware('check_user')->name('profile.edit');
 
-Route::get('profile/{id}', [UserController::class, 'show'])->name('user.show');
+Route::get('profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
 
-Route::post('profile/{id]', [UserController::class, 'update'])->name('user.update');
+Route::post('profile/{id]', [ProfileController::class, 'update'])->name('profile.update');
 
 require __DIR__.'/auth.php';

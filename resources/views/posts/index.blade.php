@@ -42,13 +42,13 @@
                                 <h1 class="card-title">{{ $post->title }}</h1>
                                 <h2 class="card-text post-text">Hours: {{ $post->cook_time_hours }} Mins: {{ $post->cook_time_mins }}</h2>
                                 @php
-                                    $user = Post::findOrFail($post->id);   
+                                    $postDB = Post::findOrFail($post->id);   
                                 @endphp
                                 <h2 class="card-text post-text" >
-                                    By: {{ $user->profile->user->name }}
+                                    By: {{ $postDB->profile->user->name }}
                                 </h2>
-                                <a href="{{ route('user.show', ['id' => $user->profile->user->id]) }}" >
-                                    <img src="{{ URL::to('/images/' . $user->profile->profile_picture) }}" class="post-profile-image">
+                                <a href="{{ route('profile.show', ['id' => $postDB->profile->id]) }}" >
+                                    <img src="{{ URL::to('/images/' . $postDB->profile->profile_picture) }}" class="post-profile-image">
                                 </a>
                             </div>
                         </div>
