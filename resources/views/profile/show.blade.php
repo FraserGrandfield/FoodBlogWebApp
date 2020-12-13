@@ -24,7 +24,6 @@
                 </div>
             </div>
     
-            
             @foreach ($posts as $post)
                 <div class="card post bg-3" style="max-width: 1000px;">
                     <div class="row no-gutters" onclick=(window.location.href="{{ route('posts.show', ['id' => $post->id]) }}")>

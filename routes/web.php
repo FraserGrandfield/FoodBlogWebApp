@@ -33,7 +33,7 @@ Route::post('posts', [PostController::class, 'store'])->middleware('auth')->name
 
 Route::get('posts/{id}', [PostController::class, 'show'])->name('posts.show');
 
-Route::get('profile/{id}/edit', [ProfileController::class, 'edit'])->middleware('check_user')->name('profile.edit');
+Route::get('profile/{id}/edit', [ProfileController::class, 'edit'])->middleware('verify_profile_edit')->name('profile.edit');
 
 Route::get('profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
 
