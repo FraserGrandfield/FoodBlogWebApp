@@ -24,18 +24,17 @@
                         <h2 class="card-text post-text">Bio: {{ $profile->bio }}</h2>              
                     </div>
                 </div> --}}
-                <form method="POST" action="" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('user.update', ['id' => $user->id]) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                         <label for="bio">Bio</label>
-                        <input type="text" class="form-control" id="bio" name='bio' placeholder="Bio">
+                    <input type="text" class="form-control" id="bio" name='bio' placeholder="{{ $user->bio }}">
                     </div>
                     <div class="form-group">
-                        <label for="profile_picture">Image</label>
-                        <input type="file" class="form-control" id="profile_picture" name="profile_picture">
+                        <label for="image">Image</label>
+                        <input type="file" class="form-control" id="image" name="image">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </form>
             </div>
         </div>

@@ -27,9 +27,9 @@ Route::get('/', function () {
 
 Route::get('posts', [PostController::class, 'index'])->name('posts.index');
 
-Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::get('posts/create', [PostController::class, 'create'])->middleware('auth')->name('posts.create');
 
-Route::post('posts', [PostController::class, 'store'])->name('posts.store');
+Route::post('posts', [PostController::class, 'store'])->middleware('auth')->name('posts.store');
 
 Route::get('posts/{id}', [PostController::class, 'show'])->name('posts.show');
 
@@ -37,5 +37,6 @@ Route::get('profile/{id}/edit', [UserController::class, 'edit'])->middleware('ch
 
 Route::get('profile/{id}', [UserController::class, 'show'])->name('user.show');
 
+Route::post('profile/{id]', [UserController::class, 'update'])->name('user.update');
 
 require __DIR__.'/auth.php';

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -72,9 +73,26 @@ class UserController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profile $user)
+    public function update(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'bio' => 'required|max:100',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+        $user = Auth::user();
+        
+
+        $profile = Profile::where('id', $user->profile->id)->first();
+
+        $image = $validatedData['image'];
+        $imageName = time().'.'.$image->extension();  
+        $image->move(public_path('images'), $imageName);
+        
+        $profile->profile_picture = $imageName;
+        $profile->bio = $validatedData['bio'];
+        $profile->save();
+        return view('user.show', ['user' => $user]);
     }
 
     /**

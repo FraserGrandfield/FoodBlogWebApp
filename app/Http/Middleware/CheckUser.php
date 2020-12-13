@@ -17,8 +17,8 @@ class CheckUser
      */
     public function handle(Request $request, Closure $next)
     {
+
         $userId = Auth::id();
-        
         if ((int)$request->id === $userId) {
             return $next($request);
         } else {

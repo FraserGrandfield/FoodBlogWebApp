@@ -66,6 +66,7 @@ class PostController extends Controller
         $image = $validatedData['image'];
         $imageName = time().'.'.$image->extension();  
         $image->move(public_path('images'), $imageName);
+        
         $post->image = $imageName;
 
         $post->save();
