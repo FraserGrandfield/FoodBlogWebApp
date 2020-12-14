@@ -105,3 +105,9 @@ h2 {
   font-size: 20px;
   color: #000000;
 }
+
+.error-div {
+  background-color: #ED4337;
+  font-size: 20px;
+  color: #000000;
+}

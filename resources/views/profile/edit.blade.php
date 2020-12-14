@@ -16,11 +16,13 @@
                             @csrf
                             <div class="form-group">
                                 <label for="bio" class="form-text">Bio</label>
-                            <input type="text" class="form-control" id="bio" name='bio' placeholder="Bio" value="{{ $profile->bio }}">
+                                <input type="text" class="form-control" id="bio" name='bio' placeholder="Bio" value="{{ $profile->bio }}">
+                                <div class="error-div">{{ $errors->first('bio') }}</div>
                             </div>
                             <div class="form-group">
                                 <label for="image" class="form-text">Image</label>
                                 <input type="file" class="form-control" id="image" name="image">
+                                <div class="error-div">{{ $errors->first('image') }}</div>
                             </div>
                             <button type="submit" class="button">Update</button>
                         </form>
