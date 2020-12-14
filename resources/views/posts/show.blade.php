@@ -38,7 +38,7 @@
             </div>
 
             <div id="app">
-                <example-component id="{{ $post->id }}" profileId="{{ $profile->id }}"></example-component>
+            <example-component id="{{ $post->id }}" profileId="{{ $profileId }}" loggedIn="{{ $loggedIn }}"></example-component>
             </div>
 
         </div>

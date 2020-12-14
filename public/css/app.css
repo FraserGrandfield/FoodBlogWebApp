@@ -119,3 +119,7 @@ h2 {
   -o-object-fit: cover;
      object-fit: cover;
 }
+
+hr.solid {
+  border-top: 3px solid #bbb;
+}

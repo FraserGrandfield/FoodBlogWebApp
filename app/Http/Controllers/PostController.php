@@ -83,9 +83,14 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $user = Auth::user();
-        $profile = $user->profile;
-
-        return view('posts.show', ['post' => $post, 'profile' => $profile]);
+        if ($user === null) {
+            $loggedIn = false;
+            $profileId = null;
+        } else {
+            $profileId = $user->profile->id;
+            $loggedIn = true;
+        }
+        return view('posts.show', ['post' => $post, 'profileId' => $profileId, 'loggedIn' => $loggedIn]);
     }
 
     /**
