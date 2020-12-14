@@ -11,7 +11,7 @@
 		<script src="{{ asset('js/app.js') }}" defer></script>
 
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}" />
-
+		
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Food Blog Home </title>
     </head>

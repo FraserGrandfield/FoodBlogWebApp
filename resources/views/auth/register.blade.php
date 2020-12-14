@@ -64,39 +64,46 @@
 
 @section('content')
 
-    <div class="d-flex justify-content-center container" style="height: 100%">
-        <div class="col">
-        <span>{{$errors}}</span>
-            <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
-                @csrf
-     
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name='name' placeholder="Enter email">
+<div class="d-flex justify-content-center container" style="height: 100%">
+    <div class="col">
+        <div class="card col-mb-12 single-post bg-3" style="max-width: 1000px">
+            <div class="card-body">
+                <div class="row d-flex justify-content-around">
+                    <div class="col">
+                        <span>{{$errors}}</span>
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <label for="name" class="form-text">Name</label>
+                                <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name='name' placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="bio" class="form-text">Bio</label>
+                                <input type="text" class="form-control" id="bio" name='bio' placeholder="Bio">
+                            </div>
+                            <div class="form-group">
+                                <label for="profile_picture" class="form-text">Image</label>
+                                <input type="file" class="form-control" id="profile_picture" name="profile_picture">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-text">Email address</label>
+                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name='email' placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="form-text">Password</label>
+                                <input type="password" class="form-control" id="password" name='password' placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="password_confirmation" class="form-text">Confirm Password</label>
+                                <input type="password" class="form-control" id="password_confirmation" name='password_confirmation' placeholder="Confirm Password">
+                            </div>
+                            <button type="submit" class="button">Submit</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="bio">Bio</label>
-                    <input type="text" class="form-control" id="bio" name='bio' placeholder="Bio">
-                </div>
-                <div class="form-group">
-                    <label for="profile_picture">Image</label>
-                    <input type="file" class="form-control" id="profile_picture" name="profile_picture">
-                </div>
-                <div class="form-group">
-                  <label for="email">Email address</label>
-                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name='email' placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" class="form-control" id="password" name='password' placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <label for="password_confirmation">Password</label>
-                    <input type="password" class="form-control" id="password_confirmation" name='password_confirmation' placeholder="Password">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            </div>
         </div>
     </div>
+</div>
 
 @endsection

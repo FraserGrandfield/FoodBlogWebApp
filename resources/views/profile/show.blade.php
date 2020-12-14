@@ -17,7 +17,7 @@
                         <h2 class="card-text post-text">Bio: {{ $profile->bio }}</h2>
                         @if(Auth::id() === $user->id)
                             <form method="GET" action="{{ route('profile.edit', ['id' => $profile->id]) }}">
-                                <input type="submit" value="Edit" />
+                                <button type="submit" class="button">Edit</button>
                             </form>
                         @endif
                     </div>

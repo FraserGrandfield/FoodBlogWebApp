@@ -61,26 +61,34 @@
 
 @section('content')
 
-    <div class="d-flex justify-content-center container" style="height: 100%">
-        <div class="col">
-        <span>{{$errors}}</span>
-            <form method="POST" action="{{ route('login') }}">
-                @csrf
-                <div class="form-group">
-                  <label for="email">Email address</label>
-                  <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name='email' placeholder="Enter email">
+<div class="d-flex justify-content-center container" style="height: 100%">
+    <div class="col">
+        <div class="card col-mb-12 single-post bg-3" style="max-width: 1000px">
+            <div class="card-body">
+                <div class="row d-flex justify-content-around">
+                    <div class="col">
+                        <span>{{$errors}}</span>
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <div class="form-group">
+                                <label for="email" class="form-text">Email address</label>
+                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name='email' placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="form-text">Password</label>
+                                <input type="password" class="form-control" id="password" name='password' placeholder="Password">
+                            </div>
+                            <div class="form-check">
+                                <label class="form-text" for="check_box">Remember me</label>
+                                <input type="checkbox" id="check_box" name="remember">
+                            </div>
+                            <button type="submit" class="button">Login</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" class="form-control" id="password" name='password' placeholder="Password">
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="check_box" name="remember">
-                    <label class="form-check-label" for="check_box">Remember me</label>
-                  </div>
-                <button type="submit" class="btn btn-primary">Login</button>
-            </form>
+            </div>
         </div>
     </div>
+</div>
 
 @endsection
