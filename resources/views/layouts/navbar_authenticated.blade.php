@@ -11,10 +11,16 @@
 		<script src="{{ asset('js/app.js') }}" defer></script>
 
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}" />
-		
+
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Food Blog Home </title>
-    </head>
+	</head>
+	
+	@php
+		use App\Models\Profile;
+		$user = Auth::user();
+		$profileID = $user->profile->id;
+	@endphp
 
     <body class="bg-2">
           <nav class="navbar navbar-expand-sm navbar-light bg-1 sticky-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
@@ -26,7 +32,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}" style="font-size: 15px">Posts</a></li>
-			<li class="nav-item"><a class="nav-link" href="{{ route('profile.show', ['id' => Auth::id()]) }}" style="font-size: 15px">Profile</a></li>
+			<li class="nav-item"><a class="nav-link" href="{{ route('profile.show', ['id' => $profileID]) }}" style="font-size: 15px">Profile</a></li>
 			<li class="nav-tiem"><a class="nav-link" href="{{ route('posts.create') }}" style="font-size: 15px">Create Post</a></li>
 				<li class="nav-item">
 					<form method="POST" action="{{ route('logout') }}">

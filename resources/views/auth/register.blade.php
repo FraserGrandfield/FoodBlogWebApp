@@ -70,32 +70,37 @@
             <div class="card-body">
                 <div class="row d-flex justify-content-around">
                     <div class="col">
-                        <span>{{$errors}}</span>
                         <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="name" class="form-text">Name</label>
                                 <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name='name' placeholder="Name" value="{{ old('name') }}">
+                                <div>{{ $errors->first('name') }}</div>
                             </div>
                             <div class="form-group">
                                 <label for="bio" class="form-text">Bio</label>
                                 <input type="text" class="form-control" id="bio" name='bio' placeholder="Bio" value="{{ old('bio') }}">
+                                <div>{{ $errors->first('bio') }}</div>
                             </div>
                             <div class="form-group">
                                 <label for="profile_picture" class="form-text">Image</label>
                                 <input type="file" class="form-control" id="profile_picture" name="profile_picture">
+                                <div>{{ $errors->first('profile_picture') }}</div>
                             </div>
                             <div class="form-group">
                                 <label for="email" class="form-text">Email address</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name='email' placeholder="Enter email">
+                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name='email' placeholder="Enter email" value="{{ old('email') }}">
+                                <div>{{ $errors->first('email') }}</div>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="form-text">Password</label>
                                 <input type="password" class="form-control" id="password" name='password' placeholder="Password" value="{{ old('password') }}">
+                                <div>{{ $errors->first('password') }}</div>
                             </div>
                             <div class="form-group">
                                 <label for="password_confirmation" class="form-text">Confirm Password</label>
                                 <input type="password" class="form-control" id="password_confirmation" name='password_confirmation' placeholder="Confirm Password">
+                                <div>{{ $errors->first('password_confirmation') }}</div>
                             </div>
                             <button type="submit" class="button">Submit</button>
                         </form>
