@@ -10,7 +10,7 @@
             <div class="card col-mb-12 single-post bg-3" style="max-width: 1000px">
                 <div class="row">
                     <div class="col">
-                        <img src="{{ URL::to('/images/' . $profile->profile_picture) }}" class="card-img-top post-image" alt="...">
+                        <img src="{{ URL::to('/images/' . $profile->profile_picture) }}" class="card-img-top profile-image" alt="...">
                     </div>
                     <div class="col">
                         <h1 class="card-title post-text">{{ $user->name }}</h1>
