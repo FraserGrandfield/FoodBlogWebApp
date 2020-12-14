@@ -72,7 +72,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="email" class="form-text">Email address</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name='email' placeholder="Enter email">
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name='email' placeholder="Enter email" value="{{ old('email') }}">
                             </div>
                             <div class="form-group">
                                 <label for="password" class="form-text">Password</label>

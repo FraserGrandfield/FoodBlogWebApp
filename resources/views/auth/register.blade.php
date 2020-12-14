@@ -75,11 +75,11 @@
                             @csrf
                             <div class="form-group">
                                 <label for="name" class="form-text">Name</label>
-                                <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name='name' placeholder="Name">
+                                <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name='name' placeholder="Name" value="{{ old('name') }}">
                             </div>
                             <div class="form-group">
                                 <label for="bio" class="form-text">Bio</label>
-                                <input type="text" class="form-control" id="bio" name='bio' placeholder="Bio">
+                                <input type="text" class="form-control" id="bio" name='bio' placeholder="Bio" value="{{ old('bio') }}">
                             </div>
                             <div class="form-group">
                                 <label for="profile_picture" class="form-text">Image</label>
@@ -91,7 +91,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password" class="form-text">Password</label>
-                                <input type="password" class="form-control" id="password" name='password' placeholder="Password">
+                                <input type="password" class="form-control" id="password" name='password' placeholder="Password" value="{{ old('password') }}">
                             </div>
                             <div class="form-group">
                                 <label for="password_confirmation" class="form-text">Confirm Password</label>
