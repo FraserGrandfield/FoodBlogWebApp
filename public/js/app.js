@@ -3853,6 +3853,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -21615,12 +21629,22 @@ var render = function() {
               return _c("div", [
                 _c("hr", { staticClass: "solid" }),
                 _vm._v(" "),
-                _c("h1", { staticClass: "card-title post-text" }, [
-                  _vm._v(_vm._s(comment.name))
-                ]),
-                _vm._v(" "),
-                _c("h2", { staticClass: "card-text post-text" }, [
-                  _vm._v(_vm._s(comment.comment))
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-11" }, [
+                    _c("h1", { staticClass: "card-title post-text" }, [
+                      _vm._v(_vm._s(comment.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("h2", { staticClass: "card-text post-text" }, [
+                      _vm._v(_vm._s(comment.comment))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-1" }, [
+                    _vm.loggedin && comment.profile_id == _vm.profileid
+                      ? _c("div", [_vm._m(0, true)])
+                      : _vm._e()
+                  ])
                 ])
               ])
             })
@@ -21631,7 +21655,23 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-flex flex-row-reverse" }, [
+      _vm._v(
+        "\n                                /TODO go to edit comment view.\n                                "
+      ),
+      _c(
+        "form",
+        { attrs: { method: "GET", action: "'/comments/comment.id" } },
+        [_c("button", { staticClass: "button" }, [_vm._v("Edit")])]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

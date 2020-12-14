@@ -17,8 +17,22 @@
                 <h1 class="card-title post-text">Comments</h1>
                 <div v-for="comment in comments">
                     <hr class="solid">
-                    <h1 class="card-title post-text">{{ comment.name }}</h1>
-                    <h2 class="card-text post-text">{{ comment.comment }}</h2>
+                    <div class="row">
+                        <div class="col-md-11">
+                            <h1 class="card-title post-text">{{ comment.name }}</h1>
+                            <h2 class="card-text post-text">{{ comment.comment }}</h2>
+                        </div>
+                        <div class="col-md-1">
+                            <div v-if="loggedin && comment.profile_id == profileid">
+                                <div class="d-flex flex-row-reverse">
+                                    /TODO go to edit comment view.
+                                    <form method="GET" action="'/comments/comment.id">
+                                        <button class="button">Edit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
