@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('comments/{id}', [CommentController::class, 'apiShow'])->name('api.comments.show');
+
+Route::post('comments', [CommentController::class, 'apiStore'])->name('api.comments.store');

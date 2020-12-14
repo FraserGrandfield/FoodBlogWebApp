@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comment;
-use App\Models\Profile;
 use App\Models\Post;
 
 class CommentController extends Controller
@@ -35,9 +34,20 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function apiStore(Request $request)
     {
+        $validatedData = $request->validate([
+            'comment' => 'required|string|max:300',
+        ]);
+        
+        $comment = new Comment;
+        $comment->comment = $validatedData['comment'];
+        $comment->profile_id = $request->profileId;
+        $comment->post_id = $request->id;
+        $comment->save();
 
+        $comment['name'] =  $comment->profile->user->name;
+        return $comment;
     }
 
     /**

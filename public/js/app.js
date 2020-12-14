@@ -3837,13 +3837,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      comments: []
+      comments: [],
+      newComment: ''
     };
   },
-  props: ['id'],
+  props: ['id', 'profileid'],
   mounted: function mounted() {
     var _this = this;
 
@@ -3852,6 +3865,23 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (response) {
       console.log(response);
     });
+  },
+  methods: {
+    createComment: function createComment() {
+      var _this2 = this;
+
+      axios.post('/api/comments/', {
+        comment: this.newComment,
+        id: this.id,
+        profileId: this.profileid
+      }).then(function (response) {
+        _this2.comments.push(response.data);
+
+        _this2.newCooment = '';
+      })["catch"](function (response) {
+        console.log(response);
+      });
+    }
   }
 });
 
@@ -21505,31 +21535,80 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "card col-mb-12 single-post bg-3",
-      staticStyle: { "max-width": "1000px" }
-    },
-    [
-      _c(
-        "div",
-        { staticClass: "card-body" },
-        _vm._l(_vm.comments, function(comment) {
-          return _c("div", [
-            _c("h1", { staticClass: "card-title post-text" }, [
-              _vm._v(_vm._s(comment.name))
-            ]),
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "card col-mb-12 single-post bg-3",
+        staticStyle: { "max-width": "1000px" }
+      },
+      [
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c(
+              "label",
+              { staticClass: "form-text", attrs: { for: "comment" } },
+              [_vm._v("Comment")]
+            ),
             _vm._v(" "),
-            _c("h2", { staticClass: "card-text post-text" }, [
-              _vm._v(_vm._s(comment.comment))
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newComment,
+                  expression: "newComment"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: { type: "text", id: "comment", placeholder: "comment" },
+              domProps: { value: _vm.newComment },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newComment = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "button", on: { click: _vm.createComment } },
+            [_vm._v("Add Comment")]
+          )
+        ])
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "card col-mb-12 single-post bg-3",
+        staticStyle: { "max-width": "1000px" }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          _vm._l(_vm.comments, function(comment) {
+            return _c("div", [
+              _c("h1", { staticClass: "card-title post-text" }, [
+                _vm._v(_vm._s(comment.name))
+              ]),
+              _vm._v(" "),
+              _c("h2", { staticClass: "card-text post-text" }, [
+                _vm._v(_vm._s(comment.comment))
+              ])
             ])
-          ])
-        }),
-        0
-      )
-    ]
-  )
+          }),
+          0
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

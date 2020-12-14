@@ -37,20 +37,10 @@
                 </div>
             </div>
 
-            <div class="card col-mb-12 single-post bg-3" style="max-width: 1000px">
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="comment" class="form-text">Comment</label>
-                        <input type="text" class="form-control" id="comment" name='comment' placeholder="comment">
-                        <div class="error-div">{{ $errors->first('bio') }}</div>
-                    </div>
-                    <button type="submit" class="button">Add Comment</button>
-                </div>
-            </div>
-            
             <div id="app">
-            <example-component  id="{{ $post->id }}"/>
+                <example-component id="{{ $post->id }}" profileId="{{ $profile->id }}"></example-component>
             </div>
+
         </div>
     </div>
 
