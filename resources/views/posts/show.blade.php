@@ -36,14 +36,20 @@
                     <h2 class="card-text post-text">By: {{ $post->profile->user->name }}</h2>
                 </div>
             </div>
-    
-            @php
-                $comments = $post->comments   
-            @endphp
+
+            <div class="card col-mb-12 single-post bg-3" style="max-width: 1000px">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="comment" class="form-text">Comment</label>
+                        <input type="text" class="form-control" id="comment" name='comment' placeholder="comment">
+                        <div class="error-div">{{ $errors->first('bio') }}</div>
+                    </div>
+                    <button type="submit" class="button">Add Comment</button>
+                </div>
+            </div>
+            
             <div id="app">
-                @foreach ($comments as $comment)
-                    <example-component :comment="{{ json_encode($comment) }}" />
-                @endforeach
+            <example-component  id="{{ $post->id }}"/>
             </div>
         </div>
     </div>

@@ -3835,9 +3835,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['comment'],
-  mounted: function mounted() {}
+  data: function data() {
+    return {
+      comments: []
+    };
+  },
+  props: ['id'],
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/comments/' + this.id).then(function (response) {
+      _this.comments = response.data;
+    })["catch"](function (response) {
+      console.log(response);
+    });
+  }
 });
 
 /***/ }),
@@ -21497,15 +21512,22 @@ var render = function() {
       staticStyle: { "max-width": "1000px" }
     },
     [
-      _c("div", { staticClass: "card-body" }, [
-        _c("h1", { staticClass: "card-title post-text" }, [
-          _vm._v(_vm._s(_vm.comment.comment))
-        ]),
-        _vm._v(" "),
-        _c("h2", { staticClass: "card-text post-text" }, [
-          _vm._v(_vm._s(_vm.comment.comment))
-        ])
-      ])
+      _c(
+        "div",
+        { staticClass: "card-body" },
+        _vm._l(_vm.comments, function(comment) {
+          return _c("div", [
+            _c("h1", { staticClass: "card-title post-text" }, [
+              _vm._v(_vm._s(comment.name))
+            ]),
+            _vm._v(" "),
+            _c("h2", { staticClass: "card-text post-text" }, [
+              _vm._v(_vm._s(comment.comment))
+            ])
+          ])
+        }),
+        0
+      )
     ]
   )
 }
