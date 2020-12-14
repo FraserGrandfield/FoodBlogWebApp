@@ -79,7 +79,7 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         $validatedData = $request->validate([
-            'bio' => 'required|max:100',
+            'bio' => 'required|string|max:300',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 

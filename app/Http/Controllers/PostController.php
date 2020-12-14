@@ -66,7 +66,7 @@ class PostController extends Controller
         $image = $validatedData['image'];
         $imageName = time().'.'.$image->extension();  
         $image->move(public_path('images'), $imageName);
-        
+
         $post->image = $imageName;
 
         $post->save();
@@ -94,7 +94,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -106,7 +108,33 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|max:100',
+            'ingredients' => 'required',
+            'instructions' => 'required',
+            'time_hours' => 'required',
+            'time_mins' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
+
+        $post = Post::where('id', $request->id)->first();
+        
+        $post->title = $validatedData['title'];
+        $post->ingredients = $validatedData['ingredients'];
+        $post->instructions = $validatedData['instructions'];
+        $post->cook_time_hours = $validatedData['time_hours'];
+        $post->cook_time_mins = $validatedData['time_mins'];
+
+        $image = $validatedData['image'];
+        $imageName = time().'.'.$image->extension();  
+        $image->move(public_path('images'), $imageName);
+
+        $post->image = $imageName;
+
+        $post->save();
+
+        return view('posts.show', ['post' => $post]);
     }
 
     /**

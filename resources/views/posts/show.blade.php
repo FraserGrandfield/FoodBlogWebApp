@@ -14,11 +14,15 @@
                     </div>
                     <div class="col">
                         <h1 class="card-title post-text">{{ $post->title }}</h1>
-                        <h2 class="card-text post-text">Hours: {{ $post->cook_time_hours }} Mins: {{ $post->cook_time_mins }}</h2>              
+                        <h2 class="card-text post-text">Hours: {{ $post->cook_time_hours }} Mins: {{ $post->cook_time_mins }}</h2>
+                        @if(Auth::id() === $post->profile->user->id)
+                            <form method="GET" action="{{ route('posts.edit', ['id' => $post->id]) }}">
+                                <button type="submit" class="button">Edit</button>
+                            </form>
+                        @endif
                     </div>
                 </div>
                 <div class="card-body">
-
                     <div class="row d-flex justify-content-around">
                         <div class="col-md-5 post-info bg-1">
                             <h1 class="d-flex justify-content-center">Ingredients</h1>
