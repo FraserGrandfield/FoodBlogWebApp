@@ -30,11 +30,12 @@
 			<a class="navbar-brand" href="#">Food Blog</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}" style="font-size: 15px">Posts</a></li>
-			<li class="nav-item"><a class="nav-link" href="{{ route('profile.show', ['id' => $profileID]) }}" style="font-size: 15px">Profile</a></li>
-			<li class="nav-tiem"><a class="nav-link" href="{{ route('posts.create') }}" style="font-size: 15px">Create Post</a></li>
-				<li class="nav-item">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}" style="font-size: 15px">Posts</a></li>
+					<li class="nav-item"><a class="nav-link" href="{{ route('profile.show', ['id' => $profileID]) }}" style="font-size: 15px">Profile</a></li>
+					<li class="nav-tiem"><a class="nav-link" href="{{ route('posts.create') }}" style="font-size: 15px">Create Post</a></li>
+					<li class="nav-tiem"><a class="nav-link" href="{{ route('recipies.show') }}" style="font-size: 15px">Random Recipie</a></li>
+					<li class="nav-item">
 					<form method="POST" action="{{ route('logout') }}">
 						@csrf
 						<a class="nav-link" href="{{route('logout')}}"

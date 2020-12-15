@@ -26,7 +26,8 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}" style="font-size: 15px">Posts</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}" style="font-size: 15px">Posts</a></li>
+                <li class="nav-tiem"><a class="nav-link" href="{{ route('recipies.show') }}" style="font-size: 15px">Random Recipie</a></li>
 				<li class="nav-tiem"><a class="nav-link" href="{{ route('register') }}" style="font-size: 15px">Sign Up</a></li>
 			<li class="nav-item"><a class="nav-link" href="{{ route('login') }}" style="font-size: 15px">Login</a></li>
 			</ul>
