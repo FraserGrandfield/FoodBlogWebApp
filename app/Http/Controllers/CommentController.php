@@ -91,26 +91,18 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $validatedData = $request->validate([
             'comment' => 'required|string|max:300',
         ]);
 
-        $comment = Comment::where('id', $request->commentId)->first();
+        $comment = Comment::where('id', $request->id)->first();
         
         $comment->comment = $validatedData['comment'];
 
         $comment->save();
 
-        $user = Auth::user();
-        if ($user === null) {
-            $loggedIn = false;
-            $profileId = null;
-        } else {
-            $profileId = $user->profile->id;
-            $loggedIn = true;
-        }
         return redirect()->route('posts.show', ['id' => $comment->post->id]);
     }
 

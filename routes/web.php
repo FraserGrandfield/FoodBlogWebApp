@@ -46,6 +46,6 @@ Route::post('profile/{id}', [ProfileController::class, 'update'])->middleware('v
 
 Route::get('comments/{id}', [CommentController::class, 'edit'])->middleware('verify_profile_comments')->name('comments.edit');
 
-Route::post('comments/{id}', [CommentController::class, 'update'])->name('comments.update');
+Route::post('comments/{id}', [CommentController::class, 'update'])->middleware('verify_profile_comments')->name('comments.update');
 
 require __DIR__.'/auth.php';
