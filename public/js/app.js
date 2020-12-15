@@ -3866,7 +3866,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -21648,9 +21647,6 @@ var render = function() {
                             "div",
                             { staticClass: "d-flex flex-row-reverse" },
                             [
-                              _vm._v(
-                                "\n                                /TODO go to edit comment view.\n                                "
-                              ),
                               _c(
                                 "form",
                                 {

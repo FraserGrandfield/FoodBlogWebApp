@@ -81,7 +81,7 @@ class CommentController extends Controller
         $comment = Comment::findOrFail($id);
         $userId = Auth::id();
 
-        return view('comments.edit', ['id' => $userId, 'comment' => $comment]);
+        return view('comments.edit', ['userId' => $userId, 'comment' => $comment]);
     }
 
     /**
@@ -93,7 +93,27 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            'comment' => 'required|string|max:300',
+        ]);
 
+        $comment = Comment::where('id', $request->commentId)->first();
+        
+        $comment->comment = $validatedData['comment'];
+
+        $comment->save();
+
+
+        $user = Auth::user();
+        if ($user === null) {
+            $loggedIn = false;
+            $profileId = null;
+        } else {
+            $profileId = $user->profile->id;
+            $loggedIn = true;
+        }
+
+        return redirect()->route('posts.show', ['id' => $comment->post->id]);
     }
 
     /**

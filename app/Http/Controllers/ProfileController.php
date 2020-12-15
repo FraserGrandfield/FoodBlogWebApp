@@ -94,10 +94,7 @@ class ProfileController extends Controller
         $profile->bio = $validatedData['bio'];
         $profile->save();
 
-        $user = User::findOrFail($profile->user_id);
-        $posts = $profile->posts;
-
-        return view('profile.show', ['profile' => $profile, 'user' => $user, 'posts' => $posts]);
+        return redirect()->route('profile.show', ['id' => $profile->id]);
     }
 
     /**

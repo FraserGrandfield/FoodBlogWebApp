@@ -25,7 +25,6 @@
                         <div class="col-md-2">
                             <div v-if="loggedin && comment.profile_id == profileid">
                                 <div class="d-flex flex-row-reverse">
-                                    /TODO go to edit comment view.
                                     <form method="GET" v-bind:action="commenturl + comment.id">
                                         <button class="button">Edit</button>
                                     </form>
