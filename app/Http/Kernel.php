@@ -64,6 +64,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'verify_profile' => \App\Http\Middleware\VerifyProfile::class,
         'verify_profile_posts' => \App\Http\Middleware\VerifyProfilePosts::class,
+        'verify_profile_comments' => \App\Http\Middleware\VerifyProfileComments::class,
 
     ];
 }

@@ -103,7 +103,6 @@ class CommentController extends Controller
 
         $comment->save();
 
-
         $user = Auth::user();
         if ($user === null) {
             $loggedIn = false;
@@ -112,7 +111,6 @@ class CommentController extends Controller
             $profileId = $user->profile->id;
             $loggedIn = true;
         }
-
         return redirect()->route('posts.show', ['id' => $comment->post->id]);
     }
 

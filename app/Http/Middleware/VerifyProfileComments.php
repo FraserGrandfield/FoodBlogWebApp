@@ -5,8 +5,9 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Comment;
 
-class VerifyProfile
+class VerifyProfileComments
 {
     /**
      * Handle an incoming request.
@@ -17,9 +18,10 @@ class VerifyProfile
      */
     public function handle(Request $request, Closure $next)
     {
-        
         $userId = Auth::id();
-        if ((int)$request->id === $userId) {
+        $comment = Comment::findOrFail($request->id);
+
+        if ((int)$comment->profile->user->id === $userId) {
             return $next($request);
         } else {
             return redirect()->route('posts.index');
