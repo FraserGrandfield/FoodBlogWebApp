@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -41,6 +42,10 @@ Route::get('profile/{id}/edit', [ProfileController::class, 'edit'])->middleware(
 
 Route::get('profile/{id}', [ProfileController::class, 'show'])->name('profile.show');
 
-Route::post('profile/{id]', [ProfileController::class, 'update'])->middleware('verify_profile')->name('profile.update');
+Route::post('profile/{id}', [ProfileController::class, 'update'])->middleware('verify_profile')->name('profile.update');
+
+Route::get('comments/{id}', [CommentController::class, 'edit'])->name('comments.edit');
+
+Route::post('comments/{id}', [CommentController::class, 'update'])->middleware('verify_profile')->name('comments.update');
 
 require __DIR__.'/auth.php';

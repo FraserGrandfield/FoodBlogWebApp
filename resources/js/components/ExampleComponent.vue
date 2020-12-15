@@ -18,21 +18,21 @@
                 <div v-for="comment in comments">
                     <hr class="solid">
                     <div class="row">
-                        <div class="col-md-11">
+                        <div class="col-md-10">
                             <h1 class="card-title post-text">{{ comment.name }}</h1>
                             <h2 class="card-text post-text">{{ comment.comment }}</h2>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-2">
                             <div v-if="loggedin && comment.profile_id == profileid">
                                 <div class="d-flex flex-row-reverse">
                                     /TODO go to edit comment view.
-                                    <form method="GET" action="'/comments/comment.id">
+                                    <form method="GET" v-bind:action="commenturl + comment.id">
                                         <button class="button">Edit</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>
@@ -40,15 +40,18 @@
 </template>
 
 <script>
+
     export default {
         data: function() {
             return {
                 comments: [],
                 newComment: '',
+                commenturl: '/comments/',
             }
         },
         props: ['id', 'profileid', 'loggedin'],
         mounted() {
+
             console.log(this.loggedin);
             axios.get('/api/comments/' + this.id)
             .then(response => {
@@ -59,7 +62,8 @@
             })
         },
         methods: {
-            createComment() {
+
+            createComment: function() {
                 axios.post('/api/comments/', {comment: this.newComment, id: this.id, profileId: this.profileid})
                 .then(response => {
                     this.comments.push(response.data);
@@ -69,6 +73,6 @@
                     console.log(response);
                 })
             }
-        }
+        },
     };
 </script>

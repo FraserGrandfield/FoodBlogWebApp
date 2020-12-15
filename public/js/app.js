@@ -3871,7 +3871,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       comments: [],
-      newComment: ''
+      newComment: '',
+      commenturl: '/comments/'
     };
   },
   props: ['id', 'profileid', 'loggedin'],
@@ -21630,7 +21631,7 @@ var render = function() {
                 _c("hr", { staticClass: "solid" }),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-11" }, [
+                  _c("div", { staticClass: "col-md-10" }, [
                     _c("h1", { staticClass: "card-title post-text" }, [
                       _vm._v(_vm._s(comment.name))
                     ]),
@@ -21640,9 +21641,33 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-md-1" }, [
+                  _c("div", { staticClass: "col-md-2" }, [
                     _vm.loggedin && comment.profile_id == _vm.profileid
-                      ? _c("div", [_vm._m(0, true)])
+                      ? _c("div", [
+                          _c(
+                            "div",
+                            { staticClass: "d-flex flex-row-reverse" },
+                            [
+                              _vm._v(
+                                "\n                                /TODO go to edit comment view.\n                                "
+                              ),
+                              _c(
+                                "form",
+                                {
+                                  attrs: {
+                                    method: "GET",
+                                    action: _vm.commenturl + comment.id
+                                  }
+                                },
+                                [
+                                  _c("button", { staticClass: "button" }, [
+                                    _vm._v("Edit")
+                                  ])
+                                ]
+                              )
+                            ]
+                          )
+                        ])
                       : _vm._e()
                   ])
                 ])
@@ -21655,23 +21680,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-flex flex-row-reverse" }, [
-      _vm._v(
-        "\n                                /TODO go to edit comment view.\n                                "
-      ),
-      _c(
-        "form",
-        { attrs: { method: "GET", action: "'/comments/comment.id" } },
-        [_c("button", { staticClass: "button" }, [_vm._v("Edit")])]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
