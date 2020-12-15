@@ -4,7 +4,7 @@ use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
-
+use App\Http\Controllers\RecipeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,5 +47,9 @@ Route::post('profile/{id}', [ProfileController::class, 'update'])->middleware('v
 Route::get('comments/{id}', [CommentController::class, 'edit'])->middleware('verify_profile_comments')->name('comments.edit');
 
 Route::post('comments/{id}', [CommentController::class, 'update'])->middleware('verify_profile_comments')->name('comments.update');
+
+Route::get('recipies', [RecipeController::class, 'show'])->name('recipies.show');
+
+Route::post('recipies', [RecipeController::class, 'search'])->name('recipies.search');
 
 require __DIR__.'/auth.php';

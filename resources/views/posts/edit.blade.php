@@ -43,7 +43,7 @@
                                     <div class="error-div">{{ $errors->first('instructions') }}</div>
                                 </div>
                                 <button type="submit" class="button">Update Post</button>
-                              </form>
+                            </form>
                         </div>
                     </div>
                 </div>

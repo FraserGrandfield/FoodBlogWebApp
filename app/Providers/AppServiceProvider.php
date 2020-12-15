@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
-
+use App\Servecies\Spoonacular;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,7 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(Spoonacular::class,function(){
+            return new Spoonacular();
+         });
     }
 
     /**
