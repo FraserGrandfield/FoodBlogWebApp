@@ -14,32 +14,32 @@
                             @csrf
                                 <div class="form-group">
                                   <label for="title" class="form-text">Title</label>
-                                  <input type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Title" name="title" value="{{ $post->title }}">
+                                  <input type="text" class="form-control input" id="title" aria-describedby="emailHelp" placeholder="Title" name="title" value="{{ $post->title }}">
                                   <div class="error-div">{{ $errors->first('title') }}</div>
                                 </div>
                                 <div class="form-group">
                                     <label for="time_hours" class="form-text">How many hours</label>
-                                    <input type="number" class="form-control" id="time_hours" placeholder="Hours" name="time_hours" value="{{ $post->cook_time_hours }}">
+                                    <input type="number" class="form-control input" id="time_hours" placeholder="Hours" name="time_hours" value="{{ $post->cook_time_hours }}">
                                     <div class="error-div">{{ $errors->first('time_hours') }}</div>
                                 </div>
                                 <div class="form-group">
                                     <label for="time_mins" class="form-text">How many Minutes</label>
-                                    <input type="number" class="form-control" id="time_mins" placeholder="Mins" name="time_mins" value="{{ $post->cook_time_mins }}">
+                                    <input type="number" class="form-control input" id="time_mins" placeholder="Mins" name="time_mins" value="{{ $post->cook_time_mins }}">
                                     <div class="error-div">{{ $errors->first('time_mins') }}</div>
                                 </div>
                                 <div class="form-group">
                                     <label for="image" class="form-text">Image</label>
-                                    <input type="file" class="form-control" id="image" name="image">
+                                    <input type="file" class="form-control input" id="image" name="image">
                                     <div class="error-div">{{ $errors->first('image') }}</div>
                                 </div>
                                 <div class="form-group">
                                   <label for="ingredients" class="form-text">Ingredients</label>
-                                  <input type="text" class="form-control" id="ingredients" placeholder="Ingredients" name="ingredients"  value="{{ $post->ingredients }}">
+                                  <input type="text" class="form-control input" id="ingredients" placeholder="Ingredients" name="ingredients"  value="{{ $post->ingredients }}">
                                   <div class="error-div">{{ $errors->first('ingredients') }}</div>
                                 </div>
                                 <div class="form-group">
                                     <label for="instructions" class="form-text">Instructions</label>
-                                    <input type="text" class="form-control" id="instructions" placeholder="Instructions" name="instructions"  value="{{ $post->instructions }}">
+                                    <input type="text" class="form-control input" id="instructions" placeholder="Instructions" name="instructions"  value="{{ $post->instructions }}">
                                     <div class="error-div">{{ $errors->first('instructions') }}</div>
                                 </div>
                                 <button type="submit" class="button">Update Post</button>

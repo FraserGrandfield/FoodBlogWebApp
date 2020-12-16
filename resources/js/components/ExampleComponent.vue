@@ -5,7 +5,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="comment" class="form-text">Comment</label>
-                        <input type="text" class="form-control" id="comment" placeholder="comment" v-model="newComment">
+                        <input type="text" class="form-control input" id="comment" placeholder="comment" v-model="newComment">
                         <div v-if="!!error" class="error-div">An Error has occured, please try again.</div>
                     </div>
                     <button @click="createComment" class="button">Add Comment</button>

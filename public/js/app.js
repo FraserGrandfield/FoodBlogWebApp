@@ -21592,7 +21592,7 @@ var render = function() {
                         expression: "newComment"
                       }
                     ],
-                    staticClass: "form-control",
+                    staticClass: "form-control input",
                     attrs: {
                       type: "text",
                       id: "comment",

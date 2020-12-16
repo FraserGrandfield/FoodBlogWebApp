@@ -71,12 +71,12 @@
                             @csrf
                             <div class="form-group">
                                 <label for="email" class="form-text">Email address</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name='email' placeholder="Enter email" value="{{ old('email') }}">
+                                <input type="email" class="form-control input" id="email" aria-describedby="emailHelp" name='email' placeholder="Enter email" value="{{ old('email') }}">
                                 <div class="error-div">{{ $errors->first('email') }}</div>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="form-text">Password</label>
-                                <input type="password" class="form-control" id="password" name='password' placeholder="Password">
+                                <input type="password" class="form-control input" id="password" name='password' placeholder="Password">
                                 <div class="error-div">{{ $errors->first('password') }}</div>
                             </div>
                             <div class="form-check">

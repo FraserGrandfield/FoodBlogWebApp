@@ -135,6 +135,7 @@ h2 {
 
 .error-div {
     font-family: "Times New Roman", Times, serif;
+    border-radius: 0px 0px 13px 13px;
     background-color: #ED4337;
     font-size: 21px;
     color: #000000;
@@ -145,6 +146,10 @@ h2 {
     border-radius: 13px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     object-fit: cover;
+}
+
+.input {
+    font-family: "Times New Roman", Times, serif;
 }
 
 hr.solid {

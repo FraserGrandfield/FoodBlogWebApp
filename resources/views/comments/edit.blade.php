@@ -14,7 +14,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="comment" class="form-text">Comment</label>
-                                    <input type="text" class="form-control" id="comment" name='comment' placeholder="comment" value="{{ $comment->comment }}">
+                                    <input type="text" class="form-control input" id="comment" name='comment' placeholder="comment" value="{{ $comment->comment }}">
                                     <div class="error-div">{{ $errors->first('comment') }}</div>
                                 </div>
                                 <button type="submit" class="button">Update Comment</button>
