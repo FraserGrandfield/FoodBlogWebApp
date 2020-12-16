@@ -6,6 +6,7 @@
                     <div class="form-group">
                         <label for="comment" class="form-text">Comment</label>
                         <input type="text" class="form-control" id="comment" placeholder="comment" v-model="newComment">
+                        <div v-if="!!error" class="error-div">An Error has occured, please try again.</div>
                     </div>
                     <button @click="createComment" class="button">Add Comment</button>
                 </div>
@@ -46,6 +47,7 @@
                 comments: [],
                 newComment: '',
                 commenturl: '/comments/',
+                error: '',
             }
         },
         props: ['id', 'profileid', 'loggedin'],
@@ -66,10 +68,12 @@
                 axios.post('/api/comments/', {comment: this.newComment, id: this.id, profileId: this.profileid})
                 .then(response => {
                     this.comments.push(response.data);
-                    this.newCooment = '';
+                    this.newComment = '';
+                    this.error = false;
                 })
                 .catch(response => {
                     console.log(response);
+                    this.error = true;
                 })
             }
         },

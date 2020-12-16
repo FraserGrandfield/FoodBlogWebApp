@@ -3866,12 +3866,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       comments: [],
       newComment: '',
-      commenturl: '/comments/'
+      commenturl: '/comments/',
+      error: ''
     };
   },
   props: ['id', 'profileid', 'loggedin'],
@@ -3896,9 +3898,11 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         _this2.comments.push(response.data);
 
-        _this2.newCooment = '';
+        _this2.newComment = '';
+        _this2.error = false;
       })["catch"](function (response) {
         console.log(response);
+        _this2.error = true;
       });
     }
   }
@@ -21596,7 +21600,13 @@ var render = function() {
                         _vm.newComment = $event.target.value
                       }
                     }
-                  })
+                  }),
+                  _vm._v(" "),
+                  !!_vm.error
+                    ? _c("div", { staticClass: "error-div" }, [
+                        _vm._v("An Error has occured, please try again.")
+                      ])
+                    : _vm._e()
                 ]),
                 _vm._v(" "),
                 _c(

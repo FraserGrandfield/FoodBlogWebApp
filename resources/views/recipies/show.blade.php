@@ -26,7 +26,6 @@
                             <h1 class="card-title">{{ $recipie['title']?? 'Unknown' }}</h1>
                             <h2 class="card-title">Cook time: {{ $recipie['readyInMinutes']?? 'Unknown' }} mins</h2>
                             <h2 class="card-title">Source: {{ $recipie['sourceName']?? 'Unknown' }}</h2>
-
                         </div>
                     </div>
                 </div>
