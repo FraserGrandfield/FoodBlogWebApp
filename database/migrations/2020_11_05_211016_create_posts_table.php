@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
                 ->constrained()
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->char('title', 100);
+            $table->char('title');
             $table->string('image');
             $table->integer('cook_time_hours');
             $table->integer('cook_time_mins');

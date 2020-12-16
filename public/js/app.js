@@ -3867,6 +3867,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -21564,7 +21571,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "card col-mb-12 single-post bg-3",
+              staticClass: "card col-lg-12 single-post bg-3",
               staticStyle: { "max-width": "1000px" }
             },
             [
@@ -21623,7 +21630,7 @@ var render = function() {
     _c(
       "div",
       {
-        staticClass: "card col-mb-12 single-post bg-3",
+        staticClass: "card col-lg-12 single-post bg-3",
         staticStyle: { "max-width": "1000px" }
       },
       [
@@ -21640,9 +21647,20 @@ var render = function() {
                 _c("hr", { staticClass: "solid" }),
                 _vm._v(" "),
                 _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-md-10" }, [
-                    _c("h1", { staticClass: "card-title post-text" }, [
-                      _vm._v(_vm._s(comment.name))
+                  _c("div", { staticClass: "col-lg-10" }, [
+                    _c("div", { staticClass: "row justify-content-start" }, [
+                      _c("div", { staticClass: "col-lg-1" }, [
+                        _c("img", {
+                          staticClass: "post-profile-image",
+                          attrs: { src: comment.image }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-lg-11" }, [
+                        _c("h1", { staticClass: "card-title post-text" }, [
+                          _vm._v(_vm._s(comment.name))
+                        ])
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("h2", { staticClass: "card-text post-text" }, [
@@ -21650,7 +21668,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-md-2" }, [
+                  _c("div", { staticClass: "col-lg-2" }, [
                     _vm.loggedin && comment.profile_id == _vm.profileid
                       ? _c("div", [
                           _c(

@@ -9,10 +9,10 @@
         <div class="col">
             <div class="card col-mb-12 single-post bg-3" style="max-width: 1000px">
                 <div class="row">
-                    <div class="col">
-                        <img src="{{ URL::to('/images/' . $post->image) }}" class="card-img-top post-image" alt="...">
+                    <div class="col-lg-5">
+                        <img src="{{ URL::to('/images/' . $post->image) }}" class="card-img-top post-image" alt="..." width="480px", height="248px">
                     </div>
-                    <div class="col">
+                    <div class="col-lg-7">
                         <h1 class="card-title post-text">{{ $post->title }}</h1>
                         <h2 class="card-text post-text">Hours: {{ $post->cook_time_hours }} Mins: {{ $post->cook_time_mins }}</h2>
                         @if(Auth::id() === $post->profile->user->id)
@@ -24,11 +24,11 @@
                 </div>
                 <div class="card-body">
                     <div class="row d-flex justify-content-around">
-                        <div class="col-md-5 post-info bg-1">
+                        <div class="col-lg-5 post-info bg-1">
                             <h1 class="d-flex justify-content-center">Ingredients</h1>
                                 <h2 class="card-text post-text">{{ $post->ingredients }}</h2>
                         </div>
-                        <div class="col-md-5 post-info bg-1">
+                        <div class="col-lg-5 post-info bg-1">
                             <h1 class="d-flex justify-content-center">Instructions</h1>
                             <h2 class="card-text post-text">{{ $post->instructions }}</h2>
                         </div>

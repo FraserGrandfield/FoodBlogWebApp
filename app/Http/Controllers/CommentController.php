@@ -49,6 +49,7 @@ class CommentController extends Controller
         $comment->save();
 
         $comment['name'] =  $comment->profile->user->name;
+        $comment['image'] = '/images/' . $comment->profile->profile_picture;
         return $comment;
     }
 
@@ -65,6 +66,7 @@ class CommentController extends Controller
 
         $comments = $comments->map(function ($comment) {
             $comment['name'] =  $comment->profile->user->name;
+            $comment['image'] = '/images/' . $comment->profile->profile_picture;
             return $comment;
         });
 

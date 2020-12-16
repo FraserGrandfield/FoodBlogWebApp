@@ -1,5 +1,7 @@
 
 .navbar {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -7,7 +9,7 @@
     border-radius: 0px;
     margin-bottom: 0;
     font-size: 18px;
-    letter-spacing: 5px;
+    letter-spacing: 2px;
 
 }
 
@@ -72,6 +74,7 @@
 }
 
 .button {
+    font-family: "Times New Roman", Times, serif;
     background-color: #FFCDB2;
     border: none;
     color: #000000;
@@ -79,12 +82,17 @@
     text-decoration: none;
     cursor: pointer;
     border-radius: 13px;
+    font-size: 21px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
+.button:focus {
+    outline: none;
+ }
 
 .info-card {
     margin-top: 20px;
@@ -94,12 +102,15 @@
 }
 
 h1 {
-    font-size: 32px;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 28px;
     color: #000000;
 }
 
 h2 {
-    font-size: 25px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 21px;
     color: #000000;
 }
 
@@ -109,13 +120,15 @@ h2 {
 }
 
 .form-text {
-    font-size: 20px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 21px;
     color: #000000;
 }
 
 .error-div {
+    font-family: "Times New Roman", Times, serif;
     background-color: #ED4337;
-    font-size: 20px;
+    font-size: 21px;
     color: #000000;
 }
 
