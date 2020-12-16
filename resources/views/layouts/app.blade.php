@@ -18,9 +18,9 @@
     </head>
 
     <body class="bg-2">
-          <nav class="navbar navbar-expand-sm navbar-light bg-1 sticky-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+          <nav class="navbar navbar-expand-lg navbar-light bg-1 sticky-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
 			<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
-				<span class="navbar-toggle-icon"></span>                     
+				<span class="navbar-toggler-icon"></span>                     
 			</button>
 			<a class="navbar-brand" href="#">Food Blog</a>
 			</div>
