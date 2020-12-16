@@ -27,7 +27,7 @@
 			<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
 				<span class="navbar-toggler-icon"></span>                     
 			</button>
-			<a class="navbar-brand" href="#">Food Blog</a>
+			<a class="navbar-brand" href="{{ route('home') }}">Food Blog</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="navbar-nav">

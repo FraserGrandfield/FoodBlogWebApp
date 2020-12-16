@@ -18,13 +18,7 @@ use App\Http\Controllers\RecipeController;
 */
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-Route::get('/', function () {
-    return view('posts');
-});
+Route::get('/', function () {return view('home');})->name('home');
 
 Route::get('posts', [PostController::class, 'index'])->name('posts.index');
 
