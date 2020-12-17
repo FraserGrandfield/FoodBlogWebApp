@@ -20,9 +20,9 @@
                     <hr class="solid">
                     <div class="row">
                         <div class="col-lg-10">
-                            <div class="row justify-content-start">
+                            <div class="row d-flex align-items-center">
                                 <div class ="col-lg-1">
-                                    <img v-bind:src="comment.image" class="post-profile-image">
+                                    <img v-bind:src="comment.image" class="comment-profile-image">
                                 </div>
                                 <div class ="col-lg-11">
                                     <h1 class="card-title post-text">{{ comment.name }}</h1>

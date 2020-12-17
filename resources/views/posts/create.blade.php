@@ -10,8 +10,8 @@
                 <div class="card-body">
                     <div class="row d-flex justify-content-around">
                         <div class="col">
-                        <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
-                            @csrf
+                            <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
+                                @csrf
                                 <div class="form-group">
                                   <label for="title" class="form-text">Title</label>
                                   <input type="text" class="form-control input" id="title" aria-describedby="emailHelp" placeholder="Title" name="title" value="{{ old('title') }}">
@@ -43,7 +43,7 @@
                                     <div class="error-div">{{ $errors->first('instructions') }}</div>
                                 </div>
                                 <button type="submit" class="button">Submit</button>
-                              </form>
+                            </form>
                         </div>
                     </div>
                 </div>
