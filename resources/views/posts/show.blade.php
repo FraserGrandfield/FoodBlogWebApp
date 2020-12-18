@@ -51,7 +51,6 @@
             <div id="app">
             <example-component id="{{ $post->id }}" profileId="{{ $profileId }}" loggedIn="{{ $loggedIn }}"></example-component>
             </div>
-
         </div>
     </div>
 
