@@ -42,6 +42,8 @@ Route::get('comments/{id}', [CommentController::class, 'edit'])->middleware('ver
 
 Route::post('comments/{id}', [CommentController::class, 'update'])->middleware('verify_profile_comments')->name('comments.update');
 
+Route::delete('comments/{id}', [CommentController::class, 'destroy'])->middleware('verify_profile_comments')->name('comments.destroy');
+
 Route::get('recipies', [RecipeController::class, 'show'])->name('recipies.show');
 
 Route::post('recipies', [RecipeController::class, 'search'])->name('recipies.search');

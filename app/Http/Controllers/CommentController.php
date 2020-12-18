@@ -117,6 +117,10 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Comment::findOrFail($id)->post;
+
+        Comment::findOrFail($id)->delete($id);
+  
+        return redirect()->route('posts.show', ['id' => $post->id]);
     }
 }
