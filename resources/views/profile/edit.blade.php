@@ -21,7 +21,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="image" class="form-text">Image</label>
-                                <input type="file" class="form-control input" id="image" name="image">
+                            <input type="file" class="form-control input" id="image" name="image" value="{{ URL::to('/images/' . $profile->profile_picture) }}">
                                 <div class="error-div">{{ $errors->first('image') }}</div>
                             </div>
                             <button type="submit" class="button">Update</button>
