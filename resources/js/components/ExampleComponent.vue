@@ -21,14 +21,14 @@
                     <div class="row">
                         <div class="col-lg-10">
                             <div class="row d-flex align-items-center">
-                                <div class ="col-lg-1">
-                                    <img v-bind:src="comment.image" class="comment-profile-image">
-                                </div>
-                                <div class ="col-lg-11">
-                                    <h1 class="card-title post-text">{{ comment.name }}</h1>
+                                <img v-bind:src="comment.image" class="comment-profile-image" style="margin-right: 4px">
+                                <h1 class="post-text">{{ comment.name }}</h1>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                <h2 class="card-text comment-text">{{ comment.comment }}</h2>
                                 </div>
                             </div>
-                            <h2 class="card-text post-text">{{ comment.comment }}</h2>
                         </div>
                         <div class="col-lg-2">
                             <div v-if="loggedin && comment.profile_id == profileid">

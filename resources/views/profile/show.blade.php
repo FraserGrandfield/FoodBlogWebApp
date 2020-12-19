@@ -35,16 +35,12 @@
                                 <h1 class="card-title">{{ $post->title }}</h1>
                                 <h2 class="card-text post-text">Hours: {{ $post->cook_time_hours }} Mins: {{ $post->cook_time_mins }}</h2>
                                 <div class="row d-flex align-items-center">
-                                    <div class="col-lg-1">
-                                        <a href="{{ route('profile.show', ['id' => $profile->id]) }}">
-                                            <img src="{{ URL::to('/images/' . $profile->profile_picture) }}" class="post-profile-image">
-                                        </a>
-                                    </div>
-                                    <div class="col-lg-11">
-                                        <h2 class="card-text post-text" >
-                                            By: {{ $user->name }}
-                                        </h2>
-                                    </div>
+                                    <a href="{{ route('profile.show', ['id' => $profile->id]) }}" style="margin-right: 4px">
+                                        <img src="{{ URL::to('/images/' . $profile->profile_picture) }}" class="post-profile-image">
+                                    </a>
+                                    <h2 class="card-text post-text" >
+                                        By: {{ $user->name }}
+                                    </h2>
                                 </div>      
                             </div>
                         </div>

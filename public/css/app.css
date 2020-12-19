@@ -182,3 +182,7 @@ h2 {
 hr.solid {
   border-top: 3px solid #bbb;
 }
+
+.comment-text {
+  margin-top: 10px;
+}

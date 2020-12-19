@@ -21652,23 +21652,24 @@ var render = function() {
                       "div",
                       { staticClass: "row d-flex align-items-center" },
                       [
-                        _c("div", { staticClass: "col-lg-1" }, [
-                          _c("img", {
-                            staticClass: "comment-profile-image",
-                            attrs: { src: comment.image }
-                          })
-                        ]),
+                        _c("img", {
+                          staticClass: "comment-profile-image",
+                          staticStyle: { "margin-right": "4px" },
+                          attrs: { src: comment.image }
+                        }),
                         _vm._v(" "),
-                        _c("div", { staticClass: "col-lg-11" }, [
-                          _c("h1", { staticClass: "card-title post-text" }, [
-                            _vm._v(_vm._s(comment.name))
-                          ])
+                        _c("h1", { staticClass: "post-text" }, [
+                          _vm._v(_vm._s(comment.name))
                         ])
                       ]
                     ),
                     _vm._v(" "),
-                    _c("h2", { staticClass: "card-text post-text" }, [
-                      _vm._v(_vm._s(comment.comment))
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col" }, [
+                        _c("h2", { staticClass: "card-text comment-text" }, [
+                          _vm._v(_vm._s(comment.comment))
+                        ])
+                      ])
                     ])
                   ]),
                   _vm._v(" "),

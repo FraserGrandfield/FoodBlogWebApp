@@ -33,17 +33,13 @@
                             <h2 class="card-text post-text">{{ $post->instructions }}</h2>
                         </div>
                     </div>
-                    <div class="row d-flex align-items-center">
-                        <div class="col-lg-1">
-                            <a href="{{ route('profile.show', ['id' => $post->profile->id]) }}">
-                                <img src="{{ URL::to('/images/' . $post->profile->profile_picture) }}" class="post-profile-image">
-                            </a>
-                        </div>
-                        <div class="col-lg-11">
-                            <h2 class="card-text post-text" >
-                                By: {{ $post->profile->user->name }}
-                            </h2>
-                        </div>
+                    <div class="row d-flex align-items-center no-gutters">
+                        <a href="{{ route('profile.show', ['id' => $post->profile->id]) }}" style="margin-right: 4px">
+                            <img src="{{ URL::to('/images/' . $post->profile->profile_picture) }}" class="post-profile-image">
+                        </a>
+                        <h2 class="card-text post-text" >
+                            By: {{ $post->profile->user->name }}
+                        </h2>
                     </div>
                 </div>
             </div>
