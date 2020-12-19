@@ -8,7 +8,7 @@
 
 <div class="d-flex justify-content-center container" style="height: 100%">
     <div class="col">
-        <div class="card info-card bg-3" style="max-width: 1000px;">
+        <div class="card info-card bg-3">
             <div class="col-md-12">
                 <div class="card-body d-flex justify-content-center">
                     <h1 class="card-title">A random recipie to try!</h1>
@@ -16,7 +16,7 @@
             </div>
         </div>
         @foreach ($recipies as $recipie)  
-            <div class="card post bg-3" style="max-width: 1000px;">
+            <div class="card post bg-3">
                 <div class="row no-gutters" onclick=(window.location.href="{{ $recipie['sourceUrl'] }}")>
                     <div class="col-md-4">                            
                         <img src="{{ $recipie['image']?? URL::to('/images/defualt_img.png') }}" class="card-img post-index-image" alt="..." width="480px", height="258px">

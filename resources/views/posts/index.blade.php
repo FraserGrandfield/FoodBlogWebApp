@@ -14,7 +14,7 @@
                 @php
                     $postDB = Post::findOrFail($post->id);   
                 @endphp
-                <div class="card post bg-3" style="max-width: 1000px;">
+                <div class="card post bg-3">
                     <div class="row no-gutters" onclick=(window.location.href="{{ route('posts.show', ['id' => $post->id]) }}")>
                         <div class="col-lg-4">
                             <img src="{{ URL::to('/images/' . $post->image) }}" class="card-img post-index-image" alt="..." width="480px", height="258px">
@@ -30,7 +30,7 @@
                                     <h2 class="card-text post-text" >
                                         By: {{ $postDB->profile->user->name }}
                                     </h2>
-                                </div>     
+                                </div>                   
                             </div>
                         </div>
                     </div>

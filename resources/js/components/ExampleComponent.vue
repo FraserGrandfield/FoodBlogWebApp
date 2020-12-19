@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="loggedin">
-            <div class="card col-lg-12 single-post bg-3" style="max-width: 1000px">
+            <div class="card col-lg-12 single-post bg-3">
                 <div class="card-body">
                     <div class="form-group">
                         <label for="comment" class="form-text">Comment</label>
@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div class="card col-lg-12 single-post bg-3" style="max-width: 1000px">
+        <div class="card col-lg-12 single-post bg-3">
             <div class="card-body">
                 <h1 class="card-title post-text">Comments</h1>
                 <div v-for="comment in comments">

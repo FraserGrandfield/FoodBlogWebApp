@@ -7,7 +7,7 @@
 
     <div class="d-flex justify-content-center container" style="height: 100%">
         <div class="col">
-            <div class="card col-mb-12 single-post bg-3" style="max-width: 1000px">
+            <div class="card col-mb-12 single-post bg-3">
                 <div class="row">
                     <div class="col-lg-6">
                         <img src="{{ URL::to('/images/' . $post->image) }}" class="card-img-top post-show-image" alt="..." width="480px", height="258px">

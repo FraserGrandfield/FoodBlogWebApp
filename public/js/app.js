@@ -21568,145 +21568,123 @@ var render = function() {
   return _c("div", [
     _vm.loggedin
       ? _c("div", [
-          _c(
-            "div",
-            {
-              staticClass: "card col-lg-12 single-post bg-3",
-              staticStyle: { "max-width": "1000px" }
-            },
-            [
-              _c("div", { staticClass: "card-body" }, [
-                _c("div", { staticClass: "form-group" }, [
-                  _c(
-                    "label",
-                    { staticClass: "form-text", attrs: { for: "comment" } },
-                    [_vm._v("Comment")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.newComment,
-                        expression: "newComment"
-                      }
-                    ],
-                    staticClass: "form-control input",
-                    attrs: {
-                      type: "text",
-                      id: "comment",
-                      placeholder: "comment"
-                    },
-                    domProps: { value: _vm.newComment },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.newComment = $event.target.value
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  !!_vm.error
-                    ? _c("div", { staticClass: "error-div" }, [
-                        _vm._v("An Error has occured, please try again.")
-                      ])
-                    : _vm._e()
-                ]),
-                _vm._v(" "),
+          _c("div", { staticClass: "card col-lg-12 single-post bg-3" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "form-group" }, [
                 _c(
-                  "button",
-                  { staticClass: "button", on: { click: _vm.createComment } },
-                  [_vm._v("Add Comment")]
-                )
-              ])
-            ]
-          )
+                  "label",
+                  { staticClass: "form-text", attrs: { for: "comment" } },
+                  [_vm._v("Comment")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.newComment,
+                      expression: "newComment"
+                    }
+                  ],
+                  staticClass: "form-control input",
+                  attrs: {
+                    type: "text",
+                    id: "comment",
+                    placeholder: "comment"
+                  },
+                  domProps: { value: _vm.newComment },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.newComment = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                !!_vm.error
+                  ? _c("div", { staticClass: "error-div" }, [
+                      _vm._v("An Error has occured, please try again.")
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "button", on: { click: _vm.createComment } },
+                [_vm._v("Add Comment")]
+              )
+            ])
+          ])
         ])
       : _vm._e(),
     _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass: "card col-lg-12 single-post bg-3",
-        staticStyle: { "max-width": "1000px" }
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "card-body" },
-          [
-            _c("h1", { staticClass: "card-title post-text" }, [
-              _vm._v("Comments")
-            ]),
-            _vm._v(" "),
-            _vm._l(_vm.comments, function(comment) {
-              return _c("div", [
-                _c("hr", { staticClass: "solid" }),
-                _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-lg-10" }, [
-                    _c(
-                      "div",
-                      { staticClass: "row d-flex align-items-center" },
-                      [
-                        _c("img", {
-                          staticClass: "comment-profile-image",
-                          staticStyle: { "margin-right": "4px" },
-                          attrs: { src: comment.image }
-                        }),
-                        _vm._v(" "),
-                        _c("h1", { staticClass: "post-text" }, [
-                          _vm._v(_vm._s(comment.name))
-                        ])
-                      ]
-                    ),
+    _c("div", { staticClass: "card col-lg-12 single-post bg-3" }, [
+      _c(
+        "div",
+        { staticClass: "card-body" },
+        [
+          _c("h1", { staticClass: "card-title post-text" }, [
+            _vm._v("Comments")
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.comments, function(comment) {
+            return _c("div", [
+              _c("hr", { staticClass: "solid" }),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-lg-10" }, [
+                  _c("div", { staticClass: "row d-flex align-items-center" }, [
+                    _c("img", {
+                      staticClass: "comment-profile-image",
+                      staticStyle: { "margin-right": "4px" },
+                      attrs: { src: comment.image }
+                    }),
                     _vm._v(" "),
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col" }, [
-                        _c("h2", { staticClass: "card-text comment-text" }, [
-                          _vm._v(_vm._s(comment.comment))
-                        ])
-                      ])
+                    _c("h1", { staticClass: "post-text" }, [
+                      _vm._v(_vm._s(comment.name))
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-2" }, [
-                    _vm.loggedin && comment.profile_id == _vm.profileid
-                      ? _c("div", [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col" }, [
+                      _c("h2", { staticClass: "card-text comment-text" }, [
+                        _vm._v(_vm._s(comment.comment))
+                      ])
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-2" }, [
+                  _vm.loggedin && comment.profile_id == _vm.profileid
+                    ? _c("div", [
+                        _c("div", { staticClass: "d-flex flex-row-reverse" }, [
                           _c(
-                            "div",
-                            { staticClass: "d-flex flex-row-reverse" },
+                            "form",
+                            {
+                              attrs: {
+                                method: "GET",
+                                action: _vm.commenturl + comment.id
+                              }
+                            },
                             [
-                              _c(
-                                "form",
-                                {
-                                  attrs: {
-                                    method: "GET",
-                                    action: _vm.commenturl + comment.id
-                                  }
-                                },
-                                [
-                                  _c("button", { staticClass: "button" }, [
-                                    _vm._v("Edit")
-                                  ])
-                                ]
-                              )
+                              _c("button", { staticClass: "button" }, [
+                                _vm._v("Edit")
+                              ])
                             ]
                           )
                         ])
-                      : _vm._e()
-                  ])
+                      ])
+                    : _vm._e()
                 ])
               ])
-            })
-          ],
-          2
-        )
-      ]
-    )
+            ])
+          })
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = []
