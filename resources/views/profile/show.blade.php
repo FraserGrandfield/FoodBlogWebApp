@@ -47,11 +47,10 @@
                         </div>
                 </div>
             @endforeach
+            <div class="d-flex justify-content-center" style="margin-top: 20px">
+                {{ $posts->links() }}
+            </div>
         </div>
-    </div>
-
-    <div style="margin-top: 20px">
-        {{ $posts->links() }}
     </div>
 
 @endsection
