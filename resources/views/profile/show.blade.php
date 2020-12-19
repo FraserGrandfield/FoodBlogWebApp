@@ -44,7 +44,7 @@
                                 </div>      
                             </div>
                         </div>
-                        </div>
+                    </div>
                 </div>
             @endforeach
             <div class="d-flex justify-content-center" style="margin-top: 20px">

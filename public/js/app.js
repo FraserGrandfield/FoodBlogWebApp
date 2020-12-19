@@ -3917,6 +3917,167 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCreateComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PostCreateComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      ingrediants: [],
+      addIngredientsInput: '',
+      spicy: false,
+      glutenFree: false,
+      vegitarian: false,
+      vegan: false,
+      lowCalories: false,
+      error: ''
+    };
+  },
+  mounted: function mounted() {},
+  methods: {
+    addIngredient: function addIngredient() {
+      if (this.addIngredientsInput == '') {
+        this.error = "Ingrediant cannot be blank.";
+      } else {
+        this.error = '';
+        var item = [this.addIngredientsInput];
+
+        if (this.spicy) {
+          item.push('Spicy');
+        }
+
+        if (this.glutenFree) {
+          item.push('Gluten Free');
+        }
+
+        if (this.vegitarian) {
+          item.push('Vegitarian');
+        }
+
+        if (this.vegan) {
+          item.push('Vegan');
+        }
+
+        if (this.lowCalories) {
+          item.push('Low Calories');
+        }
+
+        this.ingrediants.push(item);
+        this.addIngredientsInput = '';
+        this.spicy = false;
+        this.glutenFree = false;
+        this.vegitarian = false;
+        this.vegan = false;
+        this.lowCalories = false;
+      }
+    },
+    deleteChip: function deleteChip(i) {
+      this.ingrediants.splice(i, 1);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/lodash/lodash.js":
 /*!***************************************!*\
   !*** ./node_modules/lodash/lodash.js ***!
@@ -21694,6 +21855,546 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCreateComponent.vue?vue&type=template&id=61862ff4&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PostCreateComponent.vue?vue&type=template&id=61862ff4& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "d-flex justify-content-center container",
+        staticStyle: { height: "100%" }
+      },
+      [
+        _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "card col-lg-12 single-post bg-3" }, [
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "row d-flex justify-content-center" }, [
+                _c("div", { staticClass: "col" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("hr", { staticClass: "solid" }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "form-text",
+                        attrs: { for: "ingredient" }
+                      },
+                      [_vm._v("Ingredient")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "row d-flex align-items-center" },
+                      [
+                        _c("div", { staticClass: "col-lg-9" }, [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.addIngredientsInput,
+                                expression: "addIngredientsInput"
+                              }
+                            ],
+                            staticClass: "form-control input",
+                            attrs: {
+                              type: "text",
+                              placeholder: "Ingredient",
+                              name: "ingredient"
+                            },
+                            domProps: { value: _vm.addIngredientsInput },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.addIngredientsInput = $event.target.value
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          !!_vm.error
+                            ? _c("div", { staticClass: "error-div" }, [
+                                _vm._v(_vm._s(_vm.error))
+                              ])
+                            : _vm._e()
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-lg-3" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "button",
+                              attrs: { type: "buton" },
+                              on: { click: _vm.addIngredient }
+                            },
+                            [_vm._v("Add Ingredient")]
+                          )
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "d-flex" }, [
+                      _c("div", [
+                        _c(
+                          "label",
+                          {
+                            staticStyle: { color: "black" },
+                            attrs: { for: "spicy" }
+                          },
+                          [_vm._v("Spicy")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.spicy,
+                              expression: "spicy"
+                            }
+                          ],
+                          staticStyle: { "margin-end": "10px" },
+                          attrs: {
+                            type: "checkbox",
+                            id: "spicy",
+                            name: "spicy"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.spicy)
+                              ? _vm._i(_vm.spicy, null) > -1
+                              : _vm.spicy
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.spicy,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.spicy = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.spicy = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.spicy = $$c
+                              }
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c(
+                          "label",
+                          {
+                            staticStyle: { color: "black" },
+                            attrs: { for: "glutenFree" }
+                          },
+                          [_vm._v("Gluten Free")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.glutenFree,
+                              expression: "glutenFree"
+                            }
+                          ],
+                          staticStyle: { "margin-end": "10px" },
+                          attrs: {
+                            type: "checkbox",
+                            id: "glutenFree",
+                            name: "glutenFree"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.glutenFree)
+                              ? _vm._i(_vm.glutenFree, null) > -1
+                              : _vm.glutenFree
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.glutenFree,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.glutenFree = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.glutenFree = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.glutenFree = $$c
+                              }
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c(
+                          "label",
+                          {
+                            staticStyle: { color: "black" },
+                            attrs: { for: "vegitarian" }
+                          },
+                          [_vm._v("Vegitarian")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.vegitarian,
+                              expression: "vegitarian"
+                            }
+                          ],
+                          staticStyle: { "margin-end": "10px" },
+                          attrs: {
+                            type: "checkbox",
+                            id: "vegitarian",
+                            name: "vegitarian"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.vegitarian)
+                              ? _vm._i(_vm.vegitarian, null) > -1
+                              : _vm.vegitarian
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.vegitarian,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.vegitarian = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.vegitarian = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.vegitarian = $$c
+                              }
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c(
+                          "label",
+                          {
+                            staticStyle: { color: "black" },
+                            attrs: { for: "vegan" }
+                          },
+                          [_vm._v("Vegan")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.vegan,
+                              expression: "vegan"
+                            }
+                          ],
+                          staticStyle: { "margin-end": "10px" },
+                          attrs: {
+                            type: "checkbox",
+                            id: "vegan",
+                            name: "vegan"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.vegan)
+                              ? _vm._i(_vm.vegan, null) > -1
+                              : _vm.vegan
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.vegan,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.vegan = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.vegan = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.vegan = $$c
+                              }
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c(
+                          "label",
+                          {
+                            staticStyle: { color: "black" },
+                            attrs: { for: "lowCalories" }
+                          },
+                          [_vm._v("Low Calories")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.lowCalories,
+                              expression: "lowCalories"
+                            }
+                          ],
+                          staticStyle: { "margin-end": "10px" },
+                          attrs: {
+                            type: "checkbox",
+                            id: "lowCalories",
+                            name: "lowCalories"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.lowCalories)
+                              ? _vm._i(_vm.lowCalories, null) > -1
+                              : _vm.lowCalories
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.lowCalories,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.lowCalories = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.lowCalories = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.lowCalories = $$c
+                              }
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "chips-container" },
+                    _vm._l(_vm.ingrediants, function(ingrediant, i) {
+                      return _c("div", { staticClass: "chip" }, [
+                        _vm._v(
+                          "\n                                " +
+                            _vm._s(ingrediant[0]) +
+                            "\n                                "
+                        ),
+                        ingrediant.length > 1
+                          ? _c("div", [
+                              _c(
+                                "i",
+                                { staticClass: "info-icon material-icons" },
+                                [_vm._v("info")]
+                              ),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "tool-tip-text" }, [
+                                _vm._v(
+                                  "\n                                        Tags:\n                                        "
+                                ),
+                                _c(
+                                  "ul",
+                                  _vm._l(ingrediant, function(tag, j) {
+                                    return _c("div", [
+                                      j !== 0
+                                        ? _c("div", [
+                                            _c("li", [_vm._v(_vm._s(tag))])
+                                          ])
+                                        : _vm._e()
+                                    ])
+                                  }),
+                                  0
+                                )
+                              ])
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "i",
+                          {
+                            staticClass: "material-icons delete-ingrediant",
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteChip(i)
+                              }
+                            }
+                          },
+                          [_vm._v("clear")]
+                        )
+                      ])
+                    }),
+                    0
+                  ),
+                  _vm._v(" "),
+                  _vm._m(3),
+                  _vm._v(" "),
+                  _c("hr", { staticClass: "solid" }),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    { staticClass: "button", attrs: { type: "submit" } },
+                    [_vm._v("Submit")]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ])
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { staticClass: "form-text", attrs: { for: "title" } }, [
+        _vm._v("Title")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control input",
+        attrs: {
+          type: "text",
+          id: "title",
+          "aria-describedby": "emailHelp",
+          placeholder: "Title",
+          name: "title"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("hr", { staticClass: "solid" }),
+      _vm._v(" "),
+      _c("label", { staticClass: "form-text", attrs: { for: "time_hours" } }, [
+        _vm._v("Time to cook in minuites")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control input",
+        attrs: {
+          type: "number",
+          id: "time_hours",
+          placeholder: "Hours",
+          name: "time_hours"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("hr", { staticClass: "solid" }),
+      _vm._v(" "),
+      _c("label", { staticClass: "form-text", attrs: { for: "image" } }, [
+        _vm._v("Image")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control input",
+        attrs: { type: "file", id: "image", name: "image" }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("hr", { staticClass: "solid" }),
+      _vm._v(" "),
+      _c(
+        "label",
+        { staticClass: "form-text", attrs: { for: "instructions" } },
+        [_vm._v("Instructions")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control input",
+        attrs: {
+          type: "text",
+          id: "instructions",
+          placeholder: "Instructions",
+          name: "instructions"
+        }
+      })
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -33880,6 +34581,7 @@ __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+Vue.component('post-create-component', __webpack_require__(/*! ./components/PostCreateComponent.vue */ "./resources/js/components/PostCreateComponent.vue")["default"]);
 var app = new Vue({
   el: '#app'
 });
@@ -33982,6 +34684,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/PostCreateComponent.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/PostCreateComponent.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PostCreateComponent_vue_vue_type_template_id_61862ff4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PostCreateComponent.vue?vue&type=template&id=61862ff4& */ "./resources/js/components/PostCreateComponent.vue?vue&type=template&id=61862ff4&");
+/* harmony import */ var _PostCreateComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PostCreateComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/PostCreateComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PostCreateComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PostCreateComponent_vue_vue_type_template_id_61862ff4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PostCreateComponent_vue_vue_type_template_id_61862ff4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/PostCreateComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/PostCreateComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/PostCreateComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCreateComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PostCreateComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCreateComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCreateComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/PostCreateComponent.vue?vue&type=template&id=61862ff4&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/PostCreateComponent.vue?vue&type=template&id=61862ff4& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCreateComponent_vue_vue_type_template_id_61862ff4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PostCreateComponent.vue?vue&type=template&id=61862ff4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PostCreateComponent.vue?vue&type=template&id=61862ff4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCreateComponent_vue_vue_type_template_id_61862ff4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostCreateComponent_vue_vue_type_template_id_61862ff4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

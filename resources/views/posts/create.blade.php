@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="d-flex justify-content-center container" style="height: 100%">
+    {{-- <div class="d-flex justify-content-center container" style="height: 100%">
         <div class="col">
             <div class="card col-lg-12 single-post bg-3">
                 <div class="card-body">
@@ -49,6 +49,9 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+    <div id="app">
+        <post-create-component></example-component>
     </div>
 
 @endsection

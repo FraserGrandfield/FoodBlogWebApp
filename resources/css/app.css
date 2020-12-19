@@ -168,7 +168,7 @@ h2 {
     font-family: "Times New Roman", Times, serif;
     background-color: #F4F4F4;
     border: 2px solid #B5838D;
-    border-radius: 13px
+    border-radius: 13px;
 }
 
 .input:focus {
@@ -182,4 +182,58 @@ hr.solid {
 
 .comment-text {
     margin-top: 10px;
+}
+
+.chips-container {
+    background-color: #F4F4F4;
+    border: 2px solid #B5838D;
+    border-radius: 13px;
+    min-height: 38px;
+    display:flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.chip {
+    font-family: "Times New Roman", Times, serif;
+    margin:4px;
+    background: #FFCDB2;
+    padding:0px 4px;
+    color: #000000;
+    border-radius: 13px;
+    border: 0;
+    display:flex;
+    align-items: center;
+}
+
+.delete-ingrediant {
+    cursor: pointer;
+    opacity: .8;
+    margin-left: 5px;
+}
+
+.info-icon {
+    cursor: pointer;
+    margin-left: 5px;
+    opacity: .8;
+    display:flex;
+    align-self: center;
+}
+
+.tool-tip-text {
+visibility: hidden;
+background-color: #B5838D;
+color: #000000;
+border-radius: 3px;
+padding: 5px 5px;
+
+/* Position the tooltip */
+position: absolute;
+z-index: 1;
+
+margin-bottom: 80px;
+}
+
+.info-icon:hover + .tool-tip-text {
+visibility: visible;
 }
