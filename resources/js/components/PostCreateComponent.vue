@@ -78,7 +78,8 @@
                             <div class="form-group">
                                 <hr class="solid">
                                 <label for="instructions" class="form-text">Instructions</label>
-                                <input type="text" class="form-control input" id="instructions" placeholder="Instructions" name="instructions"  v-model="instructions">
+                                <textarea class="form-control input" id="instructions" name="instructions" rows="3" v-model="instructions">
+                                </textarea>
                             </div>
                             <hr class="solid">
                             <button type="button" class="button" @click="createPost">Submit</button>

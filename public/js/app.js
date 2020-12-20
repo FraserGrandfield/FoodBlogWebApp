@@ -4019,6 +4019,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -22403,7 +22404,7 @@ var render = function() {
                       [_vm._v("Instructions")]
                     ),
                     _vm._v(" "),
-                    _c("input", {
+                    _c("textarea", {
                       directives: [
                         {
                           name: "model",
@@ -22414,10 +22415,9 @@ var render = function() {
                       ],
                       staticClass: "form-control input",
                       attrs: {
-                        type: "text",
                         id: "instructions",
-                        placeholder: "Instructions",
-                        name: "instructions"
+                        name: "instructions",
+                        rows: "3"
                       },
                       domProps: { value: _vm.instructions },
                       on: {

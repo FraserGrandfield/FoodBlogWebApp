@@ -34,7 +34,7 @@
                         </div>
                         <div class="col-lg-5 post-info bg-1">
                             <h1 class="d-flex justify-content-center">Instructions</h1>
-                            <h2 class="card-text post-text">{{ $post->instructions }}</h2>
+                            <h2 class="card-text post-text" style="white-space: pre-wrap;">{{ $post->instructions }}</h2>
                         </div>
                     </div>
                     <div class="row d-flex align-items-center no-gutters">
