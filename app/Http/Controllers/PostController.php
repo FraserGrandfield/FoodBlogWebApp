@@ -45,6 +45,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $request['data'] = json_decode($request['data']);
+        $request['tags'] = json_decode($request['tags']);
 
         $validatedData = $request->validate([
             'title' => 'required|max:100',
@@ -82,6 +83,12 @@ class PostController extends Controller
 
         }
 
+        $tags = $request['tags']->tags;
+        foreach ($tags as $tag) { 
+            $tag = Tag::where('name', $tag)->first();
+            $post->tags()->attach($tag->id);
+        }
+
         return redirect(RouteServiceProvider::HOME);
     }
 
@@ -98,6 +105,13 @@ class PostController extends Controller
 
         $ingredients = $post->ingredients;
 
+        $tags = $post->tags;
+        $postTags = '';
+        foreach ($tags as $tag) {
+            $postTags = $postTags . $tag->name . ', ';
+        }
+        $postTags = rtrim($postTags, ", ");
+        
         if ($user === null) {
             $loggedIn = false;
             $profileId = null;
@@ -105,7 +119,7 @@ class PostController extends Controller
             $profileId = $user->profile->id;
             $loggedIn = true;
         }
-        return view('posts.show', ['post' => $post, 'profileId' => $profileId, 'loggedIn' => $loggedIn, 'ingredients' => $ingredients]);
+        return view('posts.show', ['post' => $post, 'profileId' => $profileId, 'loggedIn' => $loggedIn, 'ingredients' => $ingredients, 'postTags' => $postTags]);
     }
 
     /**

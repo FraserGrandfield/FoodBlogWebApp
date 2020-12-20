@@ -4020,6 +4020,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4034,6 +4060,11 @@ __webpack_require__.r(__webpack_exports__);
       vegitarian: false,
       vegan: false,
       lowCalories: false,
+      spicyPost: false,
+      glutenFreePost: false,
+      vegitarianPost: false,
+      veganPost: false,
+      lowCaloriesPost: false,
       error: ''
     };
   },
@@ -4084,6 +4115,32 @@ __webpack_require__.r(__webpack_exports__);
       data.append('title', this.title);
       data.append('cook_time', this.cookTime);
       data.append('instructions', this.instructions);
+      var item = [];
+
+      if (this.spicyPost) {
+        item.push('Spicy');
+      }
+
+      if (this.glutenFreePost) {
+        item.push('Gluten Free');
+      }
+
+      if (this.vegitarianPost) {
+        item.push('Vegitarian');
+      }
+
+      if (this.veganPost) {
+        item.push('Vegan');
+      }
+
+      if (this.lowCaloriesPost) {
+        item.push('Low Calories');
+      }
+
+      var jsonPostTags = JSON.stringify({
+        tags: item
+      });
+      data.append('tags', jsonPostTags);
       var json = JSON.stringify({
         ingredients: this.ingredients
       });
@@ -22342,9 +22399,9 @@ var render = function() {
                     _vm._l(_vm.ingredients, function(ingredient, i) {
                       return _c("div", { staticClass: "chip" }, [
                         _vm._v(
-                          "\n                                " +
+                          "\n                                    " +
                             _vm._s(ingredient[0]) +
-                            "\n                                "
+                            "\n                                    "
                         ),
                         ingredient.length > 1
                           ? _c("div", [
@@ -22356,7 +22413,7 @@ var render = function() {
                               _vm._v(" "),
                               _c("span", { staticClass: "tool-tip-text" }, [
                                 _vm._v(
-                                  "\n                                        Tags:\n                                        "
+                                  "\n                                            Tags:\n                                            "
                                 ),
                                 _c(
                                   "ul",
@@ -22429,6 +22486,285 @@ var render = function() {
                         }
                       }
                     })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("hr", { staticClass: "solid" }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "d-flex" }, [
+                      _c("div", [
+                        _c(
+                          "label",
+                          {
+                            staticStyle: { color: "black" },
+                            attrs: { for: "spicy" }
+                          },
+                          [_vm._v("Spicy")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.spicyPost,
+                              expression: "spicyPost"
+                            }
+                          ],
+                          staticStyle: { "margin-end": "10px" },
+                          attrs: {
+                            type: "checkbox",
+                            id: "spicy",
+                            name: "spicy"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.spicyPost)
+                              ? _vm._i(_vm.spicyPost, null) > -1
+                              : _vm.spicyPost
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.spicyPost,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.spicyPost = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.spicyPost = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.spicyPost = $$c
+                              }
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c(
+                          "label",
+                          {
+                            staticStyle: { color: "black" },
+                            attrs: { for: "glutenFree" }
+                          },
+                          [_vm._v("Gluten Free")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.glutenFreePost,
+                              expression: "glutenFreePost"
+                            }
+                          ],
+                          staticStyle: { "margin-end": "10px" },
+                          attrs: {
+                            type: "checkbox",
+                            id: "glutenFree",
+                            name: "glutenFree"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.glutenFreePost)
+                              ? _vm._i(_vm.glutenFreePost, null) > -1
+                              : _vm.glutenFreePost
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.glutenFreePost,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.glutenFreePost = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.glutenFreePost = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.glutenFreePost = $$c
+                              }
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c(
+                          "label",
+                          {
+                            staticStyle: { color: "black" },
+                            attrs: { for: "vegitarian" }
+                          },
+                          [_vm._v("Vegitarian")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.vegitarianPost,
+                              expression: "vegitarianPost"
+                            }
+                          ],
+                          staticStyle: { "margin-end": "10px" },
+                          attrs: {
+                            type: "checkbox",
+                            id: "vegitarian",
+                            name: "vegitarian"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.vegitarianPost)
+                              ? _vm._i(_vm.vegitarianPost, null) > -1
+                              : _vm.vegitarianPost
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.vegitarianPost,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.vegitarianPost = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.vegitarianPost = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.vegitarianPost = $$c
+                              }
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c(
+                          "label",
+                          {
+                            staticStyle: { color: "black" },
+                            attrs: { for: "vegan" }
+                          },
+                          [_vm._v("Vegan")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.veganPost,
+                              expression: "veganPost"
+                            }
+                          ],
+                          staticStyle: { "margin-end": "10px" },
+                          attrs: {
+                            type: "checkbox",
+                            id: "vegan",
+                            name: "vegan"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.veganPost)
+                              ? _vm._i(_vm.veganPost, null) > -1
+                              : _vm.veganPost
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.veganPost,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 && (_vm.veganPost = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.veganPost = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.veganPost = $$c
+                              }
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", [
+                        _c(
+                          "label",
+                          {
+                            staticStyle: { color: "black" },
+                            attrs: { for: "lowCalories" }
+                          },
+                          [_vm._v("Low Calories")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.lowCaloriesPost,
+                              expression: "lowCaloriesPost"
+                            }
+                          ],
+                          staticStyle: { "margin-end": "10px" },
+                          attrs: {
+                            type: "checkbox",
+                            id: "lowCalories",
+                            name: "lowCalories"
+                          },
+                          domProps: {
+                            checked: Array.isArray(_vm.lowCaloriesPost)
+                              ? _vm._i(_vm.lowCaloriesPost, null) > -1
+                              : _vm.lowCaloriesPost
+                          },
+                          on: {
+                            change: function($event) {
+                              var $$a = _vm.lowCaloriesPost,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    (_vm.lowCaloriesPost = $$a.concat([$$v]))
+                                } else {
+                                  $$i > -1 &&
+                                    (_vm.lowCaloriesPost = $$a
+                                      .slice(0, $$i)
+                                      .concat($$a.slice($$i + 1)))
+                                }
+                              } else {
+                                _vm.lowCaloriesPost = $$c
+                              }
+                            }
+                          }
+                        })
+                      ])
+                    ])
                   ]),
                   _vm._v(" "),
                   _c("hr", { staticClass: "solid" }),
