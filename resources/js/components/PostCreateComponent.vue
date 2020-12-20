@@ -156,7 +156,9 @@
             addIngredient: function() {
                 
                 if (this.addIngredientsInput == '') {
-                    this.error = "Ingrediant cannot be blank.";
+                    this.errors = [["Ingredient cannot be blank"]];
+                } else if (this.addIngredientsInput.length > 40){
+                    this.errors = [["Ingredient length is too long"]];
                 } else {
                     this.error = '';
                     var item = [this.addIngredientsInput];
