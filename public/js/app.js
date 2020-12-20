@@ -4151,10 +4151,16 @@ __webpack_require__.r(__webpack_exports__);
         tags: item
       });
       data.append('tags', jsonPostTags);
-      var json = JSON.stringify({
-        ingredients: this.ingredients
-      });
-      data.append('data', json);
+
+      if (this.ingredients.length > 0) {
+        var json = JSON.stringify({
+          ingredients: this.ingredients
+        });
+        data.append('ingredients', json);
+      } else {
+        data.append('ingredients', null);
+      }
+
       axios.post('/posts', data).then(function (response) {
         window.location.replace('/posts');
       })["catch"](function (error) {

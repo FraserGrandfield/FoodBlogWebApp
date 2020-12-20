@@ -219,10 +219,14 @@
                     tags: item,
                 });
                 data.append('tags', jsonPostTags);
-                const json = JSON.stringify({
-                    ingredients: this.ingredients,
-                });
-                data.append('data', json);
+                if (this.ingredients.length > 0) {
+                    const json = JSON.stringify({
+                        ingredients: this.ingredients,
+                    });
+                    data.append('ingredients', json);
+                } else {
+                    data.append('ingredients', null);
+                }
                 axios.post('/posts', data)
                 .then (response => {
                     window.location.replace('/posts');

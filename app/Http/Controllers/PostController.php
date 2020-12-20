@@ -44,7 +44,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $request['data'] = json_decode($request['data']);
+        $request['ingredients'] = json_decode($request['ingredients']);
         $request['tags'] = json_decode($request['tags']);
 
         $validatedData = $request->validate([
@@ -52,7 +52,7 @@ class PostController extends Controller
             'instructions' => 'required|max:5000',
             'cook_time' => 'required|integer',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'data' => 'required',
+            'ingredients' => 'required',
         ]);
         $user = Auth::user();
 
@@ -70,7 +70,7 @@ class PostController extends Controller
 
         $post->save();
 
-        $ingredients = $request['data']->ingredients;
+        $ingredients = $request['ingredients']->ingredients;
 
         foreach ($ingredients as $ing) {
             $ingredient = new Ingredient;
