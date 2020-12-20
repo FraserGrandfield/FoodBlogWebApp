@@ -6,7 +6,7 @@
                     <div class="form-group">
                         <label for="comment" class="form-text">Comment</label>
                         <input type="text" class="form-control input" id="comment" placeholder="comment" v-model="newComment">
-                        <div v-if="!!error" class="error-div">An Error has occured, please try again.</div>
+                        <div v-if="!!error" class="error-div">{{ error.comment[0] }}</div>
                     </div>
                     <button @click="createComment" class="button">Add Comment</button>
                 </div>
@@ -76,11 +76,11 @@
                 .then(response => {
                     this.comments.push(response.data);
                     this.newComment = '';
-                    this.error = false;
+                    this.error = '';
+                    
                 })
-                .catch(response => {
-                    console.log(response);
-                    this.error = true;
+                .catch(error => {
+                    this.error = error.response.data.errors;
                 })
             }
         },

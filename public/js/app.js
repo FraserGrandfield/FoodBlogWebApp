@@ -3906,10 +3906,9 @@ __webpack_require__.r(__webpack_exports__);
         _this2.comments.push(response.data);
 
         _this2.newComment = '';
-        _this2.error = false;
-      })["catch"](function (response) {
-        console.log(response);
-        _this2.error = true;
+        _this2.error = '';
+      })["catch"](function (error) {
+        _this2.error = error.response.data.errors;
       });
     }
   }
@@ -21865,7 +21864,7 @@ var render = function() {
                 _vm._v(" "),
                 !!_vm.error
                   ? _c("div", { staticClass: "error-div" }, [
-                      _vm._v("An Error has occured, please try again.")
+                      _vm._v(_vm._s(_vm.error.comment[0]))
                     ])
                   : _vm._e()
               ]),
