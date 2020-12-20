@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Ingredient;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
@@ -42,27 +44,22 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $request['data'] = json_decode($request['data']);
 
         $validatedData = $request->validate([
             'title' => 'required|max:100',
-            'ingredients' => 'required',
-            'instructions' => 'required',
-            'time_hours' => 'required',
-            'time_mins' => 'required',
+            'instructions' => 'required|max:5000',
+            'cook_time' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
-
         $user = Auth::user();
 
         $post = new Post;
-
         $post->title = $validatedData['title'];
-        $post->ingredients = $validatedData['ingredients'];
         $post->instructions = $validatedData['instructions'];
         $post->profile_id = $user->profile->id;
-        $post->cook_time_hours = $validatedData['time_hours'];
-        $post->cook_time_mins = $validatedData['time_mins'];
-
+        $post->cook_time = $validatedData['cook_time'];
+        
         $image = $validatedData['image'];
         $imageName = time().'.'.$image->extension();  
         $image->move(public_path('images'), $imageName);
@@ -70,6 +67,16 @@ class PostController extends Controller
         $post->image = $imageName;
 
         $post->save();
+
+        $ingredients = $request['data']->ingredients;
+
+        foreach ($ingredients as $ing) {
+            $ingredient = new Ingredient;
+            $ingredient->ingredient = $ing[0];
+            $ingredient->post_id = $post->id;
+            $ingredient->save();
+        }
+
         return redirect(RouteServiceProvider::HOME);
     }
 
@@ -83,6 +90,9 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $user = Auth::user();
+
+        $ingredients = $post->ingredients;
+
         if ($user === null) {
             $loggedIn = false;
             $profileId = null;
@@ -90,7 +100,7 @@ class PostController extends Controller
             $profileId = $user->profile->id;
             $loggedIn = true;
         }
-        return view('posts.show', ['post' => $post, 'profileId' => $profileId, 'loggedIn' => $loggedIn]);
+        return view('posts.show', ['post' => $post, 'profileId' => $profileId, 'loggedIn' => $loggedIn, 'ingredients' => $ingredients]);
     }
 
     /**

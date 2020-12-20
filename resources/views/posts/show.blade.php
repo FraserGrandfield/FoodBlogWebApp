@@ -14,7 +14,7 @@
                     </div>
                     <div class="col-lg-6">
                         <h1 class="card-title post-text" style="margin-top: 10px">{{ $post->title }}</h1>
-                        <h2 class="card-text post-text">Hours: {{ $post->cook_time_hours }} Mins: {{ $post->cook_time_mins }}</h2>
+                        <h2 class="card-text post-text">Hours: {{ $post->cook_time }}</h2>
                         @if(Auth::id() === $post->profile->user->id)
                             <form method="GET" action="{{ route('posts.edit', ['id' => $post->id]) }}">
                                 <button type="submit" class="button">Edit</button>
@@ -26,7 +26,11 @@
                     <div class="row d-flex justify-content-around">
                         <div class="col-lg-5 post-info bg-1">
                             <h1 class="d-flex justify-content-center">Ingredients</h1>
-                                <h2 class="card-text post-text">{{ $post->ingredients }}</h2>
+                            <ul>
+                                @foreach ($ingredients as $ingredient)
+                                    <li class="ingredients-text">{{ $ingredient->ingredient }}</li>
+                                @endforeach
+                            </ul>
                         </div>
                         <div class="col-lg-5 post-info bg-1">
                             <h1 class="d-flex justify-content-center">Instructions</h1>

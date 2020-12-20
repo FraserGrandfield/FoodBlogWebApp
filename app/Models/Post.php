@@ -12,9 +12,7 @@ class Post extends Model
     protected $fillable = [
         'title',
         'image',
-        'cook_time_hours',
-        'cook_time_mins',
-        'ingredients',
+        'cook_time',
         'instructions',
     ];
 
@@ -30,6 +28,11 @@ class Post extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class);
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
+
+    public function ingredients()
+    {
+        return $this->hasMany(Ingredient::class);
     }
 }

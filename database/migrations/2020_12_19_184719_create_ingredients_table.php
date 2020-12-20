@@ -16,6 +16,11 @@ class CreateIngredientsTable extends Migration
         Schema::create('ingredients', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('ingredient');
+            $table->foreignId('post_id')
+            ->constrained()
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 

@@ -24,8 +24,23 @@ class ProfileTableSeeder extends Seeder
         //     'profile_picture' => "profilePicutre",
 
         // ]);
+        DB::table('tag')->insert([
+            'name' => 'spicy'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'glutenFree'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'vegitarian'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'vegan'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'lowCalories'
+        ]);
 
-        $profile = Profile::factory()->count(10)->hasPosts(3)->create();
+        $profile = Profile::factory()->times(10)->hasPosts(3)->create();
 
     }
 }

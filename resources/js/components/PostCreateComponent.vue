@@ -8,17 +8,17 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="title" class="form-text">Title</label>
-                                <input type="text" class="form-control input" id="title" aria-describedby="emailHelp" placeholder="Title" name="title">
+                                <input type="text" class="form-control input" id="title" aria-describedby="emailHelp" placeholder="Title" name="title" v-model="title">
                             </div>
                             <div class="form-group">
                                 <hr class="solid">
                                 <label for="time_hours" class="form-text">Time to cook in minuites</label>
-                                <input type="number" class="form-control input" id="time_hours" placeholder="Hours" name="time_hours">
+                                <input type="number" class="form-control input" id="time_hours" placeholder="Mins" name="time_hours" v-model="cookTime">
                             </div>
                             <div class="form-group">
                                 <hr class="solid">
                                 <label for="image" class="form-text">Image</label>
-                                <input type="file" class="form-control input" id="image" name="image">
+                                <input type="file" class="form-control input" id="image" name="image" @change="selectFile">
                             </div>
                             <div class="form-group">
                                 <hr class="solid">
@@ -57,14 +57,14 @@
                                 </div>
                             </div>
                             <div class="chips-container">
-                                <div v-for="(ingrediant, i) of ingrediants" class="chip">
-                                    {{ ingrediant[0] }}
-                                    <div v-if="ingrediant.length > 1">
+                                <div v-for="(ingredient, i) of ingredients" class="chip">
+                                    {{ ingredient[0] }}
+                                    <div v-if="ingredient.length > 1">
                                         <i class="info-icon material-icons">info</i>
                                         <span class="tool-tip-text">
                                             Tags:
                                             <ul>
-                                                <div v-for="(tag, j) of ingrediant">
+                                                <div v-for="(tag, j) of ingredient">
                                                     <div v-if="j !== 0">
                                                         <li>{{tag}}</li>
                                                     </div>
@@ -78,10 +78,10 @@
                             <div class="form-group">
                                 <hr class="solid">
                                 <label for="instructions" class="form-text">Instructions</label>
-                                <input type="text" class="form-control input" id="instructions" placeholder="Instructions" name="instructions">
+                                <input type="text" class="form-control input" id="instructions" placeholder="Instructions" name="instructions"  v-model="instructions">
                             </div>
                             <hr class="solid">
-                            <button type="submit" class="button">Submit</button>
+                            <button type="button" class="button" @click="createPost">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,11 @@
     export default {
         data: function() {
             return {
-                ingrediants: [],
+                title: '',
+                cookTime: 0,
+                image: null,
+                instructions: '',
+                ingredients: [],
                 addIngredientsInput: '',
                 spicy: false,
                 glutenFree: false,
@@ -133,7 +137,7 @@
                         item.push('Low Calories')
                     }
                     
-                    this.ingrediants.push(item);
+                    this.ingredients.push(item);
 
                     this.addIngredientsInput = '';
                     this.spicy = false;
@@ -146,6 +150,23 @@
 
             deleteChip: function(i) {
                 this.ingrediants.splice(i, 1);
+            },
+
+            createPost: function() {
+                const data = new FormData();
+                data.append('image', this.image);
+                data.append('title', this.title);
+                data.append('cook_time', this.cookTime)
+                data.append('instructions', this.instructions);
+                const json = JSON.stringify({
+                    ingredients: this.ingredients,
+                });
+                data.append('data', json);
+                axios.post('/posts', data);
+            },
+            selectFile(event) {
+                // `files` is always an array because the file input may be in multiple mode
+                this.image = event.target.files[0];
             }
         },
     };

@@ -138,6 +138,12 @@ h2 {
     color: #000000;
 }
 
+.ingredients-text {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 21px;
+    color: #000000;
+}
+
 .post-text a, a:hover, a:focus, a:active {
     text-decoration: none;
     color: inherit;

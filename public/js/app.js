@@ -4022,7 +4022,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      ingrediants: [],
+      title: '',
+      cookTime: 0,
+      image: null,
+      instructions: '',
+      ingredients: [],
       addIngredientsInput: '',
       spicy: false,
       glutenFree: false,
@@ -4061,7 +4065,7 @@ __webpack_require__.r(__webpack_exports__);
           item.push('Low Calories');
         }
 
-        this.ingrediants.push(item);
+        this.ingredients.push(item);
         this.addIngredientsInput = '';
         this.spicy = false;
         this.glutenFree = false;
@@ -4072,6 +4076,22 @@ __webpack_require__.r(__webpack_exports__);
     },
     deleteChip: function deleteChip(i) {
       this.ingrediants.splice(i, 1);
+    },
+    createPost: function createPost() {
+      var data = new FormData();
+      data.append('image', this.image);
+      data.append('title', this.title);
+      data.append('cook_time', this.cookTime);
+      data.append('instructions', this.instructions);
+      var json = JSON.stringify({
+        ingredients: this.ingredients
+      });
+      data.append('data', json);
+      axios.post('/posts', data);
+    },
+    selectFile: function selectFile(event) {
+      // `files` is always an array because the file input may be in multiple mode
+      this.image = event.target.files[0];
     }
   }
 });
@@ -21883,11 +21903,97 @@ var render = function() {
             _c("div", { staticClass: "card-body" }, [
               _c("div", { staticClass: "row d-flex justify-content-center" }, [
                 _c("div", { staticClass: "col" }, [
-                  _vm._m(0),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c(
+                      "label",
+                      { staticClass: "form-text", attrs: { for: "title" } },
+                      [_vm._v("Title")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.title,
+                          expression: "title"
+                        }
+                      ],
+                      staticClass: "form-control input",
+                      attrs: {
+                        type: "text",
+                        id: "title",
+                        "aria-describedby": "emailHelp",
+                        placeholder: "Title",
+                        name: "title"
+                      },
+                      domProps: { value: _vm.title },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.title = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
                   _vm._v(" "),
-                  _vm._m(1),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("hr", { staticClass: "solid" }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "form-text",
+                        attrs: { for: "time_hours" }
+                      },
+                      [_vm._v("Time to cook in minuites")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.cookTime,
+                          expression: "cookTime"
+                        }
+                      ],
+                      staticClass: "form-control input",
+                      attrs: {
+                        type: "number",
+                        id: "time_hours",
+                        placeholder: "Mins",
+                        name: "time_hours"
+                      },
+                      domProps: { value: _vm.cookTime },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.cookTime = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
                   _vm._v(" "),
-                  _vm._m(2),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("hr", { staticClass: "solid" }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      { staticClass: "form-text", attrs: { for: "image" } },
+                      [_vm._v("Image")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass: "form-control input",
+                      attrs: { type: "file", id: "image", name: "image" },
+                      on: { change: _vm.selectFile }
+                    })
+                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c("hr", { staticClass: "solid" }),
@@ -22232,14 +22338,14 @@ var render = function() {
                   _c(
                     "div",
                     { staticClass: "chips-container" },
-                    _vm._l(_vm.ingrediants, function(ingrediant, i) {
+                    _vm._l(_vm.ingredients, function(ingredient, i) {
                       return _c("div", { staticClass: "chip" }, [
                         _vm._v(
                           "\n                                " +
-                            _vm._s(ingrediant[0]) +
+                            _vm._s(ingredient[0]) +
                             "\n                                "
                         ),
-                        ingrediant.length > 1
+                        ingredient.length > 1
                           ? _c("div", [
                               _c(
                                 "i",
@@ -22253,7 +22359,7 @@ var render = function() {
                                 ),
                                 _c(
                                   "ul",
-                                  _vm._l(ingrediant, function(tag, j) {
+                                  _vm._l(ingredient, function(tag, j) {
                                     return _c("div", [
                                       j !== 0
                                         ? _c("div", [
@@ -22285,13 +22391,55 @@ var render = function() {
                     0
                   ),
                   _vm._v(" "),
-                  _vm._m(3),
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("hr", { staticClass: "solid" }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "form-text",
+                        attrs: { for: "instructions" }
+                      },
+                      [_vm._v("Instructions")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.instructions,
+                          expression: "instructions"
+                        }
+                      ],
+                      staticClass: "form-control input",
+                      attrs: {
+                        type: "text",
+                        id: "instructions",
+                        placeholder: "Instructions",
+                        name: "instructions"
+                      },
+                      domProps: { value: _vm.instructions },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.instructions = $event.target.value
+                        }
+                      }
+                    })
+                  ]),
                   _vm._v(" "),
                   _c("hr", { staticClass: "solid" }),
                   _vm._v(" "),
                   _c(
                     "button",
-                    { staticClass: "button", attrs: { type: "submit" } },
+                    {
+                      staticClass: "button",
+                      attrs: { type: "button" },
+                      on: { click: _vm.createPost }
+                    },
                     [_vm._v("Submit")]
                   )
                 ])
@@ -22303,92 +22451,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { staticClass: "form-text", attrs: { for: "title" } }, [
-        _vm._v("Title")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control input",
-        attrs: {
-          type: "text",
-          id: "title",
-          "aria-describedby": "emailHelp",
-          placeholder: "Title",
-          name: "title"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("hr", { staticClass: "solid" }),
-      _vm._v(" "),
-      _c("label", { staticClass: "form-text", attrs: { for: "time_hours" } }, [
-        _vm._v("Time to cook in minuites")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control input",
-        attrs: {
-          type: "number",
-          id: "time_hours",
-          placeholder: "Hours",
-          name: "time_hours"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("hr", { staticClass: "solid" }),
-      _vm._v(" "),
-      _c("label", { staticClass: "form-text", attrs: { for: "image" } }, [
-        _vm._v("Image")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control input",
-        attrs: { type: "file", id: "image", name: "image" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("hr", { staticClass: "solid" }),
-      _vm._v(" "),
-      _c(
-        "label",
-        { staticClass: "form-text", attrs: { for: "instructions" } },
-        [_vm._v("Instructions")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control input",
-        attrs: {
-          type: "text",
-          id: "instructions",
-          placeholder: "Instructions",
-          name: "instructions"
-        }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

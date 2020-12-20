@@ -21,9 +21,7 @@ class CreatePostsTable extends Migration
                 ->onUpdate('cascade');
             $table->char('title');
             $table->string('image');
-            $table->integer('cook_time_hours');
-            $table->integer('cook_time_mins');
-            $table->longText('ingredients');
+            $table->integer('cook_time');
             $table->longText('instructions');
             $table->timestamps();
         });
