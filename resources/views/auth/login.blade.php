@@ -75,14 +75,17 @@
                                 <div class="error-div">{{ $errors->first('email') }}</div>
                             </div>
                             <div class="form-group">
+                                <hr class="solid">
                                 <label for="password" class="form-text">Password</label>
                                 <input type="password" class="form-control input" id="password" name='password' placeholder="Password">
                                 <div class="error-div">{{ $errors->first('password') }}</div>
                             </div>
                             <div class="form-check">
+                                <hr class="solid">
                                 <label class="form-text" for="check_box">Remember me</label>
                                 <input type="checkbox" id="check_box" name="remember">
                             </div>
+                            <hr class="solid">
                             <button type="submit" class="button">Login</button>
                         </form>
                     </div>

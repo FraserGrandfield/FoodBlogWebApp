@@ -150,7 +150,7 @@
             },
 
             deleteChip: function(i) {
-                this.ingrediants.splice(i, 1);
+                this.ingredients.splice(i, 1);
             },
 
             createPost: function() {

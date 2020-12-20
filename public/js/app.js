@@ -4076,7 +4076,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     deleteChip: function deleteChip(i) {
-      this.ingrediants.splice(i, 1);
+      this.ingredients.splice(i, 1);
     },
     createPost: function createPost() {
       var data = new FormData();
