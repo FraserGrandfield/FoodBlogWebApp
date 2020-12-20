@@ -28,7 +28,22 @@
                             <h1 class="d-flex justify-content-center">Ingredients</h1>
                             <ul>
                                 @foreach ($ingredients as $ingredient)
-                                    <li class="ingredients-text">{{ $ingredient->ingredient }}</li>
+                                    <div style="display:flex; flex-wrap: wrap; align-content: space-between;">
+                                        <li class="ingredients-text">{{ $ingredient->ingredient }}</li>
+                                        @if (count($ingredient->tags) > 0)
+                                            <div style="display:flex; align-items: center;">
+                                                <i class="info-icon material-icons" style="color: black">info</i>
+                                                <span class="tool-tip-text-post" style='font-family: "Times New Roman", Times, serif;'>
+                                                    Tags:
+                                                    <ul>
+                                                        @foreach ($ingredient->tags as $tag)
+                                                            <li>{{$tag->name}}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </span>
+                                            </div>
+                                        @endif
+                                    </div>
                                 @endforeach
                             </ul>
                         </div>

@@ -241,6 +241,22 @@ hr.solid {
   margin-bottom: 80px;
 }
 
+.tool-tip-text-post {
+  visibility: hidden;
+  background-color: #B5838D;
+  color: #000000;
+  border-radius: 3px;
+  padding: 5px 5px;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  margin-left: 30px;
+}
+
 .info-icon:hover + .tool-tip-text {
+  visibility: visible;
+}
+
+.info-icon:hover + .tool-tip-text-post {
   visibility: visible;
 }

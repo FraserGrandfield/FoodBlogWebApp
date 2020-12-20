@@ -9,7 +9,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Support\Facades\Log;
+use App\Models\Tag;
 
 class PostController extends Controller
 {
@@ -75,6 +75,11 @@ class PostController extends Controller
             $ingredient->ingredient = $ing[0];
             $ingredient->post_id = $post->id;
             $ingredient->save();
+            for ($x = 1; $x <= (count($ing) - 1); $x++) {
+                $tag = Tag::where('name', $ing[$x])->first();
+                $ingredient->tags()->attach($tag->id);
+              }
+
         }
 
         return redirect(RouteServiceProvider::HOME);

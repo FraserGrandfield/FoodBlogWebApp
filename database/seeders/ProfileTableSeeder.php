@@ -24,20 +24,20 @@ class ProfileTableSeeder extends Seeder
         //     'profile_picture' => "profilePicutre",
 
         // ]);
-        DB::table('tag')->insert([
-            'name' => 'spicy'
+        DB::table('tags')->insert([
+            'name' => 'Spicy'
         ]);
-        DB::table('tag')->insert([
-            'name' => 'glutenFree'
+        DB::table('tags')->insert([
+            'name' => 'Gluten Free'
         ]);
-        DB::table('tag')->insert([
-            'name' => 'vegitarian'
+        DB::table('tags')->insert([
+            'name' => 'Vegitarian'
         ]);
-        DB::table('tag')->insert([
-            'name' => 'vegan'
+        DB::table('tags')->insert([
+            'name' => 'Vegan'
         ]);
-        DB::table('tag')->insert([
-            'name' => 'lowCalories'
+        DB::table('tags')->insert([
+            'name' => 'Low Calories'
         ]);
 
         $profile = Profile::factory()->times(10)->hasPosts(3)->create();
