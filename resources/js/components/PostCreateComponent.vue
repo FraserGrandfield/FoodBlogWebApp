@@ -6,6 +6,13 @@
                     <div class="card-body">
                         <div class="row d-flex justify-content-center">
                             <div class="col">
+                                <div v-if="!!errors" class="error-div">
+                                    <ul>
+                                        <div v-for="error in errors" :key="error[0]">
+                                            <li>{{ error[0] }}</li>
+                                        </div>
+                                    </ul>
+                                </div>
                                 <div class="form-group">
                                     <label for="title" class="form-text">Title</label>
                                     <input type="text" class="form-control input" id="title" aria-describedby="emailHelp" placeholder="Title" name="title" v-model="title">
@@ -26,12 +33,12 @@
                                     <div class="row d-flex align-items-center">
                                         <div class="col-lg-9">
                                             <input type="text" class="form-control input" placeholder="Ingredient" name="ingredient" v-model="addIngredientsInput">
-                                            <div v-if="!!error" class="error-div">{{error}}</div>
                                         </div>
                                         <div class="col-lg-3">
                                             <button type="buton" class="button" @click="addIngredient">Add Ingredient</button>
                                         </div>
                                     </div>
+                                    <label for="spicy" class="form-text">Add tags to the ingredient</label>
                                     <div class="d-flex">
                                         <div>
                                             <label for="spicy" style="color: black">Spicy</label>
@@ -56,14 +63,14 @@
                                     </div>
                                 </div>
                                 <div class="chips-container">
-                                    <div v-for="(ingredient, i) of ingredients" class="chip">
+                                    <div v-for="(ingredient, i) of ingredients" class="chip" :key="i">
                                         {{ ingredient[0] }}
                                         <div v-if="ingredient.length > 1">
                                             <i class="info-icon material-icons">info</i>
                                             <span class="tool-tip-text">
                                                 Tags:
                                                 <ul>
-                                                    <div v-for="(tag, j) of ingredient">
+                                                    <div v-for="(tag, j) of ingredient" :key="j">
                                                         <div v-if="j !== 0">
                                                             <li>{{tag}}</li>
                                                         </div>
@@ -83,33 +90,34 @@
 
                                 <div class="form-group">
                                     <hr class="solid">
+                                    <label for="spicyPost" class="form-text">Add tags to the post</label>
                                     <div class="d-flex">
                                         <div>
-                                            <label for="spicy" style="color: black">Spicy</label>
-                                            <input type="checkbox" id="spicy" name="spicy" style="margin-end: 10px" v-model="spicyPost">
+                                            <label for="spicyPost" style="color: black">Spicy</label>
+                                            <input type="checkbox" id="spicyPost" name="spicyPost" style="margin-end: 10px" v-model="spicyPost">
                                         </div>
                                         <div>
-                                            <label for="glutenFree" style="color: black">Gluten Free</label>
-                                            <input type="checkbox" id="glutenFree" name="glutenFree" style="margin-end: 10px" v-model="glutenFreePost">
+                                            <label for="glutenFreePost" style="color: black">Gluten Free</label>
+                                            <input type="checkbox" id="glutenFreePost" name="glutenFreePost" style="margin-end: 10px" v-model="glutenFreePost">
                                         </div>
                                         <div>
-                                            <label for="vegitarian" style="color: black">Vegitarian</label>
-                                            <input type="checkbox" id="vegitarian" name="vegitarian" style="margin-end: 10px" v-model="vegitarianPost">
+                                            <label for="vegitarianPost" style="color: black">Vegitarian</label>
+                                            <input type="checkbox" id="vegitarianPost" name="vegitarianPost" style="margin-end: 10px" v-model="vegitarianPost">
                                         </div>
                                         <div>
-                                            <label for="vegan" style="color: black">Vegan</label>
-                                            <input type="checkbox" id="vegan" name="vegan" style="margin-end: 10px" v-model="veganPost">
+                                            <label for="veganPost" style="color: black">Vegan</label>
+                                            <input type="checkbox" id="veganPost" name="veganPost" style="margin-end: 10px" v-model="veganPost">
                                         </div>
                                         <div>
-                                            <label for="lowCalories" style="color: black">Low Calories</label>
-                                            <input type="checkbox" id="lowCalories" name="lowCalories" style="margin-end: 10px" v-model="lowCaloriesPost">
+                                            <label for="lowCaloriesPost" style="color: black">Low Calories</label>
+                                            <input type="checkbox" id="lowCaloriesPost" name="lowCaloriesPost" style="margin-end: 10px" v-model="lowCaloriesPost">
                                         </div>
                                     </div>
                                 </div>
 
                                 <hr class="solid">
                                 <button type="button" class="button" @click="createPost">Submit</button>
-                            </div>
+=                            </div>
                         </div>
                     </div>
                 </div>
@@ -124,7 +132,7 @@
         data: function() {
             return {
                 title: '',
-                cookTime: 0,
+                cookTime: null,
                 image: null,
                 instructions: '',
                 ingredients: [],
@@ -139,11 +147,10 @@
                 vegitarianPost: false,
                 veganPost: false,
                 lowCaloriesPost: false,
-                error: '',
+                errors: null,
             }
         },
         mounted() {
-
         },
         methods: {
             addIngredient: function() {
@@ -216,7 +223,14 @@
                     ingredients: this.ingredients,
                 });
                 data.append('data', json);
-                axios.post('/posts', data);
+                axios.post('/posts', data)
+                .then (response => {
+                    window.location.replace('/posts');
+                })
+                .catch(error => {
+                    console.log(error.response.data.errors);
+                    this.errors = error.response.data.errors;
+                });
             },
             selectFile(event) {
                 // `files` is always an array because the file input may be in multiple mode

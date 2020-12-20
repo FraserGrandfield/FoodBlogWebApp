@@ -50,8 +50,9 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:100',
             'instructions' => 'required|max:5000',
-            'cook_time' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'cook_time' => 'required|integer',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'data' => 'required',
         ]);
         $user = Auth::user();
 
@@ -84,12 +85,11 @@ class PostController extends Controller
         }
 
         $tags = $request['tags']->tags;
+
         foreach ($tags as $tag) { 
             $tag = Tag::where('name', $tag)->first();
             $post->tags()->attach($tag->id);
         }
-
-        return redirect(RouteServiceProvider::HOME);
     }
 
     /**
@@ -111,7 +111,7 @@ class PostController extends Controller
             $postTags = $postTags . $tag->name . ', ';
         }
         $postTags = rtrim($postTags, ", ");
-        
+
         if ($user === null) {
             $loggedIn = false;
             $profileId = null;
@@ -153,7 +153,6 @@ class PostController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-
         $post = Post::where('id', $request->id)->first();
         
         $post->title = $validatedData['title'];
@@ -170,7 +169,7 @@ class PostController extends Controller
 
         $post->save();
 
-        return redirect()->route('posts.show', ['id' => $post->id]);
+        return redirect(RouteServiceProvider::HOME);
     }
 
     /**

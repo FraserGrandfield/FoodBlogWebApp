@@ -4046,11 +4046,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       title: '',
-      cookTime: 0,
+      cookTime: null,
       image: null,
       instructions: '',
       ingredients: [],
@@ -4065,7 +4073,7 @@ __webpack_require__.r(__webpack_exports__);
       vegitarianPost: false,
       veganPost: false,
       lowCaloriesPost: false,
-      error: ''
+      errors: null
     };
   },
   mounted: function mounted() {},
@@ -4110,6 +4118,8 @@ __webpack_require__.r(__webpack_exports__);
       this.ingredients.splice(i, 1);
     },
     createPost: function createPost() {
+      var _this = this;
+
       var data = new FormData();
       data.append('image', this.image);
       data.append('title', this.title);
@@ -4145,7 +4155,12 @@ __webpack_require__.r(__webpack_exports__);
         ingredients: this.ingredients
       });
       data.append('data', json);
-      axios.post('/posts', data);
+      axios.post('/posts', data).then(function (response) {
+        window.location.replace('/posts');
+      })["catch"](function (error) {
+        console.log(error.response.data.errors);
+        _this.errors = error.response.data.errors;
+      });
     },
     selectFile: function selectFile(event) {
       // `files` is always an array because the file input may be in multiple mode
@@ -21961,6 +21976,20 @@ var render = function() {
             _c("div", { staticClass: "card-body" }, [
               _c("div", { staticClass: "row d-flex justify-content-center" }, [
                 _c("div", { staticClass: "col" }, [
+                  !!_vm.errors
+                    ? _c("div", { staticClass: "error-div" }, [
+                        _c(
+                          "ul",
+                          _vm._l(_vm.errors, function(error) {
+                            return _c("div", { key: error[0] }, [
+                              _c("li", [_vm._v(_vm._s(error[0]))])
+                            ])
+                          }),
+                          0
+                        )
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
                   _c("div", { staticClass: "form-group" }, [
                     _c(
                       "label",
@@ -22094,13 +22123,7 @@ var render = function() {
                                 _vm.addIngredientsInput = $event.target.value
                               }
                             }
-                          }),
-                          _vm._v(" "),
-                          !!_vm.error
-                            ? _c("div", { staticClass: "error-div" }, [
-                                _vm._v(_vm._s(_vm.error))
-                              ])
-                            : _vm._e()
+                          })
                         ]),
                         _vm._v(" "),
                         _c("div", { staticClass: "col-lg-3" }, [
@@ -22115,6 +22138,12 @@ var render = function() {
                           )
                         ])
                       ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      { staticClass: "form-text", attrs: { for: "spicy" } },
+                      [_vm._v("Add tags to the ingredient")]
                     ),
                     _vm._v(" "),
                     _c("div", { staticClass: "d-flex" }, [
@@ -22397,11 +22426,11 @@ var render = function() {
                     "div",
                     { staticClass: "chips-container" },
                     _vm._l(_vm.ingredients, function(ingredient, i) {
-                      return _c("div", { staticClass: "chip" }, [
+                      return _c("div", { key: i, staticClass: "chip" }, [
                         _vm._v(
-                          "\n                                    " +
+                          "\n                                        " +
                             _vm._s(ingredient[0]) +
-                            "\n                                    "
+                            "\n                                        "
                         ),
                         ingredient.length > 1
                           ? _c("div", [
@@ -22413,12 +22442,12 @@ var render = function() {
                               _vm._v(" "),
                               _c("span", { staticClass: "tool-tip-text" }, [
                                 _vm._v(
-                                  "\n                                            Tags:\n                                            "
+                                  "\n                                                Tags:\n                                                "
                                 ),
                                 _c(
                                   "ul",
                                   _vm._l(ingredient, function(tag, j) {
-                                    return _c("div", [
+                                    return _c("div", { key: j }, [
                                       j !== 0
                                         ? _c("div", [
                                             _c("li", [_vm._v(_vm._s(tag))])
@@ -22491,13 +22520,19 @@ var render = function() {
                   _c("div", { staticClass: "form-group" }, [
                     _c("hr", { staticClass: "solid" }),
                     _vm._v(" "),
+                    _c(
+                      "label",
+                      { staticClass: "form-text", attrs: { for: "spicyPost" } },
+                      [_vm._v("Add tags to the post")]
+                    ),
+                    _vm._v(" "),
                     _c("div", { staticClass: "d-flex" }, [
                       _c("div", [
                         _c(
                           "label",
                           {
                             staticStyle: { color: "black" },
-                            attrs: { for: "spicy" }
+                            attrs: { for: "spicyPost" }
                           },
                           [_vm._v("Spicy")]
                         ),
@@ -22514,8 +22549,8 @@ var render = function() {
                           staticStyle: { "margin-end": "10px" },
                           attrs: {
                             type: "checkbox",
-                            id: "spicy",
-                            name: "spicy"
+                            id: "spicyPost",
+                            name: "spicyPost"
                           },
                           domProps: {
                             checked: Array.isArray(_vm.spicyPost)
@@ -22551,7 +22586,7 @@ var render = function() {
                           "label",
                           {
                             staticStyle: { color: "black" },
-                            attrs: { for: "glutenFree" }
+                            attrs: { for: "glutenFreePost" }
                           },
                           [_vm._v("Gluten Free")]
                         ),
@@ -22568,8 +22603,8 @@ var render = function() {
                           staticStyle: { "margin-end": "10px" },
                           attrs: {
                             type: "checkbox",
-                            id: "glutenFree",
-                            name: "glutenFree"
+                            id: "glutenFreePost",
+                            name: "glutenFreePost"
                           },
                           domProps: {
                             checked: Array.isArray(_vm.glutenFreePost)
@@ -22606,7 +22641,7 @@ var render = function() {
                           "label",
                           {
                             staticStyle: { color: "black" },
-                            attrs: { for: "vegitarian" }
+                            attrs: { for: "vegitarianPost" }
                           },
                           [_vm._v("Vegitarian")]
                         ),
@@ -22623,8 +22658,8 @@ var render = function() {
                           staticStyle: { "margin-end": "10px" },
                           attrs: {
                             type: "checkbox",
-                            id: "vegitarian",
-                            name: "vegitarian"
+                            id: "vegitarianPost",
+                            name: "vegitarianPost"
                           },
                           domProps: {
                             checked: Array.isArray(_vm.vegitarianPost)
@@ -22661,7 +22696,7 @@ var render = function() {
                           "label",
                           {
                             staticStyle: { color: "black" },
-                            attrs: { for: "vegan" }
+                            attrs: { for: "veganPost" }
                           },
                           [_vm._v("Vegan")]
                         ),
@@ -22678,8 +22713,8 @@ var render = function() {
                           staticStyle: { "margin-end": "10px" },
                           attrs: {
                             type: "checkbox",
-                            id: "vegan",
-                            name: "vegan"
+                            id: "veganPost",
+                            name: "veganPost"
                           },
                           domProps: {
                             checked: Array.isArray(_vm.veganPost)
@@ -22715,7 +22750,7 @@ var render = function() {
                           "label",
                           {
                             staticStyle: { color: "black" },
-                            attrs: { for: "lowCalories" }
+                            attrs: { for: "lowCaloriesPost" }
                           },
                           [_vm._v("Low Calories")]
                         ),
@@ -22732,8 +22767,8 @@ var render = function() {
                           staticStyle: { "margin-end": "10px" },
                           attrs: {
                             type: "checkbox",
-                            id: "lowCalories",
-                            name: "lowCalories"
+                            id: "lowCaloriesPost",
+                            name: "lowCaloriesPost"
                           },
                           domProps: {
                             checked: Array.isArray(_vm.lowCaloriesPost)
@@ -22777,7 +22812,8 @@ var render = function() {
                       on: { click: _vm.createPost }
                     },
                     [_vm._v("Submit")]
-                  )
+                  ),
+                  _vm._v("\n=                            ")
                 ])
               ])
             ])
