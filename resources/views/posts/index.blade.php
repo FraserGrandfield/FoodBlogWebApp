@@ -22,7 +22,7 @@
                         <div class="col-lg-8">
                             <div class="card-body">
                                 <h1 class="card-title">{{ $post->title }}</h1>
-                                <h2 class="card-text post-text">Hours: {{ $post->cook_time }}</h2>
+                                <h2 class="card-text post-text">Mins: {{ $post->cook_time }}</h2>
                                 <div class="row d-flex align-items-center">
                                     <a href="{{ route('profile.show', ['id' => $postDB->profile->id]) }}" style="margin-right: 4px">
                                         <img src="{{ URL::to('/images/' . $postDB->profile->profile_picture) }}" class="post-profile-image">
