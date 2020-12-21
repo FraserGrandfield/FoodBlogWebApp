@@ -150,12 +150,33 @@
                 errors: null,
             }
         },
-        props: ['post'],
+        props: ['post', 'tags'],
         mounted() {
             var jsonPost = JSON.parse(this.post);
             this.title = jsonPost.title;
             this.cookTime = jsonPost.cook_time;
             this.instructions = jsonPost.instructions;
+
+            console.log(this.tags);
+            var jsonTags = JSON.parse(this.tags);
+            for(var i = 0; i < jsonTags.length; i++) {
+                var tag = jsonTags[i].name;
+                if (tag == "Spicy") {
+                    this.spicyPost = true;
+                }
+                if (tag == "Gluten Free") {
+                    this.glutenFreePost = true;
+                }
+                if (tag == "Vegitarian") {
+                    this.vegitarianPost = true;
+                }
+                if (tag == "Vegan") {
+                    this.veganPost = true;
+                }
+                if (tag == "Low Calories") {
+                    this.lowCaloriesPost = true;
+                }
+            }
         },
         methods: {
             addIngredient: function() {

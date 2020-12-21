@@ -131,8 +131,9 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
+        $tags = $post->tags;
 
-        return view('posts.edit', ['post' => $post]);
+        return view('posts.edit', ['post' => $post, 'tags' => $tags]);
     }
 
     /**
