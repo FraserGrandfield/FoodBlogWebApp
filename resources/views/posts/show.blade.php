@@ -65,7 +65,7 @@
             </div>
 
             <div id="app">
-            <example-component id="{{ $post->id }}" profileId="{{ $profileId }}" loggedIn="{{ $loggedIn }}"></example-component>
+            <comment-component id="{{ $post->id }}" profileId="{{ $profileId }}" loggedIn="{{ $loggedIn }}"></comment-component>
             </div>
         </div>
     </div>

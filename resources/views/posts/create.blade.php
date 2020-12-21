@@ -51,7 +51,7 @@
         </div>
     </div> --}}
     <div id="app">
-        <post-create-component></example-component>
+        <post-create-component></post-create-component>
     </div>
 
 @endsection

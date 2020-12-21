@@ -116,7 +116,7 @@
                                 </div>
 
                                 <hr class="solid">
-                                <button type="button" class="button" @click="createPost">Add Post</button>
+                                <button type="button" class="button" @click="createPost">Update Post</button>
 =                            </div>
                         </div>
                     </div>
@@ -150,7 +150,12 @@
                 errors: null,
             }
         },
+        props: ['post'],
         mounted() {
+            var jsonPost = JSON.parse(this.post);
+            this.title = jsonPost.title;
+            this.cookTime = jsonPost.cook_time;
+            this.instructions = jsonPost.instructions;
         },
         methods: {
             addIngredient: function() {

@@ -4,8 +4,9 @@ require('alpinejs');
 
 window.Vue = require('vue');
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('comment-component', require('./components/CommentComponent.vue').default);
 Vue.component('post-create-component', require('./components/PostCreateComponent.vue').default);
+Vue.component('post-update-component', require('./components/PostUpdateComponent.vue').default);
 
 const app = new Vue({
   el: '#app',
