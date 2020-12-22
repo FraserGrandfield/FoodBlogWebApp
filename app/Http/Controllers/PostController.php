@@ -133,12 +133,10 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $tags = $post->tags;
-
         $ingredientsIn = $post->ingredients;
 
         foreach ($ingredientsIn as $ingredient) {
-            $tags = $ingredient->tags;
-            $ingredient->push($tags);
+            $ingredient->push($ingredient->tags);
         }
 
         return view('posts.edit', ['post' => $post, 'tags' => $tags, 'ingredientsIn' => $ingredientsIn]);

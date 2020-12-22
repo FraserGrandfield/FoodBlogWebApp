@@ -4342,6 +4342,7 @@ __webpack_require__.r(__webpack_exports__);
     this.title = jsonPost.title;
     this.cookTime = jsonPost.cook_time;
     this.instructions = jsonPost.instructions;
+    console.log(this.tags);
     var jsonTags = JSON.parse(this.tags);
 
     for (var i = 0; i < jsonTags.length; i++) {

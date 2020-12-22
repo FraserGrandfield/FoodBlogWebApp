@@ -155,7 +155,7 @@
             this.title = jsonPost.title;
             this.cookTime = jsonPost.cook_time;
             this.instructions = jsonPost.instructions;
-
+            console.log(this.tags);
             var jsonTags = JSON.parse(this.tags);
             for(var i = 0; i < jsonTags.length; i++) {
                 var tag = jsonTags[i].name;
