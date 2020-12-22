@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Providers\RouteServiceProvider;
 use App\Models\Tag;
+use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
@@ -133,7 +134,14 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         $tags = $post->tags;
 
-        return view('posts.edit', ['post' => $post, 'tags' => $tags]);
+        $ingredientsIn = $post->ingredients;
+
+        foreach ($ingredientsIn as $ingredient) {
+            $tags = $ingredient->tags;
+            $ingredient->push($tags);
+        }
+
+        return view('posts.edit', ['post' => $post, 'tags' => $tags, 'ingredientsIn' => $ingredientsIn]);
     }
 
     /**
@@ -145,23 +153,22 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request['ingredients'] = json_decode($request['ingredients']);
+        $request['tags'] = json_decode($request['tags']);
         $validatedData = $request->validate([
             'title' => 'required|max:100',
+            'instructions' => 'required|max:5000',
+            'cook_time' => 'required|integer',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'ingredients' => 'required',
-            'instructions' => 'required',
-            'time_hours' => 'required',
-            'time_mins' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
-
+        $user = Auth::user();
         $post = Post::where('id', $request->id)->first();
-        
         $post->title = $validatedData['title'];
-        $post->ingredients = $validatedData['ingredients'];
         $post->instructions = $validatedData['instructions'];
-        $post->cook_time_hours = $validatedData['time_hours'];
-        $post->cook_time_mins = $validatedData['time_mins'];
-
+        $post->profile_id = $user->profile->id;
+        $post->cook_time = $validatedData['cook_time'];
+        
         $image = $validatedData['image'];
         $imageName = time().'.'.$image->extension();  
         $image->move(public_path('images'), $imageName);
@@ -169,8 +176,30 @@ class PostController extends Controller
         $post->image = $imageName;
 
         $post->save();
+        
+        $post->tags()->detach();
+        DB::table('ingredients')->where('post_id', $request->id)->delete();
 
-        return redirect(RouteServiceProvider::HOME);
+        $ingredients = $request['ingredients']->ingredients;
+        foreach ($ingredients as $ing) {
+            $ingredient = new Ingredient;
+            $ingredient->ingredient = $ing[0];
+            $ingredient->post_id = $post->id;
+            $ingredient->save();
+            for ($x = 1; $x <= (count($ing) - 1); $x++) {
+                $tag = Tag::where('name', $ing[$x])->first();
+                $ingredient->tags()->attach($tag->id);
+              }
+
+        }
+
+        $tags = $request['tags']->tags;
+
+        foreach ($tags as $tag) { 
+            $tag = Tag::where('name', $tag)->first();
+            $post->tags()->attach($tag->id);
+        }
+
     }
 
     /**

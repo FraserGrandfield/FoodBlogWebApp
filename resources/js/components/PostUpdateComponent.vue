@@ -150,14 +150,13 @@
                 errors: null,
             }
         },
-        props: ['post', 'tags'],
+        props: ['post', 'tags', 'ingredients_in'],
         mounted() {
             var jsonPost = JSON.parse(this.post);
             this.title = jsonPost.title;
             this.cookTime = jsonPost.cook_time;
             this.instructions = jsonPost.instructions;
 
-            console.log(this.tags);
             var jsonTags = JSON.parse(this.tags);
             for(var i = 0; i < jsonTags.length; i++) {
                 var tag = jsonTags[i].name;
@@ -177,6 +176,21 @@
                     this.lowCaloriesPost = true;
                 }
             }
+
+            var jsonIngredients = JSON.parse(this.ingredients_in);
+            console.log(jsonIngredients);
+            var item = [];
+            for(var i = 0; i < jsonIngredients.length; i++) {
+                var ingredient = []
+                console.log(jsonIngredients[i].ingredient);
+                ingredient.push(jsonIngredients[i].ingredient);
+                for(var j = 0; j < jsonIngredients[i].tags.length; j++) {
+                    ingredient.push(jsonIngredients[i].tags[j].name);
+                }
+                item.push(ingredient);
+            }
+            this.ingredients = item;
+
         },
         methods: {
             addIngredient: function() {
@@ -255,7 +269,10 @@
                 } else {
                     data.append('ingredients', null);
                 }
-                axios.post('/posts', data)
+                var jsonPostIn = JSON.parse(this.post);
+                data.append('id', jsonPostIn.id);
+                var url = '/posts/' + jsonPostIn.id;
+                axios.post(url, data)
                 .then (response => {
                     window.location.replace('/posts');
                 })

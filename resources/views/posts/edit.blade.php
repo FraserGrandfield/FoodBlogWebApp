@@ -51,7 +51,7 @@
         </div>
     </div> --}}
     <div id="app">
-    <post-update-component post="{{ $post }}" tags="{{ $tags }}"></post-update-component>
+        <post-update-component post="{{ $post }}" tags="{{ $tags }}" ingredients_in="{{ $ingredientsIn }}"></post-update-component>
     </div>
 
 @endsection
