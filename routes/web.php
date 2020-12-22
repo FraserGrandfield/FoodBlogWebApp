@@ -18,7 +18,7 @@ use App\Http\Controllers\RecipeController;
 */
 
 
-Route::get('/', function () {return view('home');})->name('home');
+Route::get('/', function () {return redirect()->route('posts.index');})->name('home');
 
 Route::get('posts', [PostController::class, 'index'])->name('posts.index');
 
