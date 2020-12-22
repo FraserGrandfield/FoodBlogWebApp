@@ -115,7 +115,7 @@
                                     </div>
                                 </div>
                                 <hr class="solid">
-                                <button type="button" class="button" @click="createPost">Update Post</button>
+                                <button type="button" class="button" @click="updatePost">Update Post</button>
                             </div>
                         </div>
                     </div>
@@ -193,7 +193,6 @@
         },
         methods: {
             addIngredient: function() {
-                
                 if (this.addIngredientsInput == '') {
                     this.errors = [["Ingredient cannot be blank"]];
                 } else if (this.addIngredientsInput.length > 40){
@@ -232,29 +231,33 @@
                 this.ingredients.splice(i, 1);
             },
 
-            createPost: function() {
+            updatePost: function() {
                 const data = new FormData();
-                data.append('image', this.image);
+
+                if (this.image != null) {
+                    data.append('image', this.image);
+                }
+
                 data.append('title', this.title);
                 data.append('cook_time', this.cookTime)
                 data.append('instructions', this.instructions);
 
-                    var item = [];
-                    if (this.spicyPost) {
-                        item.push('Spicy')
-                    }
-                    if (this.glutenFreePost) {
-                        item.push('Gluten Free')
-                    }
-                    if (this.vegitarianPost) {
-                        item.push('Vegitarian')
-                    }
-                    if (this.veganPost) {
-                        item.push('Vegan')
-                    }
-                    if (this.lowCaloriesPost) {
-                        item.push('Low Calories')
-                    }
+                var item = [];
+                if (this.spicyPost) {
+                    item.push('Spicy')
+                }
+                if (this.glutenFreePost) {
+                    item.push('Gluten Free')
+                }
+                if (this.vegitarianPost) {
+                    item.push('Vegitarian')
+                }
+                if (this.veganPost) {
+                    item.push('Vegan')
+                }
+                if (this.lowCaloriesPost) {
+                    item.push('Low Calories')
+                }
                 
                 const jsonPostTags = JSON.stringify({
                     tags: item,

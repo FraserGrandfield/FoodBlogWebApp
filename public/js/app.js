@@ -4428,11 +4428,15 @@ __webpack_require__.r(__webpack_exports__);
     deleteChip: function deleteChip(i) {
       this.ingredients.splice(i, 1);
     },
-    createPost: function createPost() {
+    updatePost: function updatePost() {
       var _this = this;
 
       var data = new FormData();
-      data.append('image', this.image);
+
+      if (this.image != null) {
+        data.append('image', this.image);
+      }
+
       data.append('title', this.title);
       data.append('cook_time', this.cookTime);
       data.append('instructions', this.instructions);
@@ -24011,7 +24015,7 @@ var render = function() {
                     {
                       staticClass: "button",
                       attrs: { type: "button" },
-                      on: { click: _vm.createPost }
+                      on: { click: _vm.updatePost }
                     },
                     [_vm._v("Update Post")]
                   )

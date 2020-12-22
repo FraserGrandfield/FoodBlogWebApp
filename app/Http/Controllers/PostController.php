@@ -155,6 +155,7 @@ class PostController extends Controller
     {
         $request['ingredients'] = json_decode($request['ingredients']);
         $request['tags'] = json_decode($request['tags']);
+        Log::info($request->image);
         $validatedData = $request->validate([
             'title' => 'required|max:100',
             'instructions' => 'required|max:5000',
@@ -162,6 +163,7 @@ class PostController extends Controller
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'ingredients' => 'required',
         ]);
+
         $user = Auth::user();
         $post = Post::where('id', $request->id)->first();
         $post->title = $validatedData['title'];
