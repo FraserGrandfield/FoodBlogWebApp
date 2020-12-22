@@ -4314,7 +4314,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -23631,9 +23630,9 @@ var render = function() {
                     _vm._l(_vm.ingredients, function(ingredient, i) {
                       return _c("div", { key: i, staticClass: "chip" }, [
                         _vm._v(
-                          "\n                                        " +
+                          "\n                                    " +
                             _vm._s(ingredient[0]) +
-                            "\n                                        "
+                            "\n                                    "
                         ),
                         ingredient.length > 1
                           ? _c("div", [
@@ -23645,7 +23644,7 @@ var render = function() {
                               _vm._v(" "),
                               _c("span", { staticClass: "tool-tip-text" }, [
                                 _vm._v(
-                                  "\n                                                Tags:\n                                                "
+                                  "\n                                            Tags:\n                                            "
                                 ),
                                 _c(
                                   "ul",
@@ -24015,8 +24014,7 @@ var render = function() {
                       on: { click: _vm.createPost }
                     },
                     [_vm._v("Update Post")]
-                  ),
-                  _vm._v("\n=                            ")
+                  )
                 ])
               ])
             ])

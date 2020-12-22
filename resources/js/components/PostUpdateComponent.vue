@@ -114,10 +114,9 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <hr class="solid">
                                 <button type="button" class="button" @click="createPost">Update Post</button>
-=                            </div>
+                            </div>
                         </div>
                     </div>
                 </div>
