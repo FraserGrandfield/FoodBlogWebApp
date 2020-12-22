@@ -7,7 +7,7 @@ use App\Models\Profile;
 use App\Models\User;
 use App\Models\Post;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -80,17 +80,19 @@ class ProfileController extends Controller
     {
         $validatedData = $request->validate([
             'bio' => 'required|string|max:300',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-
         $profile = Profile::where('id', $request->id)->first();
-
-        $image = $validatedData['image'];
-        $imageName = time().'.'.$image->extension();  
-        $image->move(public_path('images'), $imageName);
         
-        $profile->profile_picture = $imageName;
+        if ($request->image !== null) {
+            unlink(public_path() . '/images/' . $profile->profile_picture);
+            $image = $validatedData['image'];
+            $imageName = time().'.'.$image->extension();  
+            $image->move(public_path('images'), $imageName);
+            $profile->profile_picture = $imageName;
+        }
+
         $profile->bio = $validatedData['bio'];
         $profile->save();
 

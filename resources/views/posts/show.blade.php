@@ -25,7 +25,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row d-flex justify-content-around">
-                        <div class="col-lg-5 post-info bg-1">
+                        <div class="col-lg-5 post-info bg-2">
                             <h1 class="d-flex justify-content-center">Ingredients</h1>
                             <ul>
                                 @foreach ($ingredients as $ingredient)
@@ -34,9 +34,9 @@
                                         @if (count($ingredient->tags) > 0)
                                             <div style="display:flex; align-items: center;">
                                                 <i class="info-icon material-icons" style="color: black">info</i>
-                                                <span class="tool-tip-text-post" style='font-family: "Times New Roman", Times, serif;'>
+                                                <span class="tool-tip-text-post">
                                                     Tags:
-                                                    <ul>
+                                                    <ul style="  list-style-type: disc;">
                                                         @foreach ($ingredient->tags as $tag)
                                                             <li>{{$tag->name}}</li>
                                                         @endforeach
@@ -48,7 +48,7 @@
                                 @endforeach
                             </ul>
                         </div>
-                        <div class="col-lg-5 post-info bg-1">
+                        <div class="col-lg-5 post-info bg-2">
                             <h1 class="d-flex justify-content-center">Instructions</h1>
                             <h2 class="card-text post-text" style="white-space: pre-wrap;">{{ $post->instructions }}</h2>
                         </div>

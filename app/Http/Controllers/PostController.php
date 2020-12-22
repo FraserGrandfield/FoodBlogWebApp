@@ -159,7 +159,7 @@ class PostController extends Controller
             'title' => 'required|max:100',
             'instructions' => 'required|max:5000',
             'cook_time' => 'required|integer',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'ingredients' => 'required',
         ]);
         $user = Auth::user();
@@ -169,11 +169,13 @@ class PostController extends Controller
         $post->profile_id = $user->profile->id;
         $post->cook_time = $validatedData['cook_time'];
         
-        $image = $validatedData['image'];
-        $imageName = time().'.'.$image->extension();  
-        $image->move(public_path('images'), $imageName);
-
-        $post->image = $imageName;
+        if ($request->image !== null) {
+            unlink(public_path() . '/images/' . $post->image);
+            $image = $validatedData['image'];
+            $imageName = time().'.'.$image->extension();  
+            $image->move(public_path('images'), $imageName);
+            $post->image = $imageName;
+        }
 
         $post->save();
         

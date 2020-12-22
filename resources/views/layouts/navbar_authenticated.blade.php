@@ -24,7 +24,7 @@
 		$profileID = $user->profile->id;
 	@endphp
 
-    <body class="bg-2">
+    <body style="background-image: url({{ URL::to('/images/backgroundImage.png') }}); background-size: cover; background-attachment: fixed;">
           <nav class="navbar navbar-expand-lg navbar-light bg-1 sticky-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
 			<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
 				<span class="navbar-toggler-icon"></span>                     
@@ -50,7 +50,7 @@
 			</ul>
 		  </nav>
         <div>
-          @yield('content')
+        	@yield('content')
         </div>
     </body>
 </html>

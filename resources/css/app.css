@@ -1,6 +1,6 @@
 
 .navbar {
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Segoe UI";
     font-weight: bold;
     width: 100%;
     padding-top: 10px;
@@ -14,21 +14,26 @@
 }
 
 .navbar-nav li a:hover {
-    color: #ffffff !important;
+    color: #000000 !important;
 }
 
 .bg-1 {
-    background-color: #FFCDB2;
+    background-color: #ffefbe;
     color: #ffffff;
 }
 
 .bg-2 {
-    background-color: #B5838D;
+    background-color: #ecb4fb;
     color: #ffffff;
 }
 
 .bg-3 {
     background-color: #F4F4F4;
+    color: #ffffff;
+}
+
+.bg-image {
+    background-image: url("/public/images/backgroundImage.png");
     color: #ffffff;
 }
 
@@ -98,8 +103,8 @@
 }
 
 .button {
-    font-family: "Times New Roman", Times, serif;
-    background-color: #FFCDB2;
+    font-family: "Segoe UI";
+    background-color: #ffefbe;
     border: none;
     color: #000000;
     padding: 16px 32px;
@@ -127,19 +132,19 @@
 
 h1 {
     font-weight: bold;
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Segoe UI";
     font-size: 28px;
     color: #000000;
 }
 
 h2 {
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Segoe UI";
     font-size: 21px;
     color: #000000;
 }
 
 .ingredients-text {
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Segoe UI";
     font-size: 21px;
     color: #000000;
 }
@@ -150,13 +155,13 @@ h2 {
 }
 
 .form-text {
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Segoe UI";
     font-size: 21px;
     color: #000000;
 }
 
 .error-div {
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Segoe UI";
     border-radius: 13px;
     background-color: #ED4337;
     font-size: 21px;
@@ -171,15 +176,15 @@ h2 {
 }
 
 .input {
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Segoe UI";
     background-color: #F4F4F4;
-    border: 2px solid #B5838D;
+    border: 2px solid #000000;
     border-radius: 13px;
 }
 
 .input:focus {
     background-color: #F4F4F4;
-    border: 2px solid #FFCDB2;
+    border: 2px solid #ecb4fb;
 }
 
 hr.solid {
@@ -192,18 +197,18 @@ hr.solid {
 
 .chips-container {
     background-color: #F4F4F4;
-    border: 2px solid #B5838D;
+    border: 2px solid #ecb4fb;
     border-radius: 13px;
-    min-height: 38px;
+    min-height: 55px;
     display:flex;
     flex-wrap: wrap;
     align-content: space-between;
 }
 
 .chip {
-    font-family: "Times New Roman", Times, serif;
+    font-family: "Segoe UI";
     margin:4px;
-    background: #FFCDB2;
+    background: #ecb4fb;
     padding:0px 4px;
     color: #000000;
     border-radius: 13px;
@@ -227,8 +232,9 @@ hr.solid {
 }
 
 .tool-tip-text {
+    font-family: "Segoe UI";
     visibility: hidden;
-    background-color: #B5838D;
+    background-color: #ffefbe;
     color: #000000;
     border-radius: 3px;
     padding: 5px 5px;
@@ -241,8 +247,9 @@ hr.solid {
 }
 
 .tool-tip-text-post {
+    font-family: "Segoe UI";
     visibility: hidden;
-    background-color: #B5838D;
+    background-color: #ffefbe;
     color: #000000;
     border-radius: 3px;
     padding: 5px 5px;

@@ -13,13 +13,15 @@
                         <img src="{{ URL::to('/images/' . $profile->profile_picture) }}" class="card-img-top profile-image" alt="..." width="480px", height="258px">
                     </div>
                     <div class="col">
-                        <h1 class="card-title post-text">{{ $user->name }}</h1>
-                        <h2 class="card-text post-text">Bio: {{ $profile->bio }}</h2>
-                        @if(Auth::id() === $user->id)
-                            <form method="GET" action="{{ route('profile.edit', ['id' => $profile->id]) }}">
-                                <button type="submit" class="button">Edit</button>
-                            </form>
-                        @endif
+                        <div class="card-body">
+                            <h1 class="card-title post-text">{{ $user->name }}</h1>
+                            <h2 class="card-text post-text">Bio: {{ $profile->bio }}</h2>
+                            @if(Auth::id() === $user->id)
+                                <form method="GET" action="{{ route('profile.edit', ['id' => $profile->id]) }}">
+                                    <button type="submit" class="button">Edit</button>
+                                </form>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
