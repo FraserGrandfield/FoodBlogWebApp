@@ -240,7 +240,7 @@ hr.solid {
   background-color: #ffefbe;
   color: #000000;
   border-radius: 3px;
-  padding: 5px 5px;
+  padding: 5px;
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
@@ -253,7 +253,7 @@ hr.solid {
   background-color: #ffefbe;
   color: #000000;
   border-radius: 3px;
-  padding: 5px 5px;
+  padding: 5px;
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
