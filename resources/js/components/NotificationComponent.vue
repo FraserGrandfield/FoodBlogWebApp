@@ -1,12 +1,13 @@
 <template>
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 15px">
             Notifications <span>{{ notifications.length }}</span>
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li v-for="notification in notifications">
+            <li v-for="notification in notifications" :key="notification.id">
+                <hr class="solid">
                 <a href="#" @click="MarkAsRead(notification)">
-                    {{ notification.data.post.id }}
+                    New comment on post {{ notification.data.post.title }}
                     </a>
             </li>
             <li v-if="notifications.length == 0">
@@ -28,6 +29,11 @@
             .then(response => {
                 this.notifications = response.data;
                 console.log(this.notifications);
+            });
+            
+            var userId = $('meta[name="userId"]').attr('content');
+            Echo.private('App.Models.User.' + userId).notification((notification) => {
+                this.notifications.push(notification);
             });
         },
         methods: {

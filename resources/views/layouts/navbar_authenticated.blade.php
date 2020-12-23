@@ -15,7 +15,11 @@
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Food Blog Home </title>
+		<meta name="userId" content="{{ Auth::user()->id }}">
+		<meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+		<title>Food Blog Home </title>
 	</head>
 	
 	@php

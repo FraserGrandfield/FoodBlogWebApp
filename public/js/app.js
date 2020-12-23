@@ -3943,6 +3943,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3955,6 +3956,10 @@ __webpack_require__.r(__webpack_exports__);
     axios.post('/notification/get').then(function (response) {
       _this.notifications = response.data;
       console.log(_this.notifications);
+    });
+    var userId = $('meta[name="userId"]').attr('content');
+    Echo["private"]('App.Models.User.' + userId).notification(function (notification) {
+      _this.notifications.push(notification);
     });
   },
   methods: {
@@ -28483,6 +28488,7 @@ var render = function() {
       "a",
       {
         staticClass: "nav-link dropdown-toggle",
+        staticStyle: { "font-size": "15px" },
         attrs: {
           href: "#",
           id: "navbarDropdown",
@@ -28506,7 +28512,9 @@ var render = function() {
       },
       [
         _vm._l(_vm.notifications, function(notification) {
-          return _c("li", [
+          return _c("li", { key: notification.id }, [
+            _c("hr", { staticClass: "solid" }),
+            _vm._v(" "),
             _c(
               "a",
               {
@@ -28519,8 +28527,8 @@ var render = function() {
               },
               [
                 _vm._v(
-                  "\n                " +
-                    _vm._s(notification.data.post.id) +
+                  "\n                New comment on post " +
+                    _vm._s(notification.data.post.title) +
                     "\n                "
                 )
               ]
