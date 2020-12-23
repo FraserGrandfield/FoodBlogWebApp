@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -49,5 +50,9 @@ Route::delete('comments/{id}', [CommentController::class, 'destroy'])->middlewar
 Route::get('recipies', [RecipeController::class, 'show'])->name('recipies.show');
 
 Route::post('recipies', [RecipeController::class, 'search'])->name('recipies.search');
+
+Route::post('notification/get', [NotificationController::class, 'get']);
+
+Route::post('notification/read', [NotificationController::class, 'read']);
 
 require __DIR__.'/auth.php';

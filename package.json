@@ -22,5 +22,10 @@
         "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "laravel-echo": "^1.10.0",
+        "pusher-js": "^7.0.2",
+        "run": "^1.4.0"
     }
 }

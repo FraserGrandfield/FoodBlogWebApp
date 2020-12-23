@@ -7,6 +7,8 @@ use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use App\Models\User;
+use App\Notifications\NotifyUser;
 
 class CommentController extends Controller
 {
@@ -47,6 +49,9 @@ class CommentController extends Controller
         $comment->profile_id = $request->profileId;
         $comment->post_id = $request->id;
         $comment->save();
+
+        $post = Post::find($request->id);
+        User::find($post->profile->user_id)->notify(new NotifyUser($post));
 
         $comment['name'] =  $comment->profile->user->name;
         $comment['image'] = '/images/' . $comment->profile->profile_picture;

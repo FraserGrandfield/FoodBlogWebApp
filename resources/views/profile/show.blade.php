@@ -10,7 +10,7 @@
             <div class="card col-mb-12 single-post bg-3">
                 <div class="row">
                     <div class="col">
-                        <img src="{{ URL::to('/images/' . $profile->profile_picture) }}" class="card-img-top profile-image" alt="..." width="480px", height="258px">
+                        <img src="{{ URL::to('/images/' . $profile->profile_picture) }}" class="card-img-top profile-image" alt="..." width="480px" height="258px">
                     </div>
                     <div class="col">
                         <div class="card-body">
@@ -25,12 +25,12 @@
                     </div>
                 </div>
             </div>
-    
+
             @foreach ($posts as $post)
                 <div class="card post bg-3">
                     <div class="row no-gutters" onclick=(window.location.href="{{ route('posts.show', ['id' => $post->id]) }}")>
                         <div class="col-lg-4">
-                            <img src="{{ URL::to('/images/' . $post->image) }}" class="card-img post-index-image" alt="..." width="480px", height="258px">
+                            <img src="{{ URL::to('/images/' . $post->image) }}" class="card-img post-index-image" alt="..." width="480px" height="258px">
                         </div>
                         <div class="col-lg-8">
                             <div class="card-body">
