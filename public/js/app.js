@@ -4314,6 +4314,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -4490,6 +4497,17 @@ __webpack_require__.r(__webpack_exports__);
     selectFile: function selectFile(event) {
       // `files` is always an array because the file input may be in multiple mode
       this.image = event.target.files[0];
+    },
+    deletePost: function deletePost() {
+      var _this2 = this;
+
+      var jsonPostIn = JSON.parse(this.post);
+      axios["delete"]('/posts/' + jsonPostIn.id).then(function (response) {
+        window.location.replace('/posts');
+      })["catch"](function (error) {
+        console.log(error.response.data.errors);
+        _this2.errors = error.response.data.errors;
+      });
     }
   }
 });
@@ -24011,15 +24029,31 @@ var render = function() {
                   _vm._v(" "),
                   _c("hr", { staticClass: "solid" }),
                   _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "button",
-                      attrs: { type: "button" },
-                      on: { click: _vm.updatePost }
-                    },
-                    [_vm._v("Update Post")]
-                  )
+                  _c("div", { staticClass: "d-flex" }, [
+                    _c("div", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button",
+                          attrs: { type: "button" },
+                          on: { click: _vm.updatePost }
+                        },
+                        [_vm._v("Update Post")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "ml-auto" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button",
+                          attrs: { type: "button" },
+                          on: { click: _vm.deletePost }
+                        },
+                        [_vm._v("Delete Post")]
+                      )
+                    ])
+                  ])
                 ])
               ])
             ])

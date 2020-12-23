@@ -30,6 +30,8 @@ Route::get('posts/{id}', [PostController::class, 'show'])->name('posts.show');
 
 Route::post('posts/{id}', [PostController::class, 'update'])->middleware('verify_profile_posts')->name('posts.update');
 
+Route::delete('posts/{id}', [PostController::class, 'destroy'])->middleware('verify_profile_posts')->name('posts.destroy');
+
 Route::get('posts/{id}/edit', [PostController::class, 'edit'])->middleware('verify_profile_posts')->name('posts.edit');
 
 Route::get('profile/{id}/edit', [ProfileController::class, 'edit'])->middleware('verify_profile')->name('profile.edit');

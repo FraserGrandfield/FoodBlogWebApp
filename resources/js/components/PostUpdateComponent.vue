@@ -115,7 +115,14 @@
                                     </div>
                                 </div>
                                 <hr class="solid">
-                                <button type="button" class="button" @click="updatePost">Update Post</button>
+                                <div class="d-flex">
+                                    <div>
+                                        <button type="button" class="button" @click="updatePost">Update Post</button>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <button class="button" type="button" @click="deletePost">Delete Post</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -286,7 +293,20 @@
             selectFile(event) {
                 // `files` is always an array because the file input may be in multiple mode
                 this.image = event.target.files[0];
+            },
+            deletePost: function() {
+                var jsonPostIn = JSON.parse(this.post);
+
+                axios.delete('/posts/' + jsonPostIn.id)
+                    .then (response => {
+                        window.location.replace('/posts');
+                    })
+                    .catch(error => {
+                        console.log(error.response.data.errors);
+                        this.errors = error.response.data.errors;
+                    });
             }
         },
+
     };
 </script>

@@ -29,7 +29,7 @@
                                         <button class="button" type="submit">Delete Comment</button>
                                     </form>
                                 </div>
-                           </div>
+                            </div>
                         </div>
                     </div>
                 </div>
