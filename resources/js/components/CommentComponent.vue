@@ -16,7 +16,7 @@
         <div class="card col-lg-12 single-post bg-3">
             <div class="card-body">
                 <h1 class="card-title post-text">Comments</h1>
-                <div v-for="comment in comments" :key="comment.comment">
+                <div v-for="(comment, index) in comments" :key="index">
                     <hr class="solid">
                     <div class="row">
                         <div class="col-lg-10">

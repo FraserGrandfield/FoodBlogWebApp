@@ -8,7 +8,7 @@
                             <div class="col">
                                 <div v-if="!!errors" class="error-div">
                                     <ul>
-                                        <div v-for="error in errors" :key="error[0]">
+                                        <div v-for="(error, index) in errors" :key="index">
                                             <li>{{ error[0] }}</li>
                                         </div>
                                     </ul>

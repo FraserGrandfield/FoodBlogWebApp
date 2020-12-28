@@ -28403,8 +28403,8 @@ var render = function() {
             _vm._v("Comments")
           ]),
           _vm._v(" "),
-          _vm._l(_vm.comments, function(comment) {
-            return _c("div", { key: comment.comment }, [
+          _vm._l(_vm.comments, function(comment, index) {
+            return _c("div", { key: index }, [
               _c("hr", { staticClass: "solid" }),
               _vm._v(" "),
               _c("div", { staticClass: "row" }, [
@@ -28511,8 +28511,8 @@ var render = function() {
         attrs: { "aria-labelledby": "navbarDropdown" }
       },
       [
-        _vm._l(_vm.notifications, function(notification) {
-          return _c("li", { key: notification.id }, [
+        _vm._l(_vm.notifications, function(notification, index) {
+          return _c("li", { key: index }, [
             _c("hr", { staticClass: "solid", staticStyle: { margin: "0" } }),
             _vm._v(" "),
             _c(
@@ -28584,8 +28584,8 @@ var render = function() {
                     ? _c("div", { staticClass: "error-div" }, [
                         _c(
                           "ul",
-                          _vm._l(_vm.errors, function(error) {
-                            return _c("div", { key: error[0] }, [
+                          _vm._l(_vm.errors, function(error, index) {
+                            return _c("div", { key: index }, [
                               _c("li", [_vm._v(_vm._s(error[0]))])
                             ])
                           }),
@@ -29465,8 +29465,8 @@ var render = function() {
                     ? _c("div", { staticClass: "error-div" }, [
                         _c(
                           "ul",
-                          _vm._l(_vm.errors, function(error) {
-                            return _c("div", { key: error[0] }, [
+                          _vm._l(_vm.errors, function(error, index) {
+                            return _c("div", { key: index }, [
                               _c("li", [_vm._v(_vm._s(error[0]))])
                             ])
                           }),
