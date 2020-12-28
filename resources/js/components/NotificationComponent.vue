@@ -5,7 +5,7 @@
         </a>
         <ul class="dropdown-menu notification-dropdown" aria-labelledby="navbarDropdown">
             <li v-for="notification in notifications" :key="notification.id">
-                <hr class="solid">
+                <hr class="solid" style="margin: 0">
                 <a href="#" @click="MarkAsRead(notification)" class="notification-text">
                     New comment on post {{ notification.data.post.title }}
                 </a>

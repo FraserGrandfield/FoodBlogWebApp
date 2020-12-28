@@ -28513,7 +28513,7 @@ var render = function() {
       [
         _vm._l(_vm.notifications, function(notification) {
           return _c("li", { key: notification.id }, [
-            _c("hr", { staticClass: "solid" }),
+            _c("hr", { staticClass: "solid", staticStyle: { margin: "0" } }),
             _vm._v(" "),
             _c(
               "a",

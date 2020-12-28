@@ -275,7 +275,3 @@ hr.solid {
 .notification-text {
   color: #000000;
 }
-
-.notification-text:hover {
-  color: #333333;
-}
