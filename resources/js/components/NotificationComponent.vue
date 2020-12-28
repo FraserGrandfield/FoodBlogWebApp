@@ -3,12 +3,12 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 15px">
             Notifications <span>{{ notifications.length }}</span>
         </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <ul class="dropdown-menu notification-dropdown" aria-labelledby="navbarDropdown">
             <li v-for="notification in notifications" :key="notification.id">
                 <hr class="solid">
-                <a href="#" @click="MarkAsRead(notification)">
+                <a href="#" @click="MarkAsRead(notification)" class="notification-text">
                     New comment on post {{ notification.data.post.title }}
-                    </a>
+                </a>
             </li>
             <li v-if="notifications.length == 0">
                 No Notifications!

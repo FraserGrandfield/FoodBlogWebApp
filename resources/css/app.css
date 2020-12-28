@@ -267,3 +267,15 @@ hr.solid {
 .info-icon:hover + .tool-tip-text-post {
     visibility: visible;
 }
+
+.notification-dropdown {
+    background-color: #F4F4F4;
+}
+
+.notification-text {
+    color: #000000;
+}
+
+.notification-text:hover {
+    color: #333333;
+}

@@ -28507,7 +28507,7 @@ var render = function() {
     _c(
       "ul",
       {
-        staticClass: "dropdown-menu",
+        staticClass: "dropdown-menu notification-dropdown",
         attrs: { "aria-labelledby": "navbarDropdown" }
       },
       [
@@ -28518,6 +28518,7 @@ var render = function() {
             _c(
               "a",
               {
+                staticClass: "notification-text",
                 attrs: { href: "#" },
                 on: {
                   click: function($event) {
@@ -28529,7 +28530,7 @@ var render = function() {
                 _vm._v(
                   "\n                New comment on post " +
                     _vm._s(notification.data.post.title) +
-                    "\n                "
+                    "\n            "
                 )
               ]
             )
