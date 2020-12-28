@@ -52,7 +52,7 @@ class ProfileController extends Controller
     {
         $profile = Profile::findOrFail($id);
         $user = User::findOrFail($profile->user_id);
-        $posts = Post::where('profile_id', $id)->paginate(4);
+        $posts = Post::where('profile_id', $id)->orderBy('created_at', 'desc')->paginate(4);
         return view('profile.show', ['profile' => $profile, 'user' => $user, 'posts' => $posts]);
     }
 
