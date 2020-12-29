@@ -14,7 +14,11 @@
                     <div class="col-lg-6">
                         <h1 class="card-title post-text" style="margin-top: 10px">{{ $post->title }}</h1>
                         <h2 class="card-text post-text">Mins: {{ $post->cook_time }}</h2>
-                        <h2 class="card-text post-text">Tags: {{ $postTags ?? 'No Tags' }}</h2>
+                        @if ($postTags == "")
+                            <h2 class="card-text post-text">Tags: No Tags</h2>
+                        @else
+                            <h2 class="card-text post-text">Tags: {{ $postTags }}</h2>
+                        @endif
                         @if(Auth::id() === $post->profile->user->id)
                             <form method="GET" action="{{ route('posts.edit', ['id' => $post->id]) }}">
                                 <button type="submit" class="button">Edit</button>
