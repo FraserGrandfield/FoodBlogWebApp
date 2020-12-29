@@ -24,8 +24,7 @@
                             @if (Auth::user()->is_admin == 1)
                                 <form method="POST" action="{{ route('posts.destroy', ['id' => $post->id]) }}">
                                     @csrf
-                                    {{method_field('DELETE')}}
-                                    <input type="hidden" name="_method" value="delete">
+                                    @method('DELETE')
                                     <button type="submit" class="button">Delete Post</button>
                                 </form>
                             @endif

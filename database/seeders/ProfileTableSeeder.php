@@ -41,7 +41,7 @@ class ProfileTableSeeder extends Seeder
         ]);
 
         User::create(['name' => 'Admin', 'email' => 'admin@example.com', 'password' => bcrypt('password'), 'is_admin' => true]);
-            
+
         $profile = Profile::factory()->times(10)->hasPosts(3)->create();
 
     }

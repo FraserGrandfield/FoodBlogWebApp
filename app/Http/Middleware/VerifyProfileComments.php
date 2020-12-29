@@ -19,6 +19,7 @@ class VerifyProfileComments
     public function handle(Request $request, Closure $next)
     {
         $userId = Auth::id();
+        $user = Auth::user();
         $comment = Comment::findOrFail($request->id);
 
         if ((int)$comment->profile->user->id === $userId) {
