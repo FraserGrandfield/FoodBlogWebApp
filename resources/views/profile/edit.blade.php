@@ -31,6 +31,7 @@
                             </div>
                             <button type="submit" class="button">Update</button>
                         </form>
+                        <button type="submit" class="button">Create</button>
                     </div>
                 </div>
             </div>

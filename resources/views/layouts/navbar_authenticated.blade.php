@@ -32,23 +32,23 @@
 		<div id="app">
 			<div>
 				<nav class="navbar navbar-expand-lg navbar-light bg-1 sticky-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
-					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
+					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar" aria-label="Collapsed navbar">
 						<span class="navbar-toggler-icon"></span>                     
 					</button>
-					<a class="navbar-brand" href="{{ route('home') }}">Food Blog</a>
+					<a class="navbar-brand" href="{{ route('home') }}" aria-label="Home button">Food Blog</a>
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="navbar-nav">
-							<li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}" style="font-size: 15px">Posts</a></li>
-							<li class="nav-item"><a class="nav-link" href="{{ route('profile.show', ['id' => $profileID]) }}" style="font-size: 15px">Profile</a></li>
-							<li class="nav-tiem"><a class="nav-link" href="{{ route('posts.create') }}" style="font-size: 15px">Create Post</a></li>
-							<li class="nav-tiem"><a class="nav-link" href="{{ route('recipies.show') }}" style="font-size: 15px">Random Recipie</a></li>
+							<li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}" style="font-size: 15px" aria-label="Posts button">Posts</a></li>
+							<li class="nav-item"><a class="nav-link" href="{{ route('profile.show', ['id' => $profileID]) }}" style="font-size: 15px" aria-label="Profile button">Profile</a></li>
+							<li class="nav-tiem"><a class="nav-link" href="{{ route('posts.create') }}" style="font-size: 15px" aria-label="Create post button">Create Post</a></li>
+							<li class="nav-tiem"><a class="nav-link" href="{{ route('recipies.show') }}" style="font-size: 15px" aria-label="Random recipie button">Random Recipie</a></li>
 							<notification-component></notification-component>
 							<li class="nav-item">
 								<form method="POST" action="{{ route('logout') }}">
 									@csrf
 									<a class="nav-link" href="{{route('logout')}}"
 											onclick="event.preventDefault();
-														this.closest('form').submit();" style="font-size: 15px">
+														this.closest('form').submit();" style="font-size: 15px" aria-label="Logout button">
 										Log Out
 									</a>
 								</form>

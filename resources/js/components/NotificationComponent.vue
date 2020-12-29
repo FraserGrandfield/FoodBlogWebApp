@@ -1,12 +1,12 @@
 <template>
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 15px">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Notification dropdown" style="font-size: 15px">
             Notifications <span>{{ notifications.length }}</span>
         </a>
         <ul class="dropdown-menu notification-dropdown" aria-labelledby="navbarDropdown">
             <li v-for="(notification, index) in notifications" :key="index">
                 <hr class="solid" style="margin: 0">
-                <a href="#" @click="MarkAsRead(notification)" class="notification-text">
+                <a href="#" @click="MarkAsRead(notification)" class="notification-text" aria-label="New comment">
                     New comment on post {{ notification.data.post.title }}
                 </a>
             </li>

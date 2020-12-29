@@ -17,15 +17,15 @@
                 <div class="card post bg-3">
                     <div class="row no-gutters" onclick=(window.location.href="{{ route('posts.show', ['id' => $post->id]) }}")>
                         <div class="col-lg-4">
-                            <img src="{{ URL::to('/images/' . $post->image) }}" class="card-img post-index-image" alt="..." width="480px" height="258px">
+                            <img src="{{ URL::to('/images/' . $post->image) }}" class="card-img post-index-image" alt="Post image" width="480px" height="258px">
                         </div>
                         <div class="col-lg-8">
                             <div class="card-body">
                                 <h1 class="card-title">{{ $post->title }}</h1>
                                 <h2 class="card-text post-text">Mins: {{ $post->cook_time }}</h2>
                                 <div class="row d-flex align-items-center">
-                                    <a href="{{ route('profile.show', ['id' => $postDB->profile->id]) }}" style="margin-right: 4px">
-                                        <img src="{{ URL::to('/images/' . $postDB->profile->profile_picture) }}" class="post-profile-image">
+                                    <a href="{{ route('profile.show', ['id' => $postDB->profile->id]) }}" style="margin-right: 4px" aria-label="Profile button">
+                                        <img src="{{ URL::to('/images/' . $postDB->profile->profile_picture) }}" class="post-profile-image" alt="Profile Picture">
                                     </a>
                                     <h2 class="card-text post-text" >
                                         By: {{ $postDB->profile->user->name }}

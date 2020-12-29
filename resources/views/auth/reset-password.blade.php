@@ -1,4 +1,4 @@
-<x-guest-layout>
+{{-- <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -49,4 +49,52 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+</x-guest-layout> --}}
+
+@extends('layouts.app')
+
+@section('title', 'Posts')
+
+@section('content')
+
+<div class="d-flex justify-content-center container" style="height: 100%">
+    <div class="col">
+        <div class="card col-mb-12 single-post bg-3">
+            <div class="card-body">
+                <div class="row d-flex justify-content-around">
+                    <div class="col">
+                        <div class="error-div">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <form method="POST" action="{{ route('password.update') }}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group">
+                                <hr class="solid">
+                                <label for="email" class="form-text">Email address</label>
+                                <input type="email" class="form-control input" id="email" aria-describedby="emailHelp" name='email' placeholder="Enter email" value="{{ old('email') }}">
+                            </div>
+                            <div class="form-group">
+                                <hr class="solid">
+                                <label for="password" class="form-text">Password</label>
+                                <input type="password" class="form-control input" id="password" name='password' placeholder="Password" value="{{ old('password') }}">
+                            </div>
+                            <div class="form-group">
+                                <hr class="solid">
+                                <label for="password_confirmation" class="form-text">Confirm Password</label>
+                                <input type="password" class="form-control input" id="password_confirmation" name='password_confirmation' placeholder="Confirm Password">
+                            </div>
+                            <hr class="solid">
+                            <button type="submit" class="button">Update Password</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection

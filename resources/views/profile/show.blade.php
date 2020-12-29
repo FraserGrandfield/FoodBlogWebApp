@@ -10,7 +10,7 @@
             <div class="card col-mb-12 single-post bg-3">
                 <div class="row">
                     <div class="col">
-                        <img src="{{ URL::to('/images/' . $profile->profile_picture) }}" class="card-img-top profile-image" alt="..." width="480px" height="258px">
+                        <img src="{{ URL::to('/images/' . $profile->profile_picture) }}" class="card-img-top profile-image" alt="Profile Picture" width="480px" height="258px">
                     </div>
                     <div class="col">
                         <div class="card-body">
@@ -30,15 +30,15 @@
                 <div class="card post bg-3">
                     <div class="row no-gutters" onclick=(window.location.href="{{ route('posts.show', ['id' => $post->id]) }}")>
                         <div class="col-lg-4">
-                            <img src="{{ URL::to('/images/' . $post->image) }}" class="card-img post-index-image" alt="..." width="480px" height="258px">
+                            <img src="{{ URL::to('/images/' . $post->image) }}" class="card-img post-index-image" alt="Post Image" width="480px" height="258px">
                         </div>
                         <div class="col-lg-8">
                             <div class="card-body">
                                 <h1 class="card-title">{{ $post->title }}</h1>
                                 <h2 class="card-text post-text">Hours: {{ $post->cook_time_hours }} Mins: {{ $post->cook_time_mins }}</h2>
                                 <div class="row d-flex align-items-center">
-                                    <a href="{{ route('profile.show', ['id' => $profile->id]) }}" style="margin-right: 4px">
-                                        <img src="{{ URL::to('/images/' . $profile->profile_picture) }}" class="post-profile-image">
+                                    <a href="{{ route('profile.show', ['id' => $profile->id]) }}" style="margin-right: 4px" aria-label="Show profile button">
+                                        <img src="{{ URL::to('/images/' . $profile->profile_picture) }}" class="post-profile-image" alt="Profie Picture">
                                     </a>
                                     <h2 class="card-text post-text" >
                                         By: {{ $user->name }}

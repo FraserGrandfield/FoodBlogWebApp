@@ -28413,7 +28413,7 @@ var render = function() {
                     _c("img", {
                       staticClass: "comment-profile-image",
                       staticStyle: { "margin-right": "4px" },
-                      attrs: { src: comment.image }
+                      attrs: { src: comment.image, alt: "Profile picture" }
                     }),
                     _vm._v(" "),
                     _c("h1", { staticClass: "post-text" }, [
@@ -28495,7 +28495,8 @@ var render = function() {
           role: "button",
           "data-toggle": "dropdown",
           "aria-haspopup": "true",
-          "aria-expanded": "false"
+          "aria-expanded": "false",
+          "aria-label": "Notification dropdown"
         }
       },
       [
@@ -28519,7 +28520,7 @@ var render = function() {
               "a",
               {
                 staticClass: "notification-text",
-                attrs: { href: "#" },
+                attrs: { href: "#", "aria-label": "New comment" },
                 on: {
                   click: function($event) {
                     return _vm.MarkAsRead(notification)

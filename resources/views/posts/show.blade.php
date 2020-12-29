@@ -9,7 +9,7 @@
             <div class="card col-mb-12 single-post bg-3">
                 <div class="row">
                     <div class="col-lg-6">
-                        <img src="{{ URL::to('/images/' . $post->image) }}" class="card-img-top post-show-image" alt="..." width="480px" height="258px">
+                        <img src="{{ URL::to('/images/' . $post->image) }}" class="card-img-top post-show-image" alt="Post Image" width="480px" height="258px">
                     </div>
                     <div class="col-lg-6">
                         <h1 class="card-title post-text" style="margin-top: 10px">{{ $post->title }}</h1>
@@ -53,8 +53,8 @@
                         </div>
                     </div>
                     <div class="row d-flex align-items-center no-gutters">
-                        <a href="{{ route('profile.show', ['id' => $post->profile->id]) }}" style="margin-right: 4px">
-                            <img src="{{ URL::to('/images/' . $post->profile->profile_picture) }}" class="post-profile-image">
+                        <a href="{{ route('profile.show', ['id' => $post->profile->id]) }}" style="margin-right: 4px" aria-label="Show profile button">
+                            <img src="{{ URL::to('/images/' . $post->profile->profile_picture) }}" class="post-profile-image" alt="Profile Picture">
                         </a>
                         <h2 class="card-text post-text" >
                             By: {{ $post->profile->user->name }}

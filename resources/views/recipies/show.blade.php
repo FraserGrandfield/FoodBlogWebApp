@@ -19,7 +19,7 @@
             <div class="card post bg-3">
                 <div class="row no-gutters" onclick=(window.location.href="{{ $recipie['sourceUrl'] }}")>
                     <div class="col-md-4">                            
-                        <img src="{{ $recipie['image']?? URL::to('/images/defualt_img.png') }}" class="card-img post-index-image" alt="..." width="480px", height="258px">
+                        <img src="{{ $recipie['image']?? URL::to('/images/defualt_img.png') }}" class="card-img post-index-image" alt="Recipie image" width="480px" height="258px">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -33,7 +33,7 @@
         @endforeach
         <form method="GET" action="{{ route('recipies.show') }}" class="d-flex justify-content-center container" style="margin-top: 20px">
             @csrf
-            <button type="submit" class="button">New Random Recipie</button>
+            <button type="submit" class="button" >New Random Recipie</button>
         </form>
     </div>
 </div>

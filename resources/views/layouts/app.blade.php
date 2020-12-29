@@ -24,13 +24,13 @@
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar">
                     <span class="navbar-toggler-icon"></span>                     
                 </button>
-                <a class="navbar-brand" href="{{ route('home') }}">Food Blog</a>
+                <a class="navbar-brand" href="{{ route('home') }}" aria-label="Home Button">Food Blog</a>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}" style="font-size: 15px">Posts</a></li>
-                        <li class="nav-tiem"><a class="nav-link" href="{{ route('recipies.show') }}" style="font-size: 15px">Random Recipie</a></li>
-                        <li class="nav-tiem"><a class="nav-link" href="{{ route('register') }}" style="font-size: 15px">Sign Up</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}" style="font-size: 15px">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}" style="font-size: 15px" aria-label="Posts button">Posts</a></li>
+                        <li class="nav-tiem"><a class="nav-link" href="{{ route('recipies.show') }}" style="font-size: 15px" aria-label="Randome recipie button">Random Recipie</a></li>
+                        <li class="nav-tiem"><a class="nav-link" href="{{ route('register') }}" style="font-size: 15px" aria-label="Sign up button">Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}" style="font-size: 15px" aria-label="Login button">Login</a></li>
                     </ul>
                 </div>
             </nav>
