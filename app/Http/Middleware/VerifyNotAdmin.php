@@ -5,9 +5,8 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Post;
 
-class VerifyProfilePosts
+class VerifyNotAdmin
 {
     /**
      * Handle an incoming request.
@@ -18,11 +17,8 @@ class VerifyProfilePosts
      */
     public function handle(Request $request, Closure $next)
     {
-        $userId = Auth::id();
         $user = Auth::user();
-        $post = Post::findOrFail($request->id);
-
-        if ((int)$post->profile->user->id === $userId || $user->is_admin == 1) {
+        if ($user->is_admin == 0) {
             return $next($request);
         } else {
             return redirect()->route('posts.index');

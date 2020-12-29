@@ -65,6 +65,6 @@ class Kernel extends HttpKernel
         'verify_profile' => \App\Http\Middleware\VerifyProfile::class,
         'verify_profile_posts' => \App\Http\Middleware\VerifyProfilePosts::class,
         'verify_profile_comments' => \App\Http\Middleware\VerifyProfileComments::class,
-
+        'verify_not_admin' => \App\Http\Middleware\VerifyNotAdmin::class,
     ];
 }
