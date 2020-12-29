@@ -3887,7 +3887,6 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    console.log(this.loggedin);
     axios.get('/api/comments/' + this.id).then(function (response) {
       _this.comments = response.data;
     })["catch"](function (response) {

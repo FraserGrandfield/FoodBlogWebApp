@@ -20,9 +20,10 @@ class VerifyProfilePosts
     {
 
         $userId = Auth::id();
+        $user = Auth::user();
         $post = Post::findOrFail($request->id);
 
-        if ((int)$post->profile->user->id === $userId) {
+        if ((int)$post->profile->user->id === $userId || $user->is_admin == 1) {
             return $next($request);
         } else {
             return redirect()->route('posts.index');

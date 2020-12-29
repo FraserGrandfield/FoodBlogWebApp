@@ -113,7 +113,7 @@ class PostController extends Controller
         }
         $postTags = rtrim($postTags, ", ");
 
-        if ($user === null) {
+        if ($user === null || $user->is_admin == 1) {
             $loggedIn = false;
             $profileId = null;
         } else {
@@ -213,5 +213,6 @@ class PostController extends Controller
     public function destroy($id)
     {
         Post::findOrFail($id)->delete($id);
+        return redirect()->route('posts.index');
     }
 }

@@ -25,7 +25,6 @@
 	@php
 		use App\Models\Profile;
 		$user = Auth::user();
-		$profileID = $user->profile->id;
 	@endphp
 
 	<body style="background-image: url({{ URL::to('/images/backgroundImage.png') }}); background-size: cover; background-attachment: fixed;">
@@ -39,10 +38,15 @@
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="navbar-nav">
 							<li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}" style="font-size: 15px" aria-label="Posts button">Posts</a></li>
-							<li class="nav-item"><a class="nav-link" href="{{ route('profile.show', ['id' => $profileID]) }}" style="font-size: 15px" aria-label="Profile button">Profile</a></li>
-							<li class="nav-tiem"><a class="nav-link" href="{{ route('posts.create') }}" style="font-size: 15px" aria-label="Create post button">Create Post</a></li>
-							<li class="nav-tiem"><a class="nav-link" href="{{ route('recipies.show') }}" style="font-size: 15px" aria-label="Random recipie button">Random Recipie</a></li>
-							<notification-component></notification-component>
+							@if ($user->is_admin != 1)
+								@php
+									$profileID = $user->profile->id;
+								@endphp
+								<li class="nav-item"><a class="nav-link" href="{{ route('profile.show', ['id' => $profileID]) }}" style="font-size: 15px" aria-label="Profile button">Profile</a></li>
+								<li class="nav-tiem"><a class="nav-link" href="{{ route('posts.create') }}" style="font-size: 15px" aria-label="Create post button">Create Post</a></li>
+								<li class="nav-tiem"><a class="nav-link" href="{{ route('recipies.show') }}" style="font-size: 15px" aria-label="Random recipie button">Random Recipie</a></li>
+								<notification-component></notification-component>
+							@endif
 							<li class="nav-item">
 								<form method="POST" action="{{ route('logout') }}">
 									@csrf

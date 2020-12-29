@@ -60,7 +60,6 @@
         props: ['id', 'profileid', 'loggedin'],
         mounted() {
 
-            console.log(this.loggedin);
             axios.get('/api/comments/' + this.id)
             .then(response => {
                 this.comments = response.data;

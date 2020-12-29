@@ -30,7 +30,7 @@
                                     <h2 class="card-text post-text" >
                                         By: {{ $postDB->profile->user->name }}
                                     </h2>
-                                </div>                   
+                                </div>               
                             </div>
                         </div>
                     </div>
