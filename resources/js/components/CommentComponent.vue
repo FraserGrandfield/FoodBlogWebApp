@@ -34,6 +34,7 @@
                             <div v-if="loggedin && comment.profile_id == profileid">
                                 <div class="d-flex flex-row-reverse">
                                     <form method="GET" v-bind:action="commenturl + comment.id">
+                                        <input type="hidden" name="_token" :value="csrf">
                                         <button class="button">Edit</button>
                                     </form>
                                 </div>
@@ -55,6 +56,7 @@
                 newComment: '',
                 commenturl: '/comments/',
                 error: '',
+                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             }
         },
         props: ['id', 'profileid', 'loggedin'],

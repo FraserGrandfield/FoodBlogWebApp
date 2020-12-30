@@ -3874,13 +3874,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       comments: [],
       newComment: '',
       commenturl: '/comments/',
-      error: ''
+      error: '',
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     };
   },
   props: ['id', 'profileid', 'loggedin'],
@@ -28442,6 +28444,11 @@ var render = function() {
                               }
                             },
                             [
+                              _c("input", {
+                                attrs: { type: "hidden", name: "_token" },
+                                domProps: { value: _vm.csrf }
+                              }),
+                              _vm._v(" "),
                               _c("button", { staticClass: "button" }, [
                                 _vm._v("Edit")
                               ])

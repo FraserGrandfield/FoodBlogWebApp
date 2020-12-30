@@ -21,6 +21,7 @@
                         @endif
                         @if(Auth::id() === $post->profile->user->id)
                             <form method="GET" action="{{ route('posts.edit', ['id' => $post->id]) }}">
+                                @csrf
                                 <button type="submit" class="button">Edit</button>
                             </form>
                         @endif
