@@ -3943,6 +3943,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -28508,12 +28510,20 @@ var render = function() {
       "ul",
       {
         staticClass: "dropdown-menu notification-dropdown",
+        staticStyle: { "text-align": "center", width: "300px", padding: "0" },
         attrs: { "aria-labelledby": "navbarDropdown" }
       },
       [
         _vm._l(_vm.notifications, function(notification, index) {
           return _c("li", { key: index }, [
-            _c("hr", { staticClass: "solid", staticStyle: { margin: "0" } }),
+            index != 0
+              ? _c("div", [
+                  _c("hr", {
+                    staticClass: "solid",
+                    staticStyle: { margin: "0" }
+                  })
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c(
               "a",

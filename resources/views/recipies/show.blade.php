@@ -5,7 +5,6 @@
 
 @section('content')
 
-
 <div class="d-flex justify-content-center container" style="height: 100%">
     <div class="col">
         <div class="card info-card bg-3">
