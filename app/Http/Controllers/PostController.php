@@ -213,6 +213,8 @@ class PostController extends Controller
     public function destroy($id)
     {
         Post::findOrFail($id)->delete($id);
-        return redirect()->route('posts.index');
+        if (Auth::user()->is_admin == 1) {
+            return redirect()->route('posts.index');
+        }
     }
 }
