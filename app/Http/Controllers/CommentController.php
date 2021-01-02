@@ -31,7 +31,7 @@ class CommentController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Save a comment to the database.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -40,15 +40,17 @@ class CommentController extends Controller
     {
         $validatedData = $request->validate([
             'comment' => 'required|string|max:300',
+            'profileId' => 'required',
+            'id' => 'required',
         ]);
         
         $comment = new Comment;
         $comment->comment = $validatedData['comment'];
-        $comment->profile_id = $request->profileId;
-        $comment->post_id = $request->id;
+        $comment->profile_id = $validatedData['profileId'];
+        $comment->post_id = $validatedData['id'];
         $comment->save();
 
-        $post = Post::find($request->id);
+        $post = Post::find($validatedData['id']);
         $post->profile->user->notify(new NotifyUser($post));
 
         $comment['name'] =  $comment->profile->user->name;
@@ -57,7 +59,7 @@ class CommentController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Get all of the comments of a post.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

@@ -12,7 +12,6 @@
                 </div>
             </div>
         </div>
-
         <div class="card col-lg-12 single-post bg-3">
             <div class="card-body">
                 <h1 class="card-title post-text">Comments</h1>
@@ -47,7 +46,6 @@
 </template>
 
 <script>
-
     export default {
         data: function() {
             return {
@@ -59,6 +57,7 @@
         },
         props: ['id', 'profileid', 'loggedin'],
         mounted() {
+            //Getting all of the comments when the component is mounted
             axios.get('/api/comments/' + this.id)
             .then(response => {
                 this.comments = response.data;
@@ -68,7 +67,7 @@
             })
         },
         methods: {
-
+            //Method to create a comment and add it to the database.
             createComment: function() {
                 axios.post('/api/comments/', {comment: this.newComment, id: this.id, profileId: this.profileid})
                 .then(response => {

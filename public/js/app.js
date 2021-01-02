@@ -3873,7 +3873,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3887,6 +3886,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
+    //Getting all of the comments when the component is mounted
     axios.get('/api/comments/' + this.id).then(function (response) {
       _this.comments = response.data;
     })["catch"](function (response) {
@@ -3894,6 +3894,7 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
+    //Method to create a comment and add it to the database.
     createComment: function createComment() {
       var _this2 = this;
 

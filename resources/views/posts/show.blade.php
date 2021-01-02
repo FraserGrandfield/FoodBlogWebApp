@@ -1,4 +1,5 @@
 
+{{-- Displaying certain navbar depending if the user is logged in or not. --}}
 @extends(Auth::user() ? 'layouts.navbar_authenticated' : 'layouts.app')
 
 @section('title', 'Posts')
