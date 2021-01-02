@@ -27,6 +27,7 @@
             }
         },
         mounted() {
+            //Getting the users notifications when the component is mounted.
             axios.post('/notification/get')
             .then(response => {
                 this.notifications = response.data;

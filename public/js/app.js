@@ -3954,6 +3954,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
+    //Getting the users notifications when the component is mounted.
     axios.post('/notification/get').then(function (response) {
       _this.notifications = response.data;
       console.log(_this.notifications);

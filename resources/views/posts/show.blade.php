@@ -14,17 +14,20 @@
                     <div class="col-lg-6">
                         <h1 class="card-title post-text" style="margin-top: 10px">{{ $post->title }}</h1>
                         <h2 class="card-text post-text">Mins: {{ $post->cook_time }}</h2>
+                        {{-- Display tags. --}}
                         @if ($postTags == "")
                             <h2 class="card-text post-text">Tags: No Tags</h2>
                         @else
                             <h2 class="card-text post-text">Tags: {{ $postTags }}</h2>
                         @endif
+                        {{-- If the post is the users post display the edit button. --}}
                         @if(Auth::id() === $post->profile->user->id)
                             <form method="GET" action="{{ route('posts.edit', ['id' => $post->id]) }}">
                                 @csrf
                                 <button type="submit" class="button">Edit</button>
                             </form>
                         @endif
+                        {{-- If the user is an admin display the delete button. --}}
                         @if (Auth::user())
                             @if (Auth::user()->is_admin == 1)
                                 <form method="POST" action="{{ route('posts.destroy', ['id' => $post->id]) }}">
@@ -41,6 +44,7 @@
                         <div class="col-lg-5 post-info bg-2">
                             <h1 class="d-flex justify-content-center">Ingredients</h1>
                             <ul>
+                                {{-- Display each ingredient. --}}
                                 @foreach ($ingredients as $ingredient)
                                     <div style="display:flex; flex-wrap: wrap; align-content: space-between;">
                                         <li class="ingredients-text">{{ $ingredient->ingredient }}</li>
@@ -50,6 +54,7 @@
                                                 <span class="tool-tip-text-post">
                                                     Tags:
                                                     <ul style="  list-style-type: disc;">
+                                                        {{-- Display tags with the ingredient. --}}
                                                         @foreach ($ingredient->tags as $tag)
                                                             <li>{{$tag->name}}</li>
                                                         @endforeach
@@ -63,7 +68,7 @@
                         </div>
                         <div class="col-lg-5 post-info bg-2">
                             <h1 class="d-flex justify-content-center">Instructions</h1>
-                            <h2 class="card-text post-text" style="white-space: pre-wrap;">{{ $post->instructions }}</h2>
+                            <p class="instructions-text" style="white-space: pre-wrap;">{{ $post->instructions }}</p>
                         </div>
                     </div>
                     <div class="row d-flex align-items-center no-gutters">
@@ -76,6 +81,7 @@
                     </div>
                 </div>
             </div>
+            {{-- Display the comments vue component. --}}
             <comment-component id="{{ $post->id }}" profileId="{{ $profileId }}" loggedIn="{{ $loggedIn }}"></comment-component>
         </div>
     </div>

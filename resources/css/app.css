@@ -149,6 +149,12 @@ h2 {
     color: #000000;
 }
 
+.instructions-text {
+    font-family: "Segoe UI";
+    font-size: 21px;
+    color: #000000;
+}
+
 .post-text a, a:hover, a:focus, a:active {
     text-decoration: none;
     color: inherit;

@@ -94,7 +94,7 @@ class PostController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the post
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -106,6 +106,7 @@ class PostController extends Controller
 
         $ingredients = $post->ingredients;
 
+        //Creating a string of all tags for the post seperated by commas.
         $tags = $post->tags;
         $postTags = '';
         foreach ($tags as $tag) {
@@ -113,6 +114,7 @@ class PostController extends Controller
         }
         $postTags = rtrim($postTags, ", ");
 
+        //Checking if the user is logged in or is an admin.
         if ($user === null || $user->is_admin == 1) {
             $loggedIn = false;
             $profileId = null;
